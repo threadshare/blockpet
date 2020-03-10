@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/hdindex/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/hdindex/assets/css/all_black.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+ <style>
+              /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+              .verify .makeOverPay .payBox {
+                  border-bottom: 1px solid #e2e2e2;
+              }
+     .discec{
+         width: 120px;
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-end;
+         align-items: center;
+     }
+     .disrcc{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+     .flex1{
+         flex: 1;
+     }
+     .flex2{
+         flex: 2;
+     }
+     .flex3{
+         flex: 3;
+     }
+ </style>
+    <title>订单详情</title>
+  </head>
+  <body>
+    <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: -25px;
+    top: 8px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page verify">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">订单详情</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="makeOver color_3">
+          <div class="fs26">订单时间：<span class="fw_b establish_time">{$detail.create_time|date="Y-m-d H:i:s",###}</span></div>
+          <div class="fs26">转让方：<span class="fw_b seller">{$seller.nickname}</span></div>
+          <div class="fs26">转让方联系电话：<span class="fw_b seller_mobile">{$seller.mobile}</span></div>
+          <div class="fs26">领养方：<span class="fw_b buyer">{$buyer.nickname}</span></div>
+          <div class="fs26">领养方联系电话：<span class="fw_b buyer_mobile">{$buyer.mobile}</span></div>
+          <div class="fs26">金额：<span class="fw_b pig_price">{$detail.price}</span></div>
+          <!-- <div class="fs26">区块状态：<span class="fw_b"></span></div> -->
+          <!-- <div class="fs26">收益状态：<span class="fw_b ">等待收益</span></div> -->
+        </div>
+        <div class="makeOverPay">
+            {volist name="payment" id="val"}
+            {eq name="val.type" value="3"}
+            <br/>
+
+            <div class="payBox">
+                <img src="/public/static/index/assets/images/bank.png" alt="">
+                <div>
+                    <div class="fs26">账户名称：<span>{$val.name}</span></div>
+                    <div class="fs26">银行卡卡号：<span>{$val.account}</span></div>
+                    <div class="fs26">开户银行：<span>{$val.bank_name}</span></div>
+                    <div class="fs26">开户支行：<span>{$val.branch_name}</span></div>
+                    <div class="fs26">账户类型：<span>银行卡支付</span></div>
+                </div>
+                <!--<div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:0">收款二维码</div>
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell fileBox" style="padding-left: 0px">
+                        <div class="weui-cell__bd">
+                            <img src="{$val.qrcode_url}" width="335px"  class="qrcode_url" onclick="show('{$val.qrcode_url}')" />
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+            <br/>
+
+            {/eq}
+            {eq name="val.type" value="2"}
+
+            <div class="payBox disrcc">
+               <img src="/public/static/index/assets/images/weixinpay.png" alt="">
+               <div class="flex3">
+                 <div class="fs26">账户名称：<span>{$val.name}</span></div>
+                 <div class="fs26">账户号：<span>{$val.account}</span></div>
+                 <div class="fs26">账户类型：<span>微信支付</span></div>
+               </div>
+                  <div class="weui-cells weui-cells_form discec flex2">
+                      <div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:10px;">收款二维码</div>
+
+                      <div class="weui-cell fileBox" style="padding-left: 20px;">
+                      <div class="weui-cell__bd">
+                          <img src="{$val.qrcode_url}" width="335px"  class="qrcode_url" onclick="show('{$val.qrcode_url}')" />
+                      </div>
+                  </div>
+               </div>
+            </div>
+            <br/>
+
+
+            {/eq}
+             {eq name="val.type" value="1"}
+           <div></div>
+            <div class="payBox disrcc">
+
+              <img src="/public/static/index/assets/images/alipay.png" alt="">
+              <div class="flex3">
+                <div class="fs26">账户名称：<span>{$val.name}</span></div>
+                <div class="fs26">账户号：<span>{$val.account}</span></div>
+                <div class="fs26">账户类型：<span>支付宝支付</span></div>
+              </div>
+              <div class="weui-cells weui-cells_form discec flex2">
+                  <div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:10px;">收款二维码</div>
+
+                  <div class="weui-cell fileBox" style="padding-left: 20px;">
+                      <div class="weui-cell__bd">
+                          <img src="{$val.qrcode_url}" width="335px"  class="qrcode_url" onclick="show('{$val.qrcode_url}')" />
+                      </div>
+                  </div>
+              </div>
+
+            </div>
+            <br/>
+
+            {/eq}
+             {/volist}
+        </div>
+
+        <div class="fromBox">
+            <div class="weui-cells weui-cells_form">
+ 
+            <div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:0">付款凭证</div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell fileBox" style="padding-left: 0px">
+                  <div class="weui-cell__bd">
+                    <img src="" width="335px" style="height: 2.333333rem;" id="img" onclick="showimg()">
+                    <input id="uploaderInput" class="weui-uploader__input imgs" type="file" accept="image/*" />
+                  </div>
+                </div>
+              </div>
+               <div class="hide">
+                <div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:0">二级密码</div>
+                <div class="weui-cells weui-cells_form">
+                  <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                      <input class="weui-input fs28 fw_b paypwd" type="password" placeholder="请输入二级密码"/>
+                    </div>
+                  </div>
+                </div> 
+         
+
+            <div class="butBox"><div class="but">确认</div>
+          </div>
+      </div>
+      </div>
+    </div>
+<style type="text/css">
+    .baocun{
+        margin: 0 auto;
+    }
+</style>
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+
+    var query = window.location.search.substring(1);
+    var id = query.substring(3);
+    // var url = '/api/business/order_detail';
+    // var type = 'post';
+    // __ajax(url,{order_id:id},type,function(data){
+    //      console.log(data.status);
+    //      if(data.status==-1){
+    //        alert("对方账号存在异常，请联系管理员处理");
+    //        window.location.href = '/dist/pages/adopt_log.html'
+    //        return;
+    //      }
+    //
+    //     console.log(data.data)
+    //     $('.establish_time').html(data.data.order_detail.establish_time);
+    //     $('.seller').html(data.data.order_detail.seller);
+    //     $('.buyer').html(data.data.order_detail.buyer);
+    //     $('.seller_mobile').html(data.data.order_detail.seller_mobile);
+    //     $('.buyer_mobile').html(data.data.order_detail.buyer_mobile);
+    //     // $('.accumulated_income').html(data.data.order_detail.accumulated_income);
+    //     $('.pig_currency').html(data.data.order_detail.pig_currency);
+    //     $('.doge_money').html(data.data.order_detail.doge_money);
+    //     $('.pig_price').html(data.data.order_detail.pig_price);
+    //     if (data.data.order_detail.img_url) {
+    //       $('#img').attr('src',data.data.order_detail.img_url);
+    //     }
+    //
+    //     if (data.data.order_detail.pay_status == 2 || data.data.order_detail.pay_status == 0 || data.data.order_detail.img_url) {
+    //       $('.hide').hide();
+    //       $('#uploaderInput').hide()
+    //     }
+    //     //payment
+    //     var str = '';
+    //     $.each(data.data.payment_list, function(i, obj) {
+    //         str += '<p class="fs30 fw_b color_3 payment_list">转让方收款账号</p>';
+    //         str += '<div class="payBox">';
+    //         str += '<img src="/public/static/index/assets/images/'+obj.type+'.png" alt="">';
+    //         str += '<div>';
+    //         str += '<div class="fs26">账户名称：<span>'+obj.name+'</span></div>';
+    //         str += '<div class="fs26">账户号：<span>'+obj.account+'</span></div>';
+    //         str += '<div class="fs26">账户类型：<span>'+obj.pay_name+'</span></div>';
+    //         str += '</div>';
+    //         str += '</div>';
+    //         if (obj.type == 1 || obj.type == 2) {
+    //           str += '<div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:0">收款二维码</div>';
+    //           str += '<div class="weui-cells weui-cells_form">';
+    //           str += '<div class="weui-cell fileBox" style="padding-left: 0px">';
+    //           str += '<div class="weui-cell__bd">';
+    //           str += '<img src="'+obj.qrcode_url+'" width="335px" style="height: 2.333333rem;" class="qrcode_url" onclick="show(\''+obj.qrcode_url+'\')" />';
+    //           str += '</div>';
+    //           str += '</div>';
+    //           str += '</div>';
+    //         }
+    //     });
+    //     $('.makeOverPay').append(str);
+    // })
+
+    //图片上传
+    $("#uploaderInput").change(function (e) {
+      var _this = this;
+      let type = ['jpeg','jpg','png'];
+      var file = e.target.files[0] || e.dataTransfer.files[0];
+      var img       = $('#uploaderInput').get(0).files[0];
+      var img_type  = img.type.split("/")[1];
+      if( type.indexOf(img_type) == -1  ){
+        layer.open({
+              content: '图片格式必须是:jpg,jpeg,png'
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+        });
+        return false;
+      }
+      if (file) {
+          var reader = new FileReader();
+          reader.onload = function () {
+              $("#img").attr("src", this.result);
+              $("#uploaderInput").hide();
+              $("#img").show();
+              var url       = '/api/Upload/upload_base64_paycode'
+              var mehod = 'post';
+              a_load(url,{img:this.result},mehod,function(data){
+                  if(data.status == 200){
+                    window.return_img = data.data
+                  }else {
+                      layer.open({
+                      content: data.message
+                      ,skin: 'msg'
+                      ,time: 1 //2秒后自动关闭
+                    });
+                  }
+              });
+          }
+          reader.readAsDataURL(file);
+      }
+    });
+
+    $('.but').click(function(){
+      var url       = '/index/User/adopt_detail'
+      var data      = {}
+      data.paypwd   = $('.paypwd').val();
+      data.order_id = id;
+      data.imgs     = window.return_img ? window.return_img : $('#img').attr('src'); 
+      // console.log(data);return;
+      var mehod = 'post';
+      __ajax(url,data,mehod,function(result){
+          console.log(data)
+          if(result.code == 1){
+            layer.open({
+              content: result.msg
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+            });
+            window.setTimeout(function(){
+              window.location.href = '/index/User/adopt_log'
+            },1000);
+          }else {
+              layer.open({
+              content: result.msg
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+            });
+          }
+      });
+    })
+
+    function show(url){
+      layer.open({
+        content: '<img width="90%" height="90%" class="baocun" src="'+url+'"/>',
+      });
+    }
+    function showimg(){
+      img_url = $('#img').attr('src') 
+      layer.open({
+        content: '<img width="90%" height="90%" class="baocun" src="'+img_url+'"/>',
+      });
+    }
+
+     function AppReturnBase64Image(base64imag){
+       var form = document.getElementById("head_pic");
+        // 用表单来初始化
+        var formData = new FormData();   //这里连带form里的其他参数也一起提交了,如果不需要提交其他参数可以直接FormData无参数的构造函数
+   
+        formData.append("head_pic",convertBase64UrlToBlob(base64imag));
+        var url       = '/api/payment/uploadimage'
+        var mehod = 'post';
+
+        var e = layer.open({
+              type:2
+          });
+          $.ajax({
+          type: "POST",
+          url: url,
+          data: formData,
+          dataType: 'json',
+          cache: false,
+          contentType: false, /*不可缺*/
+          processData: false, /*不可缺*/
+          success: function (data) {
+              layer.close(e);
+
+              if(data.status == 200){
+                 var img = data.data.imgpath;
+                  $("#img").attr("src",img );
+                  $("#img").show();
+                    window.return_img = img
+                  }else {
+                      layer.open({
+                      content: data.message
+                      ,skin: 'msg'
+                      ,time: 1 //2秒后自动关闭
+                    });
+              }
+
+          },
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("上传失败，请检查网络后重试");
+            return false;
+          }
+        });
+
+      }
+   /* var src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAkCAYAAABIdFAMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAHhJREFUeNo8zjsOxCAMBFB/KEAUFFR0Cbng3nQPw68ArZdAlOZppPFIBhH5EAB8b+Tlt9MYQ6i1BuqFaq1CKSVcxZ2Acs6406KUgpt5/LCKuVgz5BDCSb13ZO99ZOdcZGvt4mJjzMVKqcha68iIePB86GAiOv8CDADlIUQBs7MD3wAAAABJRU5ErkJggg';
+    AppReturnBase64Image(src);*/
+  
+    function convertBase64UrlToBlob(urlData){  
+      
+        var bytes=window.atob(urlData.split(',')[1]);        //去掉url的头，并转换为byte  
+
+        //处理异常,将ascii码小于0的转换为大于0  
+        var ab = new ArrayBuffer(bytes.length);  
+        var ia = new Uint8Array(ab);  
+        for (var i = 0; i < bytes.length; i++) {  
+            ia[i] = bytes.charCodeAt(i);  
+        }  
+
+        return new Blob( [ab] , {type : 'image/png'});  
+    }
+</script>
+
+  </body>
+</html>

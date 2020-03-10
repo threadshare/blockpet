@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="MobileOptimized" content="320" />
+  <title>扫一扫</title>
+  <style type="text/css">
+    * {
+      -webkit-user-select: none;
+      -ms-touch-select: none;
+    }
+
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial;
+      font-size: 16px;
+      color: #6c6c6c;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-text-size-adjust: none;
+    }
+
+    #bcid {
+      width: 100%;
+      position: absolute;
+      top: 0px;
+      bottom: 44px;
+      text-align: center;
+      background-size: 100%;
+    }
+
+    .tip {
+      color: #FFFFFF;
+      font-weight: bold;
+      text-shadow: 0px -1px #103E5C;
+    }
+
+    footer {
+      width: 100%;
+      height: 44px;
+      position: absolute;
+      bottom: 0px;
+      line-height: 44px;
+      text-align: center;
+      color: #FFF;
+    }
+
+    .fbt {
+      width: 50%;
+      height: 100%;
+      background-color: #1E1E29;
+      float: left;
+    }
+
+    .fbt:active {
+      -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body style="background-color: #000000;">
+<div id="bcid">
+  <div style="height:40%"></div>
+  <p class="tip">...載入中...</p>
+</div>
+<footer>
+  <div class="fbt" onclick="closeBack();">返回</div>
+  <div class="fbt" onclick="scanPicture();">從相册選擇二維碼</div>
+</footer>
+<script type="text/javascript">
+    var scan = null; //扫描对象
+    var domready = false;
+    var ws=null,wo=null;
+    if(window.plus){
+        plusReady();
+    }else{
+        document.addEventListener('plusready', plusReady, false);
+    }
+    // 监听DOMContentLoaded事件
+    document.addEventListener('DOMContentLoaded', function(){
+        domready = true;
+        plusReady();
+    }, false);
+
+    function plusReady() {
+        if(ws||!window.plus||!domready){
+            return;
+        }
+        ws = plus.webview.currentWebview();
+        wo = ws.opener();
+        ws.back=function(hide){
+            ws.close('auto');
+        }
+        plus.navigator.setStatusBarStyle('light');
+
+        try {
+            var filter;
+            //自定义的扫描控件样式
+            var styles = {
+                frameColor: "#46B39D",
+                scanbarColor: "#46B39D",
+                background: ""
+            }
+            //扫描控件构造
+            scan = new plus.barcode.Barcode('bcid', filter, styles);
+            scan.onmarked = onmarked;
+            scan.onerror = onerror;
+            scan.start();
+
+        } catch(e) {
+            alert("錯誤:\n" + e);
+        }
+    };
+
+    function onerror(e) {
+        alert(e);
+    }
+    function closeBack(){
+        scan.close();
+        window.location.href = '/index/login/';
+    }
+    // 二维码扫描成功
+    function onmarked(type, result, file) {
+        scan.close();
+        try {
+            //安卓从相册扫有带双引号，邹邹添加过滤掉双引号replace(/\"/g, "")
+            result = result.replace(/\r\n/g, '').replace(/\"/g, "");
+            var domain = result.split('/');
+            if(domain[2] != '203.107.42.6' && domain[2] != 'waldengoton.haiyouguo.xyz'){
+                plus.nativeUI.alert("無效信息！");
+                window.location.href = '/index/login/';
+            }else{
+                window.location.href = result;
+            }
+        } catch(e) {
+            plus.nativeUI.alert("無效信息！！");
+            window.location.href = '/index/login/';
+        }
+    }
+    // 从相册中选择二维码图片
+    function scanPicture() {
+        plus.gallery.pick(function(path) {
+            plus.barcode.scan(path, onmarked, function(error) {
+                plus.nativeUI.alert("無效信息！！！");
+            });
+        }, function(err) {
+            //plus.nativeUI.alert("Failed: " + err.message);
+            scan.close();
+            window.location.href = '/index/login/';
+        });
+    }
+</script>
+</body>
+
+</html>

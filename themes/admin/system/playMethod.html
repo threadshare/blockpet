@@ -1,0 +1,46 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <!--<li class=""><a href="{:url('index')}">商品管理</a></li>-->
+            <li class="layui-this">玩法介绍</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('playMethod')}" method="post">
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">玩法介绍</label>
+                        <div class="layui-input-block">
+                            <textarea name="content" lay-verify="content" placeholder="" class="layui-textarea" id="content">{$playMethod}</textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+
+                            <button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script src="__JS__/ueditor/ueditor.config.js"></script>
+<script src="__JS__/ueditor/ueditor.all.min.js"></script>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+    $(function() {
+        var ue = UE.getEditor('content');
+    });
+</script>
+{/block}

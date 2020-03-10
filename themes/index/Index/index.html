@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+      <title>宠物集市</title>
+      <style>
+          .kaijiang{
+              background: #f55231 !important;
+          }
+          .fanzhi{
+              background: #3dccb4 !important;
+          }
+          .gotolog{
+              margin: 10px auto;
+              display: block;
+              background: #22e484;
+              border: 0px;
+              padding: 0 10px;
+              color: #fff;
+              border-radius: 3px;
+              position: relative;
+              height: 36px;
+              line-height: 36px;
+              min-width: 60px;
+              width: 30%;
+              font-size: 15px;
+          }
+              /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+      </style>
+  </head>
+  <body>
+  <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: 0px;
+    top: 10px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page index">
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <!-- <div class="imgBox"><img src="/public/static/index/assets/images/name.png" alt="" /></div> -->
+        <div class="imgBox" style="color: #fff;padding: 0.12rem 0;font-size: 0.226667rem;font-weight: bold;">宠物集市</div>
+        <div class="piglist">
+            {volist name="piglist" id="pig"}
+          <div class="box" id="pig_level_{$pig.id}">
+
+            <div class="pigimg">
+              <img src="{$pig.img}" alt="" />
+              <span class="fs34 fw_b">{$pig.name}</span>
+            </div>
+            <div class="info fs22">
+              <div>价值:<span>{$pig.min_price}-{$pig.max_price}</span></div>
+              <div>领养时间:<span>{$pig.start_time}-{$pig.end_time}</span></div>
+              <div>预约/即抢领养微分:<span>{$pig.pay_points}/{$pig.qiang_points}</span></div>
+              <div>智能合约收益:<span>{$pig.cycle}天/{$pig.contract_revenue}%</span></div>
+              <div>可挖PIG:<span>{$pig.pig}枚</span></div>
+              <div>可挖DOGE:<span>收益{$pig.doge}%</span></div>
+            </div>
+            <div class="btns">
+              {switch name="pig.game_status"}
+                {case value="0"} <div class="button fs28 fw_b buttoning level_btn fanzhi">繁殖中</div>{/case}
+              {case value="1"} <div class="button fs28 fw_b buttoned" data-id="{$pig.id}">预约</div>{/case}
+              {case value="2"} <div class="button fs28 fw_b buttoning">已预约</div>{/case}
+              {case value="3"} <div class="button fs28 fw_b buttoning">公布中</div>{/case}
+              {case value="4"} <div class="button fs28 fw_b buttoning level_btn kaijiang" data-id="{$pig.id}">开抢</div>{/case}
+              {/switch}
+            </div>
+          </div>
+            {/volist}
+          <!-- <div class="box">
+            <div class="pigimg">
+              <img src="/public/static/index/assets/images/pig02.png" alt="" />
+              <span class="fs34 fw_b">福气猪</span>
+            </div>
+            <div class="info fs22">
+              <div>价值:<span>200-1800</span></div>
+              <div>领养时间:<span>14:00-15:00</span></div>
+              <div>预约/即抢领养微分:<span>9/18</span></div>
+              <div>智能合约收益:<span>15天/12.5%</span></div>
+              <div>可挖PIG:<span>10枚</span></div>
+              <div>可挖DOGE:<span>收益45%</span></div>
+            </div>
+            <div class="button fs28 fw_b buttoned">预约</div>
+          </div>
+          <div class="box">
+            <div class="pigimg">
+              <img src="/public/static/index/assets/images/pig03.png" alt="" />
+              <span class="fs34 fw_b">金钱猪</span>
+            </div>
+            <div class="info fs22">
+              <div>价值:<span>500-2500</span></div>
+              <div>领养时间:<span>14:00-15:00</span></div>
+              <div>预约/即抢领养微分:<span>9/18</span></div>
+              <div>智能合约收益:<span>15天/12.5%</span></div>
+              <div>可挖PIG:<span>10枚</span></div>
+              <div>可挖DOGE:<span>收益45%</span></div>
+            </div>
+            <div class="button fs28 fw_b buttoning">待领养</div>
+          </div>
+          <div class="box">
+            <div class="pigimg">
+              <img src="/public/static/index/assets/images/pig04.png" alt="" />
+              <span class="fs34 fw_b">红包猪</span>
+            </div>
+            <div class="info fs22">
+              <div>价值:<span>500-2500</span></div>
+              <div>领养时间:<span>14:00-15:00</span></div>
+              <div>预约/即抢领养微分:<span>9/18</span></div>
+              <div>智能合约收益:<span>15天/12.5%</span></div>
+              <div>可挖PIG:<span>10枚</span></div>
+              <div>可挖DOGE:<span>收益45%</span></div>
+            </div>
+            <div class="button fs28 fw_b buttoned">预约</div>
+          </div> -->
+        </div>
+        <div class="model">
+            <div class="modelBG"></div>
+            <div class="Box succeed" style="text-align: center;">
+                <img src="/public/static/index/assets/images/succeedPig.png" alt="">
+                <span class="fs36 fw_b">恭喜您<br>领养成功!</span>
+                <span class="fs36 fw_b"><a href="/index/User/adopt_log"  class="gotolog">前往领养记录</a></span>
+                <div class="closeBox" style="margin-top: 10%;" onclick="closeBox()"><img src="/public/static/index/assets/images/closeIcon.png" alt=""></div>
+            </div>
+            <div class="Box fail" style="text-align: center;">
+                <img src="/public/static/index/assets/images/failPig.png" alt="" style="text-align: center">
+                <span class="fs36 fw_b">好伤心<br>没领养到区块宠物</span>
+                <!--<span class="fs36 fw_b"><a href="/dist/pages/adopt_log.html"  class="gotolog">前往领养记录</a></span>-->
+                <div class="closeBox" style="margin-top: 10%;" onclick="closeBox()"><img src="/public/static/index/assets/images/closeIcon.png" alt=""></div>
+            </div>
+            <div class="Box loading">
+                <div class="loadBox"><div></div><div></div><div></div><div></div><div></div></div>
+                <span class="fs36 fw_b">领养中<br>请不要关闭</span>
+            </div>
+        </div>
+		 <div class="model3" id="model">
+            <div class="modelBG3"></div>
+            <div class="Box3 loading">
+                <div class="loadBox3"><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+      </div>
+      <div class="bottom-tabbar-wrapper">
+  <div class="bottom-tabbar">
+    <a href="index.html" class="bottom-tabbar__item active">
+        <span class="icon">
+            <img src="/public/static/index/assets/images/bottom_icon01.png"/>
+            <img class="lhimg" src="/public/static/index/assets/images/bottom_icon01_lh.png"/>
+        </span>
+      <p class="label">宠物集市</p>
+    </a>
+    <a href="{:url('service/index')}" class="bottom-tabbar__item ">
+      <span class="icon">
+          <img src="/public/static/index/assets/images/bottom_icon02.png"/>
+          <img class="lhimg" src="/public/static/index/assets/images/bottom_icon02_lh.png"/>
+      </span>
+    <p class="label">服务中心</p>
+    </a>
+    <a href="{:url('user/index')}" class="bottom-tabbar__item ">
+        <span class="icon">
+            <img src="/public/static/index/assets/images/bottom_icon03.png"/>
+            <img class="lhimg" src="/public/static/index/assets/images/bottom_icon03_lh.png"/>
+        </span>
+      <p class="label">我的宠物</p>
+    </a>
+  </div>
+</div>
+<audio src="/public/static/index/assets/audio/9888.wav" id="error"></audio>
+<audio src="/public/static/index/assets/audio/10762.wav" id="success"></audio>
+    </div>
+    <!-- 游戏模块s -->
+    <input name="game_time" type="hidden" value="">
+    <input name="game_id" type="hidden" value="">
+    <input name="game_openaward" type="hidden" value="1000">
+    <input name="game_stage" type="hidden" value="">
+
+    <!-- 游戏模块e -->
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+    <script>
+    $(function(){
+    //
+    //     var __gameTimeController = 0 ;      //游戏定时器
+    //     var __gameTimeAward = 0 ; //开奖过程时间
+    //      window.isyuyue = {};
+    //
+    //     var url = '/api/nologin/pig_goods';
+    //     var type = 'get';
+    //
+    //     already_yuyue(); //初始化预约列表
+    //     console.log(isyuyue);
+    //
+    //       a_load(url,{},type,function(data){
+    //
+    //           console.log(data.data)
+    //           var str = html ='';
+    //           var eachcount=0;
+    //
+    //           $.each(data.data, function(i, obj) {
+    //
+    //             //如果是开奖了，那么全部变成繁殖中
+    //             if(obj.today_is_open == 1){
+    //                 obj.game_level = 3;
+    //             }
+    //             str += '<div class="box" id="pig_level_'+obj.id+'">';
+    //             str += '<div class="pigimg">';
+    //             str += '<img src="/uploads/images/'+obj.images+'" alt="" />';
+    //             str += '<span class="fs34 fw_b">'+obj.goods_name+'</span>';
+    //             str += '</div>';
+    //             str += '<div class="info fs22" >';
+    //             str += '<div>价值:<span>'+obj.small_price+'-'+obj.large_price+'</span></div>';
+    //             str += '<div>领养时间:<span>'+obj.start_time+'-'+obj.end_time+'</span></div>';
+    //             str += '<div>预约/即抢领养微分:<span>'+obj.reservation+'/'+obj.adoptive_energy+'</span></div>';
+    //             str += '<div>智能合约收益:<span>'+obj.contract_days+'天/'+obj.income_ratio+'%</span></div>';
+    //             str += '<div>可挖DSC:<span>'+obj.pig_currency+'枚</span></div>';
+    //             str += '<div>可挖DOGE:<span>'+obj.doge_money+'%</span></div>';
+    //             str += '</div>';
+    //             str += '<div class="game_btn">'
+    //             str +=  btn_style(obj.game_level,obj.id);
+    //             str += '</div></div>';
+    //
+    //           /*  str += '<div class="box" id="pig_level_'+obj.id+'">';
+    //             str += '<div class="pigimg">';
+    //             str += '<img src="/uploads/images/'+obj.images+'" alt="" />';
+    //             str += '<span class="fs34 fw_b">'+obj.goods_name+'</span>';
+    //             str += '</div>';
+    //             str += '<div class="info fs22" >';
+    //             str += '<div>价值:'+obj.small_price+'-'+obj.large_price+'</div>';
+    //             str += '<div>领养时间:'+obj.start_time+'-'+obj.end_time+'</div>';
+    //             str += '<div>预约/即抢领养微分:'+obj.reservation+'/'+obj.adoptive_energy+'</div>';
+    //             str += '<div>智能合约收益:'+obj.contract_days+'天/'+obj.income_ratio+'%</div>';
+    //             str += '<div>可挖PIG:'+obj.pig_currency+'枚</div>';
+    //             str += '<div>可挖DOGE:'+obj.doge_money+'%</div>';
+    //             str += '</div>';
+    //             str += '<div class="game_btn">'
+    //             str +=  btn_style(obj.game_level,obj.id);
+    //             str += '</div></div>';*/
+    //           });
+    //           $(".piglist").append(str);
+    //           //防止加载不到
+    //           setTimeout("checkGame()",50);
+    //
+    //       })
+    //
+    //
+    //     //每隔5S校验游戏
+   
+
+        //按钮样式
+        function btn_style(n,id){
+            var html ;
+            switch(n){
+                case 1:
+                case 2:
+                    html = stage1(id);
+                    break;
+                case 3:
+                case 4:
+                    html = '<div class="button fs28 fw_b buttoning level_btn fanzhi">繁殖中</div>';break;
+            }
+            return html;
+        }
+
+        //第一阶段判断是待领养还是预约
+        function stage1(id){
+
+            var html,controller =false;
+
+            for(var i = 0; i < isyuyue.length; i++){
+                console.log(isyuyue[i])
+                if(id == isyuyue[i]){
+                    controller = true;
+                    break;
+                }
+            }
+
+            if(controller){
+                html = '<div class="button fs28 fw_b buttoning level_btn">待领养</div>';
+            }else{
+                html = '<div class="button fs28 fw_b buttoned level_btn" onclick="yuyue('+id+')">预约</div>';
+            }
+            return html;
+        }
+        //获取所有已经预约的游戏--json格式
+        // function already_yuyue(){
+        //       //var isyuyue = {};
+        //     __oajax('/api/Game/isYuyueData',{},type,function(data){
+        //         console.log(data.data,1111111);
+        //         window.isyuyue = data.data;
+        //     });
+        // }
+
+    //第一阶段判断是待领养还是预约
+    function stage1(id){
+
+        var html,controller =false;
+        for(var i = 0; i < isyuyue.length; i++){
+            console.log(isyuyue[i])
+            if(id == isyuyue[i]){
+                controller = true;
+                break;
+            }
+        }
+
+        console.log(id,controller,'123');
+        if(controller){
+            html = '<div class="button fs28 fw_b buttoning level_btn">待领养</div>';
+        }else{
+            html = '<div class="button fs28 fw_b buttoned level_btn" onclick="yuyue('+id+')">预约</div>';
+        }
+        return html;
+    }
+    //获取所有已经预约的游戏--json格式
+    function already_yuyue(){
+        __oajax('/api/Game/isYuyueData',{},'get',function(data){
+            window.isyuyue = data.data;
+        });
+    }
+
+    //阶段处理
+    //点击抢购
+     $(document).on('click','.kaijiang',function(){
+         var id =  $(this).data('id');
+        $('.model').show();
+        //2019-3-12-----------
+        $('.succeed').hide();
+        $('.fail').hide();
+        //2019-3-12-----------
+         $.get('/index/Index/flash_buy',{id:id},function(data){
+
+            //已经返回结果一次结果
+            var _data = data;
+            console.log(_data);
+            if(_data.code == 1){
+                //alert('进入成功');
+                var _aw_time = $('input[name="game_openaward"]').val();
+
+                window.setTimeout(function(){
+                    //查询次数
+                    var sel_count =  10000;
+                    var _interval = window.setInterval(function(){
+                        console.log(sel_count);
+                        if(sel_count > 0){
+                            $.post('/index/Index/checkFlushOpen',{id:id},function(data){
+                                if(data.code == 1 || data.code == 2){
+                                    window.clearInterval(_interval);
+                                    if(data.code == 1){
+                                        $('.loading').hide();
+                                        $('.succeed').show();
+                                        var success = document.getElementById('success');
+                                        $('#pig_level_'+ id +' .btns').html('<div class="button fs28 fw_b buttoning level_btn fanzhi">繁殖中</div>')
+                                        success.play();//audio.play();// 这个就是播放
+                                    }else{
+                                        $('.loading').hide();
+                                        $('.fail').show();
+                                        var error = document.getElementById('error');
+                                        error.play();//audio.play();// 这个就是播放
+                                    }
+                                }else{
+                                    sel_count --;
+                                }
+                            })
+                        }else{
+                            window.clearInterval(_interval);
+                            $('.model').hide();
+                            $('.loading').hide();
+                            $('.fail').show();
+                            var error = document.getElementById('error');
+                            error.play();//audio.play();// 这个就是播放
+                            layer.open({
+                                content: '网络异常'
+                                ,time: 2
+                                ,skin: 'msg'
+                            });
+
+                        }
+
+                    },10000)
+                },_aw_time);
+            }else{
+                $('.model').hide();
+                $('.loading').hide();
+                // $('.fail').show();
+                // var error = document.getElementById('error');
+                // error.play();//audio.play();// 这个就是播放
+
+                layer.open({
+                    content:_data.msg
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+                });
+            }
+            //第二次访问查看是否有中奖
+        });
+    });
+
+    //校验游戏
+    var id = $('input[name=game_id]');
+    var time =  $('input[name=game_time]');
+    var openaward =  $('input[name=game_openaward]');
+    var stage =  $('input[name=game_stage]');
+    var timer;
+    //checkGame();
+    function checkGame(){
+        var success = document.getElementById('success');
+        var error = document.getElementById('error');
+        local_ajax('/index/Index/checkGame',{},'get',function(data){
+            var now = Math.floor(Date.now() / 1000);
+            if(data.data.start_time < now && data.data.end_time > now){
+				$.get('/index/Index/yuyueStatus',{id:data.data.id},function (res) {
+                    //console.log(res);
+                    if (res.code==1) {
+                        $('.model').show()
+                        $('.succeed').hide();
+                        $('.fail').hide();
+                        $('.loading').show();
+                        $.post('/index/Index/checkOpen',{id:data.data.id}).then(function(res){
+                            if(res.code == 1){
+                                $('.succeed').show();
+                                $('.fail').hide();
+                                $('.loading').hide();
+                                success.play();
+                                $('#pig_level_'+ data.data.id +' .btns').html('<div class="button fs28 fw_b buttoning level_btn fanzhi">繁殖中</div>')
+                                clearInterval(timer);
+                                $('.model').show();
+                                //window.reload();
+                            }else if(res.code == 2){
+                                $('.succeed').hide();
+                                $('.fail').show();
+                                $('.loading').hide();
+                                error.play();
+                                $('#pig_level_'+ data.data.id +' .btns').html('<div class="button fs28 fw_b buttoning level_btn fanzhi">繁殖中</div>')
+                                clearInterval(timer);
+                                $('.model').show();
+                                //window.reload();
+                            }else if(res.code == 0){
+                                 //$('.succeed').hide();
+                                // $('.fail').show();
+                                // $('.loading').hide();
+                                 $('#pig_level_'+ data.data.id +' .btns').html('<div class="button fs28 fw_b buttoning">公布中</div>')
+                            }else{
+                                 $('.model').hide()
+                            }
+                        })
+                    } else {
+                        //$('#pig_level_'+ data.data.id +' .btns').html('<div class="button fs28 fw_b buttoning level_btn kaijiang" onclick="clickBuy('+data.data.id+')">开抢</div>')
+                    }
+                })
+
+				
+            }else if(data.data.end_time < now){
+               $.get('/index/Index/yuyueStatus',{id:data.data.id},function (res) {
+					if(res.code==0){
+						$('#pig_level_'+ data.data.id +' .btns').html('<div class="button fs28 fw_b buttoned" data-id="'+data.data.id+'">预约</div>');
+					}else{
+						$('#pig_level_'+ data.data.id +' .btns').html('<div class="button fs28 fw_b buttoning">已预约</div>')  
+						
+					}
+				}) 
+            }
+        })
+    }
+
+    $(document).on('click','.buttoned',function(){
+		 let thisid = $(this).data('id');
+		 console.log($(this).data('id'));
+		 layer.open({
+			content: '您确定要预约吗？'
+			,btn: ['确定', '取消']
+			,yes: function(index){
+			   $.post('/index/Index/yuyue',{id:thisid}).then(function(res){
+			       console.log(res);
+				  if(res.code == 1){
+					$('#pig_level_'+ thisid +' .btns').html('<div class="button fs28 fw_b buttoning">等待公布</div>')   
+				  }else{
+					 $('#pig_level_'+ thisid +' .btns').html('<div class="button fs28 fw_b buttoning">已预约</div>');
+					  clearInterval(timer);
+					 timer = setInterval(checkGame,3000);
+					layer.open({
+					  content:res.msg
+					  ,skin: 'msg'
+					  ,time: 2 //2秒后自动关闭
+					});
+				  }
+			  })
+			 layer.close(index);
+			}
+		  });
+	 
+     
+    })
+  
+   timer = setInterval(function(){
+		checkGame();
+   },3000);
+
+        // function detail(){
+        // var success = document.getElementById('success'); 
+        // var audio1 = document.getElementById('error'); 
+        // success.play(); //这个就是播放  
+        // audio1.play(); //这个就是播放  
+        // }
+    })
+    function closeBox(){
+        $('.model').hide();
+    }
+    </script>
+ 
+  </body>
+</html>

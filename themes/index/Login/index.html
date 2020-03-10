@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+
+    <title>登录</title>
+    <style>
+    #code{   
+        font-family:Arial;  
+        font-style:italic;  
+        font-weight:bold;  
+        border:0;  
+        letter-spacing:2px;  
+        color:blue;  
+    }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">登录</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+
+      <div class="page-bd login">
+        <!-- 页面内容 -->
+        <div class="top">
+          <img class="logo" src="" alt="" />
+        </div>
+        <div class="weui-cells weui-cells_form">
+          <div class="Box"><span class="fs24 color_9">手机号</span></div>
+          <div class="weui-cell">
+            <div class="weui-cell__bd">
+              <input class="weui-input fs28 fw_b mobile" type="number" placeholder="请输入手机号"/>
+            </div>
+            <div class="weui-cell__ft"></div>
+          </div>
+          <div class="Box pwd"><span class="fs24 color_9">密码</span></div>
+          <div class="weui-cell">
+            <div class="weui-cell__bd">
+              <input class="weui-input fs28 pwdInput fw_b password" type="password" placeholder="请输入密码"/>
+            </div>
+            <div class="weui-cell__ft"><img src="/public/static/index/assets/images/ere_no.png" data-style="no" alt="" class="ereimg"></div>
+          </div>
+        </div>
+        <!-- <div class="Box"><span class="fs24 color_9">验证码</span></div>
+         <div class="weui-cell"> -->
+            <!-- <div class="weui-cell__bd"> -->
+            <!--   <input type = "text"  id = "input" value="" />  
+              <input type = "button" id="code" onclick="createCode()"/>  -->
+             <!--  <div class="weui-cell__bd">
+              <input class="weui-input fs28 pwdInput fw_b code" type="text" placeholder="请输入验证码"/>
+              </div> 
+              <img src="" id="verify_code_img" onclick="verify()"> -->
+              <!-- <input type = "button" value = "验证" onclick = "validate()"/>   -->
+            <!-- </div> -->
+           <!--  <div class="weui-cell__ft"></div>
+          </div> -->
+        <div class="Box pwd"><input type="checkbox" name="" value="1" class="remember_pwd" id="remember_pwd"><span class="fs24 color_9">记住密码</span></div>
+        <br>
+        <!-- <a href="forgot_password.html" class="register fs24 color_9" style="padding-top: 0.5rem">忘记密码？</a> -->
+        <div class="butBox"><div class="but">登录</div></div>
+        <a href="{:url('register')}" class="findpwd fw_b fs26 color_r">还没有账号？注册</a>
+        <a href="forget_password.html" class="findpwd fw_b fs26 color_r" style="padding-top: 0.2rem">忘记密码？</a>
+      </div>
+    </div>
+
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    // $(function() {
+    //   FastClick.attach(document.body);
+    //   /*var user_info = sessionStorage.getItem('user_info');
+    //   if (user_info) {
+    //     window.location.href = '/dist/pages/center.html'
+    //   };*/
+    //
+    //   __oajax('/api/login/isLogin',{},'get',function(data){
+    //       if(data.status == 200){
+    //         window.location.href = '/dist/pages/center.html';
+    //       }
+    //   });
+    //
+    //
+    //   var user_info = localStorage.getItem("_user_info");
+    //   // console.log(user_info);
+    //   if(user_info != 'null'){
+    //     $('#remember_pwd').attr('checked','checked')
+    //     r_user_info = JSON.parse(Base64.decode(user_info))
+    //     $('.mobile').val(r_user_info.usename)
+    //     $('.password').val(r_user_info.password)
+    //   }
+    //
+    //
+    //
+    // });
+    // var url = '/api/Nologin/config';
+    // var mehod = 'post';
+    // a_load(url,{},mehod,function(data){
+    //   console.log(data.data);
+    //   $('.logo').attr('src',data.data.logo);
+    // });
+    //
+    //
+    $(function(){
+      $('.ereimg').on('click',function(){
+        var imgattr=$(this).attr('data-style');
+        if(imgattr=='no'){
+          $(this).attr('src','/public/static/index/assets/images/ere_off.png')
+          $(this).attr('data-style','off')
+          $('.password').attr('type','text')
+        }else{
+          $(this).attr('src','/public/static/index/assets/images/ere_no.png')
+          $(this).attr('data-style','no')
+          $('.password').attr('type','password')
+        }
+      })
+    })
+    //
+    //
+    // var flas = 1;
+    //
+    $('.but').click(function(){
+
+
+      var url       = '/index/login/index'
+      var data      = {}
+      data.mobile   = $('.mobile').val();
+      data.password = $('.password').val();
+      // data.code = $('.code').val();
+
+      data.remember_pwd = $('input[type=checkbox]:checked').val() ? $('input[type=checkbox]:checked').val() : 0;
+      // console.log(data);return;
+      var mehod = 'post';
+      savepassword('remember_pwd',data.mobile,data.password)
+      __ajax(url,data,mehod,function(data){
+          console.log(data);
+          if(data.code == 1){
+            //sessionStorage.setItem('user_info', JSON.stringify(data.data))
+            window.location.href = data.url
+          }else {
+              layer.open({
+              content: data.msg
+              ,skin: 'msg'
+              ,time: 3 //2秒后自动关闭
+            });
+          }
+      });
+    })
+    //
+    // //保存密码
+    function savepassword(id,user,password){
+      var checked = $('#'+id)[0].checked;
+      if(checked){
+          var _tmp_user_password = {}
+          _tmp_user_password.usename = user
+          _tmp_user_password.password = password
+          var cod = Base64.encode(JSON.stringify(_tmp_user_password))
+          localStorage.setItem("_user_info",cod);
+      }else{
+          localStorage.setItem("_user_info",null);
+      }
+    }
+
+    // verify();
+    //
+    // // 普通 图形验证码
+    //  function verify(){
+    //   　var domain = window.location.host;
+    //
+    //     var url = 'http://'+domain+'/admin/login/checkVerify';
+    //
+    //      $('#verify_code_img').attr('src',url);
+    //  }
+
+</script>
+
+  </body>
+</html>

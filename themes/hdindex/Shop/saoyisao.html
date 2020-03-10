@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>扫一扫</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/mui.css"/>
+    <link rel="stylesheet" href="__CSS__/daohang.css" />
+    <link rel="stylesheet" href="__CSS__/style.css" />
+    <style type="text/css">
+    	.box{
+    		width: 100%;
+    		height: auto;
+    		float: left;
+    		display: flex;
+    		justify-content: space-between;
+    		flex-wrap: wrap;
+    	}
+    </style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">扫一扫</h1>
+    </header>
+		<div id="bcid"></div>
+		
+    <script src="__JS__/jquery-3.1.0.min.js"></script>
+    <script src="/public/static/Admin/js/layui/lay/dest/layui.all.js"></script>
+    <script src="__JS__/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init()
+    </script>
+    <script type="text/javascript">
+			document.addEventListener( "plusready", onPlusReady, false );
+		function onPlusReady(){
+					var scan = new plus.barcode.Barcode('bcid');
+			scan.start();
+			scan.onmarked = function(type,result){
+				location.href=result;
+				scan.close();
+			}
+			$('#tuic').click(function(){
+			scan.close();
+			location.href="{:url('index/index')}"
+		})
+		}
+		
+	</script>
+</body>
+</html>
+

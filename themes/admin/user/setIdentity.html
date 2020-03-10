@@ -1,0 +1,46 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">修改身份</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="" method="post">
+                    <input type="hidden" name="uid" value="{$info.id|default='0'}" class="layui-input">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">账户名称：</label>
+                        <div class="layui-input-block">
+                            <input type="text" value="{$info.username|default=''}"  disabled="" placeholder="请输入用户名" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-block">
+                            <select name="identity" lay-verify="required">
+                                <option value="0" {if condition="$info.identity==0"} selected="selected"{/if}>普通用户</option>
+                                <option value="1" {if condition="$info.identity==1"} selected="selected"{/if}>经理</option>
+                                <option value="2" {if condition="$info.identity==2"} selected="selected"{/if}>高级经理</option>
+                                <option value="3" {if condition="$info.identity==3"} selected="selected"{/if}>总监</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+</script>
+{/block}

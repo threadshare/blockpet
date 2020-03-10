@@ -1,0 +1,63 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">奖金积分</li>
+        </ul>
+        <div class="layui-tab-content">
+
+            <form class="layui-form layui-form-pane" action="" method="get">
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户账户</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" value="" placeholder="请输入用户账户" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">变动原由</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="mark" value="" placeholder="请输入变动原由" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn">搜索</button>
+                </div>
+            </form>
+            <hr>
+            <div class="layui-tab-item layui-show">
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th>用户账户</th>
+                        <th>变动数量</th>
+                        <th>变动来源</th>
+                        <th>变动原由</th>
+                        <th>变动时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="list" item="vo"}
+                    <tr>
+                        <td>{$vo.username}</td>
+                        <td>{$vo.money}</td>
+                        <td>{$vo.form_name}</td>
+                        <td>{$vo.mark}</td>
+                        <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$page}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('money')}");
+</script>
+{/block}

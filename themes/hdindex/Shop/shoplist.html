@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>商品列表</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/mui.css" />
+		<link rel="stylesheet" href="__CSS__/daohang.css" />
+		<link rel="stylesheet" href="__CSS__/style.css" />
+		<style type="text/css">
+			.header {
+				width: 100%;
+				height: 44px;
+				background: #3ea6f4;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 9;
+			}
+			
+			.header p {
+				width: 70%;
+				height: 30px;
+				background: #fff;
+				margin-top: 7px;
+				margin-left: 15%;
+				border-radius: 50px;
+			}
+			
+			.header p img {
+				width: 20px;
+				height: 18px;
+				float: left;
+				margin-left: 10px;
+			}
+			
+			.header p input {
+				width: 80%;
+				height: 30px;
+				border: none;
+				background: none;
+				float: left;
+				font-size: .95em;
+			}
+			
+			.header a {
+				display: inline-block;
+				width: 22px;
+				height: 22px;
+				position: absolute;
+				left: 10px;
+				top: 10px;
+			}
+			
+			.header button {
+				background: none;
+				border: none;
+				padding: 0;
+				float: left;
+				width: 20%;
+				height: 30px;
+			}
+			
+			.header img {
+				width: 100%;
+				height: 100%;
+			}
+			.box{
+				width: 100%;
+				height: auto;
+				float: left;
+				margin-top: 44px;
+			}
+			.shai{
+				width: 100%;
+				height: 40px;
+				background: #fff;
+				float: left;
+				margin-top: 3px;
+				text-align: center;
+			}
+			.shai a{
+				display: inline-block;
+				width: 80px;
+				text-align: center;
+				line-height: 30px;
+				color: #333;
+				line-height: 30px;
+				margin-top: 5px;
+				margin-right: 15px;
+				font-size: .85em;
+			}
+			.active{
+				background: #eee;
+				border-radius: 4px;
+			}
+			.shops{
+    		width: 100%;
+    		height: 120px;
+    		background: #fff;
+    		float: left;
+    		display: flex;
+    		justify-content: space-between;
+    		margin-top: 5px;
+    		position: relative;
+    	}
+    	.shops2{
+    		width: 30%;
+    		text-align: center;
+    		height: 120px;
+    	}
+    	.shops2 img{
+    		width: 90px;
+    		height: 90px;
+    		margin-top: 15px;
+    	}
+    	.shops3{
+    		width: 70%;
+    	}
+    	.shops3 p {
+    		width: 100%;
+    		overflow: hidden;
+			text-overflow:ellipsis;
+			white-space: nowrap;
+    	}
+    	.shops3 a{
+    		display: inline-block;
+    		width: 80px;
+    		height: 25px;
+    		text-align: center;
+    		line-height: 25px;
+    		background: #4db927;
+    		color: #fff;
+    		font-size: .75em;
+    		border-radius: 4px;
+    	}
+		.jifen{
+			float: right;
+			margin-right: 38px;
+		}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+			<p>
+				<input type="text" name="keyword" value='' placeholder="搜索商品" />
+				<button id='search'><img src="__IMG__/gd01.png" alt="" /></button>
+			</p>
+		</div>
+		<div class="mui-content">
+			<div class="box">
+			{volist name='list' id='vo'}
+				<div class="shops" data-id="{$vo.id}">
+					<div class="shops2">
+						<img src="{$vo.img}"/>
+					</div>
+					<div class="shops3">
+						<p style="margin: 0;color: #333;margin-top: 15px;">
+							<span style="font-size: 1.1em;">{$vo.title}</span>
+						</p>
+						<p style="margin-top: 10px;margin-bottom: 0;">
+							<span style="color:#ff3000; margin-right:10px;">￥<span class="tot">{$vo.price}</span></span>
+							<del style="font-size:12px;">￥{$vo.market_price}</del>
+						</p>
+						<p style="font-size: 14px;margin-top:10px;">
+							<span style="font-size: .75em;">销量：{$vo.sales}件</span>
+							{eq name='vo.type' value='1'}<a href="{:url('shopList',['type'=>1])}" class="jifen">5倍积分</a>{/eq}
+						</p>
+					</div>
+				</div>
+			{/volist}
+			</div>
+		</div>
+		<script src="__JS__/jquery-3.1.0.min.js"></script>
+		<script src="__JS__/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			$(".shai a").click(function(){
+				$(this).addClass("active").siblings().removeClass("active");
+			})
+			$("#search").click(function(){
+				var keyword=$(" input[ name='keyword' ] ").val();
+				location.href="{:url('shopList')}?type={$Request.param.type}&keyword="+keyword;
+			})
+			$(".shops").click(function(){
+				var id=$(this).data('id');
+				location.href="{:url('shopDetail')}?id="+id;
+			})
+		</script>
+	</body>
+
+</html>

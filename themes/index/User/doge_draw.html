@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+ <style>
+              /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+ </style>
+    <title>DOGE币提取</title>
+  </head>
+  <body> 
+
+   <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: -25px;
+    top: 8px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page verify">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">DOGE币提取</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="fromBox">
+          <div class="weui-cells__title fs28 color_3 fw_b">DOGE钱包地址</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b wallet_address" type="text" placeholder="请输入DOGE钱包地址" value=""/>
+                </div>
+              </div>
+            </div>
+            <div class="weui-cells__title  fs28 color_3 fw_b">提取数量</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b number" type="text" placeholder="请输入提取数量"/>
+                </div>
+              </div>
+            </div>
+            <div class="tips fs24 color_3">扣除手续费(<span class="doge_fee">{$doge_tx_sxf}</span>%)</div>
+        </div>
+
+        <div class="butBox"><div class="but">申请提取</div></div>
+        <div class="about">
+          <img src="" alt="" class="logo">
+          <p class="fs26 color_3 recharge_desc"></p>
+        </div>
+      </div>
+    </div>
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    // $(function() {
+    //     FastClick.attach(document.body);
+    // });
+    //
+    // var url = '/api/Nologin/config';
+    // var mehod = 'post';
+    // a_load(url,{},mehod,function(data){
+    //   console.log(data.data);
+    //   $('.doge_fee').html(data.data.doge_fee);
+    //   $('.recharge_desc').html(data.data.recharge_desc);
+    //   $('.logo').attr('src',data.data.logo);
+    // });
+    $('.but').click(function(){
+        var url       = '/index/user/doge_draw'
+        var data      = {};
+        data.number   = $('.number').val();
+        data.wallet_address   = $('.wallet_address').val();
+        if (!data.wallet_address) {
+            layer.open({
+                content: '请输入DOGE钱包地址'
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+            });
+            return false;
+        }
+        if (!data.number) {
+            layer.open({
+                content: '请输入提取数量'
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+            });
+            return false;
+        }
+        // console.log(data);return;
+        var mehod     = 'post';
+        __ajax(url,data,mehod,function(data){
+            if (data.code == 1) {
+              layer.open({
+                content: data.msg
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+            });
+            window.setTimeout(function(){
+              window.history.go(-1);
+            },1000);
+          } else {
+              layer.open({
+                content: data.msg
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+            });
+          }
+        });
+    })
+</script>
+    <script></script>
+        
+  </body>
+</html>

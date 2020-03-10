@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>系统公告</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/mui.css"/>
+	<link rel="stylesheet" href="__CSS__/daohang.css" />
+	<link rel="stylesheet" href="__CSS__/style.css" />
+	<style type="text/css">
+		html {height: 100%;background: #fff;}
+		.forms{
+			width: 100%;
+			height: auto;
+			float: left;
+			padding-top: 13px;
+		}
+		.forms table{
+			width: 100%;
+		}
+		.forms table tr{
+			height: 40px;
+			text-align: center;
+		}
+		.forms table tr th{
+			font-weight: normal;
+			background: #aaa;
+			color: #fff;
+			border: 1px solid #eee;
+			font-size: .85em;
+		}
+		.forms table tr td{
+			background: #fff;
+			color: #aaa;
+			border: 1px solid #eee;font-size: .85em;
+		}
+		.share_ul {
+			padding: 7px 12px 0;
+		}
+		.share_ul_r {
+			padding-bottom: 7px;
+			border-bottom: 1px solid #e3e3e3;
+			text-align: right;
+			font-size: 13px;
+			color: #333;
+		}
+		.share_ul_l {
+			color: #222;
+		}
+	</style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+	<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	<h1 class="mui-title">系统公告</h1>
+</header>
+<div class="mui-content">
+	<div class="forms">
+		{volist name='list' id='vo'}
+		<a href="{:url('info',['id'=>$vo.id])}">
+			<div class="share_ul">
+				<div class="share_ul_l">
+					{$vo.title}
+				</div>
+				<div class="share_ul_r">
+					{$vo.create_time}
+					<!-- <div class="dengjxias">普通用户</div> -->
+				</div>
+			</div>
+		</a>
+		{/volist}
+	</div>
+</div>
+<script src="__JS__/mui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    mui.init()
+</script>
+</body>
+</html>
+

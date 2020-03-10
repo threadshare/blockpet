@@ -1,0 +1,123 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">订单详情</li>
+        </ul>
+        <div class="layui-tab-content">
+            <fieldset class="layui-elem-field" style="width: 700px">
+              <legend>收货信息</legend>
+              <div class="layui-field-box">
+                <table class="layui-table">
+                  <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>收货人</th>
+                      <th>联系电话</th>
+                      <th>收货地址</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{$info.contect_name}</td>
+                      <td>{$info.contect_tel}</td>
+                      <td>{$info.province}{$info.city}{$info.area}{$info.address}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </fieldset>
+            <fieldset class="layui-elem-field" style="width: 700px">
+              <legend>商品信息</legend>
+              <div class="layui-field-box">
+                <table class="layui-table">
+                  <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>商品名称</th>
+                      <th>商品数量</th>
+                      <th>商品价格</th>
+                      <th>商品总计</th>
+                      <!--<th>商品类型</th>-->
+                    </tr> 
+                  </thead>
+                  <tbody>
+                  {volist name='order_info' id='vo'}
+                    <tr>
+                      <td>{$vo.product_info.title}</td>
+                      <td>{$vo.num}</td>
+                      <td>{$vo.price}</td>
+                      <td>{$vo.price*$vo.num}</td>
+                      <!--<td>-->
+                      <!--{eq name="vo.product_info.type" value="1"}<span class="layui-btn layui-btn-mini">消费积分</span>{/eq}-->
+                      <!--{eq name="vo.product_info.type" value="2"}<span class="layui-btn layui-btn-mini">消费积分</span>{/eq}-->
+                      <!--{eq name="vo.product_info.type" value="3"}<span class="layui-btn layui-btn-mini">消费积分</span>{/eq}-->
+                      <!--</td>-->
+                    </tr>
+                  {/volist}
+                  <tr>总计：{$info.amount}</tr>
+                  </tbody>
+                </table>
+              </div>
+            </fieldset>
+            <fieldset class="layui-elem-field" style="width: 700px">
+              <legend>快递信息</legend>
+              <div class="layui-field-box">
+                {eq name='info.status' value='1'}
+                  <form class="layui-form form-container" action="" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">快递名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="kd_name" value="{$info.kd_num|default=''}" required  lay-verify="required" placeholder="快递名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">快递编号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="kd_num" value="{$info.kd_num|default=''}" placeholder="快递编号" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">确认发货</button>
+                        </div>
+                    </div>
+                </form>
+                {/eq}
+                {neq name='info.status' value='1'}
+                <table class="layui-table">
+                  <thead>
+                    <tr>
+                      <th>快递名称</th>
+                      <th>快递编号</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{$info.kd_name}</td>
+                      <td>{$info.kd_num}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {/neq}
+              </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('order')}");
+</script>
+{/block}

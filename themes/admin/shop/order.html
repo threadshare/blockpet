@@ -1,0 +1,110 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">订单管理</li>
+        </ul>
+        <div class="layui-tab-content">
+
+            <form class="layui-form layui-form-pane" action="{:url('order')}" method="get">
+                <div class="layui-inline">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <select name="status">
+                            <option value="">全部</option>
+                            <option value="0">未支付</option>
+                            <option value="1">待发货</option>
+                            <option value="2">已发货</option>
+                            <option value="3">已完成</option>
+                        </select>
+                    </div>
+                </div>
+                <!--<div class="layui-inline">-->
+                    <!--<label class="layui-form-label">购买类型</label>-->
+                    <!--<div class="layui-input-inline">-->
+                        <!--<select name="type">-->
+                            <!--<option value="">全部</option>-->
+                            <!--<option value="1">消费积分</option>-->
+                            <!--<option value="2">签到积分</option>-->
+                            <!--<option value="3">重消积分</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="layui-inline">
+                    <label class="layui-form-label">关键词</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="keyword" value="" placeholder="请输入收货人或手机号" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn">搜索</button>
+                </div>
+            </form>
+            <hr>
+
+            <form action="" method="post" class="ajax-form">
+                <div class="layui-tab-item layui-show">
+                    <table class="layui-table">
+                        <thead>
+                        <tr>
+                            <th>订单编号</th>
+                            <th>收货人</th>
+                            <th>联系电话</th>
+                            <th>订单金额</th>
+                            <!--<th>订单类型</th>-->
+                            <th>下单时间</th>
+                            <th>完成时间</th>
+                            <th>状态</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="list" item="vo"}
+                        <tr>
+                            <td>{$vo.order_num}</td>
+                            <td>{$vo.contect_name}</td>
+                            <td>{$vo.contect_tel}</td>
+                            <td>{$vo.amount}</td>
+
+                            <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
+                            <td>
+                                {if condition="$vo.over_time neq null"}
+                                {$vo.over_time|date='Y-m-d H:i:s',###}
+                                {/if}
+                            </td>
+
+                            <td>
+                            {eq name='vo.status' value='3'}<span class="layui-btn layui-btn-mini">完成订单</span>{/eq}
+                            {eq name='vo.status' value='2'}<span class="layui-btn layui-btn-normal layui-btn-mini">已发货</span>{/eq}
+                            {eq name='vo.status' value='1'}<span class="layui-btn layui-btn-warm layui-btn-mini">待发货</span>{/eq}
+                            {eq name='vo.status' value='0'}<span class="layui-btn layui-btn-danger layui-btn-mini">待支付</span>{/eq}
+                            </td>
+                            <td>
+                                {$vo.info}
+                            </td>
+                            <td>
+                                <a href="{:url('orderInfo',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">详情</a>
+                                {eq name='vo.status' value='2'}
+                                <a data-action="{:url('orderSh',['order_id'=>$vo['id']])}" class="layui-btn layui-btn-mini ajax-action">确认收货</a>
+                                {/eq}
+                            </td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                    <!--分页-->
+                    {$list->render()}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('order')}");
+</script>
+{/block}

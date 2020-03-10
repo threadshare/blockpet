@@ -1,0 +1,59 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">支付管理</li>
+            <li class=""><a href="{:url('editRecharge')}">添加支付方式</a></li>
+        </ul>
+        <div class="layui-tab-content">
+
+
+            <hr>
+
+            <form action="" method="post" class="ajax-form">
+                <!--<button type="button" class="layui-btn layui-btn-small ajax-action" data-action="{:url('setStatus',['status'=>'3'])}">上架</button>-->
+                <!--<button type="button" class="layui-btn layui-btn-warm layui-btn-small ajax-action" data-action="{:url('setStatus',['status'=>'0'])}">下架</button>-->
+                <!--<button type="button" class="layui-btn layui-btn-danger layui-btn-small ajax-action" data-action="{:url('delProduct')}">删除</button>-->
+                <div class="layui-tab-item layui-show">
+                    <table class="layui-table">
+                        <thead>
+                        <tr>
+                            <th style="width: 15px;"><input type="checkbox" class="check-all"></th>
+                            <th style="width: 30px;">ID</th>
+                            <th>支付方式</th>
+                            <th>二维码</th>
+
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="list" item="vo"}
+                        <tr>
+                            <td><input type="checkbox" name="ids[]" value="{$vo.id}"></td>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.rname}</td>
+                            <td><img src="{$vo.img}" style="width: 60px;height: 40px"></td>
+
+                            <td>
+                                <a href="{:url('editRecharge',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+                                <a href="{:url('delRecharge',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                            </td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                    <!--分页-->
+                    {$list->render()}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+</script>
+{/block}

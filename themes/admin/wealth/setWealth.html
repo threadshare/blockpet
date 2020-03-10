@@ -1,0 +1,60 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">充值扣款</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form layui-form-pane" action="" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">操作类型</label>
+                        <div class="layui-input-inline">
+                            <select name="type" lay-verify="required">
+                                <option value="add">系统充值</option>
+                                <option value="minus">系统扣款</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">账户类型</label>
+                        <div class="layui-input-inline">
+                            <select name="money_type" lay-verify="required">
+                                <option value="fruit">果实</option>
+                                <option value="seed">种子</option>
+                                <option value="diligence">勤奋值</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">数量</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="num" value="" required lay-verify="required" placeholder="请输入数量" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户账户</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="username" value="" required lay-verify="required" placeholder="请输入用户账户" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('setWealth')}");
+</script>
+{/block}

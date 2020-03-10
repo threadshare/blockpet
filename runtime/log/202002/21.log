@@ -1,0 +1,1609 @@
+---------------------------------------------------------------
+[ 2020-02-21T16:59:17+08:00 ] 127.0.0.1 POST 127.0.0.1/admin/system/clear.html
+[运行时间：0.320039s] [吞吐率：3.12req/s] [内存消耗：2,039.65kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'clear',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/task/taskconfig.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.1',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\System->clear[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011267s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T16:59:19+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/task/taskconfig.html
+[运行时间：0.290146s] [吞吐率：3.45req/s] [内存消耗：2,304.38kb] [文件加载：51]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'task',
+    2 => 'taskconfig',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/task/taskconfig.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Task->taskConfig[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Task.php ]
+[ info ] [ VIEW ] ./themes/admin/task\task_config.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'taskConfig',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011778s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T16:59:21+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/login/logout.html
+[运行时间：0.113755s] [吞吐率：8.79req/s] [内存消耗：1,422.95kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'logout',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/task/taskconfig.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->logout[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-02-21T16:59:23+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/login/index.html
+[运行时间：0.118454s] [吞吐率：8.44req/s] [内存消耗：1,420.29kb] [文件加载：40]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/login/logout.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Login.php ]
+[ info ] [ VIEW ] ./themes/admin/login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-02-21T16:59:23+08:00 ] 127.0.0.1 GET 127.0.0.1/captcha.html
+[运行时间：0.086026s] [吞吐率：11.62req/s] [内存消耗：1,102.05kb] [文件加载：30]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/login/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\phpStudy\PHPTutorial\WWW\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-02-21T16:59:36+08:00 ] 127.0.0.1 POST 127.0.0.1/admin/login/login.html
+[运行时间：0.204023s] [吞吐率：4.90req/s] [内存消耗：2,067.55kb] [文件加载：51]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/login/index.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://127.0.0.1',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '51',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => 'bbs.sasadown.cn',
+  'verify' => 'tnwr',
+)
+[ info ] [ RUN ] app\admin\controller\Login->login[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010713s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T16:59:37+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/index/index.html
+[运行时间：0.235237s] [吞吐率：4.25req/s] [内存消耗：2,213.78kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] ./themes/admin/index\index.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012204s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:04:52+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/system/userlevel.html
+[运行时间：0.286975s] [吞吐率：3.48req/s] [内存消耗：2,469.60kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'userlevel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\System->userLevel[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\System.php ]
+[ info ] [ VIEW ] ./themes/admin/system\user_level.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002315s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:04:55+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/editrecharge.html
+[运行时间：0.274857s] [吞吐率：3.64req/s] [内存消耗：2,238.13kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'editrecharge',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/system/userlevel.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->editRecharge[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\edit_recharge.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012552s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:04:56+08:00 ] 127.0.0.1 GET 127.0.0.1/public/uploads/20190828/8c9d8e5dd7d6d350d0a9e9f2201d5217.png
+[运行时间：0.085577s] [吞吐率：11.69req/s] [内存消耗：1,083.59kb] [文件加载：31]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'uploads',
+    2 => '20190828',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/editrecharge.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-02-21T17:04:58+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/wechatservice.html
+[运行时间：0.248818s] [吞吐率：4.02req/s] [内存消耗：2,237.48kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'wechatservice',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/editrecharge.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->wechatService[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\wechat_service.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001565s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:04:58+08:00 ] 127.0.0.1 GET 127.0.0.1/public/uploads/20190828/c357eadba2a9ebb82c5faa46fce49681.png
+[运行时间：0.082389s] [吞吐率：12.14req/s] [内存消耗：1,083.63kb] [文件加载：31]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'uploads',
+    2 => '20190828',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/wechatservice.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-02-21T17:05:02+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/editrecharge.html
+[运行时间：0.272780s] [吞吐率：3.67req/s] [内存消耗：2,038.76kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'editrecharge',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/wechatservice.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->editRecharge[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\edit_recharge.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003531s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:02+08:00 ] 127.0.0.1 GET 127.0.0.1/public/uploads/20190828/8c9d8e5dd7d6d350d0a9e9f2201d5217.png
+[运行时间：0.072953s] [吞吐率：13.71req/s] [内存消耗：1,083.59kb] [文件加载：31]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'uploads',
+    2 => '20190828',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/editrecharge.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-02-21T17:05:07+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/index.html
+[运行时间：0.268827s] [吞吐率：3.72req/s] [内存消耗：2,540.91kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/editrecharge.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->index[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\index.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+  3 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001782s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:09+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/shop/withdraw.html
+[运行时间：0.274444s] [吞吐率：3.64req/s] [内存消耗：2,307.29kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'shop',
+    2 => 'withdraw',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Shop->withdraw[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Shop.php ]
+[ info ] [ VIEW ] ./themes/admin/shop\withdraw.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+  3 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013039s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:11+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/applyrecharge.html
+[运行时间：0.281104s] [吞吐率：3.56req/s] [内存消耗：2,311.79kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'applyrecharge',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/shop/withdraw.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->applyRecharge[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\apply_recharge.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+  3 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011931s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:16+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/shop/withdraw.html
+[运行时间：0.264262s] [吞吐率：3.78req/s] [内存消耗：2,169.73kb] [文件加载：51]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'shop',
+    2 => 'withdraw',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/applyrecharge.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Shop->withdraw[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Shop.php ]
+[ info ] [ VIEW ] ./themes/admin/shop\withdraw.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+  3 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012115s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:19+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/index.html
+[运行时间：0.281737s] [吞吐率：3.55req/s] [内存消耗：2,401.67kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/shop/withdraw.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->index[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\index.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+  3 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003941s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:23+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/menu/index.html
+[运行时间：0.248142s] [吞吐率：4.03req/s] [内存消耗：2,668.33kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Menu->index[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Menu.php ]
+[ info ] [ VIEW ] ./themes/admin/menu\index.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'admin_menu_level_list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003168s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:25+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/admin/index.html
+[运行时间：0.282474s] [吞吐率：3.54req/s] [内存消耗：2,429.91kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/menu/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->index[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Admin.php ]
+[ info ] [ VIEW ] ./themes/admin/admin\index.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'admin_user_list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011819s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:28+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/user/identityauth.html
+[运行时间：0.330117s] [吞吐率：3.03req/s] [内存消耗：2,583.78kb] [文件加载：56]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'identityauth',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/admin/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->identityAuth[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\User.php ]
+[ info ] [ VIEW ] ./themes/admin/user\identity_auth.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+  3 => 'keyword',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011560s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:37+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/index/index.html
+[运行时间：0.260881s] [吞吐率：3.83req/s] [内存消耗：2,015.02kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/user/identityauth.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] ./themes/admin/index\index.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013853s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:42+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/system/siteconfig.html
+[运行时间：0.253770s] [吞吐率：3.94req/s] [内存消耗：2,292.17kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'siteconfig',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\System->siteConfig[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\System.php ]
+[ info ] [ VIEW ] ./themes/admin/system\siteConfig.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'site_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001887s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:47+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/system/baseconfig.html
+[运行时间：0.266654s] [吞吐率：3.75req/s] [内存消耗：2,255.38kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'baseconfig',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/system/siteconfig.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\System->baseConfig[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\System.php ]
+[ info ] [ VIEW ] ./themes/admin/system\base_config.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'base_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011725s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:05:57+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/system/userlevel.html
+[运行时间：0.275083s] [吞吐率：3.64req/s] [内存消耗：2,330.48kb] [文件加载：51]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'userlevel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/system/baseconfig.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\System->userLevel[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\System.php ]
+[ info ] [ VIEW ] ./themes/admin/system\user_level.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011488s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:07+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/system/videoupload.html
+[运行时间：0.228864s] [吞吐率：4.37req/s] [内存消耗：2,254.48kb] [文件加载：51]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'videoupload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/system/userlevel.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\System->videoUpload[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\System.php ]
+[ info ] [ VIEW ] ./themes/admin/system\video_upload.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002526s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:07+08:00 ] 127.0.0.1 GET 127.0.0.1/api/ueditor/index?action=config&&noCache=1582275967270
+[运行时间：0.093251s] [吞吐率：10.72req/s] [内存消耗：1,278.98kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'ueditor',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/system/videoupload.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1582275967270',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Ueditor->index[ D:\phpStudy\PHPTutorial\WWW\application\api\controller\Ueditor.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-02-21T17:06:09+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/editrecharge.html
+[运行时间：0.267141s] [吞吐率：3.74req/s] [内存消耗：2,038.71kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'editrecharge',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/system/videoupload.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->editRecharge[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\edit_recharge.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012284s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:10+08:00 ] 127.0.0.1 GET 127.0.0.1/public/uploads/20190828/8c9d8e5dd7d6d350d0a9e9f2201d5217.png
+[运行时间：0.075454s] [吞吐率：13.25req/s] [内存消耗：1,083.59kb] [文件加载：31]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'uploads',
+    2 => '20190828',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/editrecharge.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-02-21T17:06:12+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/wechatservice.html
+[运行时间：0.266259s] [吞吐率：3.76req/s] [内存消耗：2,038.21kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'wechatservice',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/editrecharge.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->wechatService[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\wechat_service.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011974s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:12+08:00 ] 127.0.0.1 GET 127.0.0.1/public/uploads/20190828/c357eadba2a9ebb82c5faa46fce49681.png
+[运行时间：0.079636s] [吞吐率：12.56req/s] [内存消耗：1,083.63kb] [文件加载：31]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'uploads',
+    2 => '20190828',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/wechatservice.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-02-21T17:06:14+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/editrecharge.html
+[运行时间：0.265151s] [吞吐率：3.77req/s] [内存消耗：2,038.76kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'editrecharge',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/wechatservice.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->editRecharge[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\edit_recharge.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011979s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:14+08:00 ] 127.0.0.1 GET 127.0.0.1/public/uploads/20190828/8c9d8e5dd7d6d350d0a9e9f2201d5217.png
+[运行时间：0.073679s] [吞吐率：13.57req/s] [内存消耗：1,083.59kb] [文件加载：31]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'uploads',
+    2 => '20190828',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/editrecharge.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-02-21T17:06:23+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/applyrecharge.html
+[运行时间：0.277160s] [吞吐率：3.61req/s] [内存消耗：2,174.41kb] [文件加载：51]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'applyrecharge',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/editrecharge.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->applyRecharge[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\apply_recharge.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+  3 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010425s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:27+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/shop/withdraw.html
+[运行时间：0.274805s] [吞吐率：3.64req/s] [内存消耗：2,169.73kb] [文件加载：51]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'shop',
+    2 => 'withdraw',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/applyrecharge.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Shop->withdraw[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Shop.php ]
+[ info ] [ VIEW ] ./themes/admin/shop\withdraw.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+  3 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012274s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:30+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/wealth/index.html
+[运行时间：0.272506s] [吞吐率：3.67req/s] [内存消耗：2,401.67kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wealth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/shop/withdraw.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Wealth->index[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\Wealth.php ]
+[ info ] [ VIEW ] ./themes/admin/wealth\index.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+  3 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011036s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:35+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/system/siteconfig.html
+[运行时间：0.273777s] [吞吐率：3.65req/s] [内存消耗：2,061.21kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'siteconfig',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/wealth/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\System->siteConfig[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\System.php ]
+[ info ] [ VIEW ] ./themes/admin/system\siteConfig.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'site_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011621s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:37+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/system/baseconfig.html
+[运行时间：0.245208s] [吞吐率：4.08req/s] [内存消耗：2,040.93kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'baseconfig',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/system/siteconfig.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\System->baseConfig[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\System.php ]
+[ info ] [ VIEW ] ./themes/admin/system\base_config.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'base_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011807s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:39+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/system/userlevel.html
+[运行时间：0.262744s] [吞吐率：3.81req/s] [内存消耗：2,330.48kb] [文件加载：51]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'userlevel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/system/baseconfig.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\System->userLevel[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\System.php ]
+[ info ] [ VIEW ] ./themes/admin/system\user_level.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011900s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8
+---------------------------------------------------------------
+[ 2020-02-21T17:06:42+08:00 ] 127.0.0.1 GET 127.0.0.1/admin/system/leveladd.html
+[运行时间：0.219640s] [吞吐率：4.55req/s] [内存消耗：2,251.73kb] [文件加载：51]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'leveladd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lmickufgp3c2nidlpndv97e390; THEKEY=fae07b1dfb319974fc1fd2ac26fed437; THEKEYDATA=eyJuaWNrbmFtZSI6Ilx1NzIzMVx1NmUzOFx1NmNmM1x1NzY4NFx1OWM3YyIsImdlbmRlciI6Ilx1NzUzNyIsImdlbmRlcl90eXBlIjoxLCJwcm92aW5jZSI6IiIsImNpdHkiOiIiLCJ5ZWFyIjoiMTk5MiIsImNvbnN0ZWxsYXRpb24iOiIiLCJmaWd1cmV1cmwiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzMwIiwiZmlndXJldXJsXzEiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzUwIiwiZmlndXJldXJsXzIiOiJodHRwOlwvXC9xemFwcC5xbG9nby5jblwvcXphcHBcLzEwMTgwNzkyNFwvREE3ODEyMDMwQzE4RDkxRUQwQzYzMDBFNERBODRBRDVcLzEwMCIsImZpZ3VyZXVybF9xcV8xIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTQwJnQ9MTQ4MzM3NjE3MyIsImZpZ3VyZXVybF9xcV8yIjoiaHR0cDpcL1wvdGhpcmRxcS5xbG9nby5jblwvZz9iPW9pZGImaz0ya0Jvd3hCQjhMeEx2UkFOdlpsNWljQSZzPTEwMCZ0PTE0ODMzNzYxNzMiLCJmaWd1cmV1cmxfcXEiOiJodHRwOlwvXC90aGlyZHFxLnFsb2dvLmNuXC9nP2I9b2lkYiZrPTJrQm93eEJCOEx4THZSQU52Wmw1aWNBJnM9MTQwJnQ9MTQ4MzM3NjE3MyIsImxldmVsIjoiMCJ9',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://127.0.0.1/admin/system/userlevel.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '127.0.0.1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\System->leveladd[ D:\phpStudy\PHPTutorial\WWW\application\admin\controller\System.php ]
+[ info ] [ VIEW ] ./themes/admin/system\leveladd.html [ array (
+  0 => 'menu',
+  1 => 'meta_title',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001819s ] mysql:host=127.0.0.1;dbname=shu;charset=utf8

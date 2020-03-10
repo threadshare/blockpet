@@ -1,0 +1,86 @@
+{extend name="base" /}
+{block name="body"}
+<style type="text/css">
+    .right-arrow {
+        position: absolute;
+        width: 64px;
+        margin-top: -0.2rem;
+        right: 20px;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 18px;
+        background-color: #009688;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+    .right-arrow:hover{
+        color: #000;
+    }
+</style>
+
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">充值扣款</li>
+            <a href="javascript:history.go(-1)" class="right-arrow">返回</a>
+
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form layui-form-pane" action="" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户账户</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="username" value="{$userInfo.mobile}" required lay-verify="required" placeholder="请输入用户账户" class="layui-input" disabled>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">操作类型</label>
+                        <div class="layui-input-inline">
+                            <select name="type" lay-verify="required">
+                                <option value="add">系统充值</option>
+                                <option value="minus">系统扣款</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">账户类型</label>
+                        <div class="layui-input-inline">
+                            <select name="money_type" lay-verify="required">
+                                <option value="pay_points">微分</option>
+                                <option value="share_integral">推广收益</option>
+
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">数量</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="num" value="" required lay-verify="required" placeholder="请输入数量" class="layui-input">
+                        </div>
+                    </div>
+                    <input type="hidden" name="id" value="{$userInfo.id}">
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('user/index')}");
+</script>
+{/block}

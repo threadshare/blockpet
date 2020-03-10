@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/hdindex/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/hdindex/assets/css/all_black.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+
+    <title>申诉</title>
+  </head>
+  <body>
+    <div class="page verify">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">申诉</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="fromBox">
+          <div class="top"><img src="/public/static/index/assets/images/tipsIcon.png" alt=""><span class="fs26 fw_b color_r">申述后由客服人员介入调查！</span></div>
+          <div class="weui-cells__title fs28 color_3 fw_b">区块编号</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b order_sn " id="orderid" type="text" value="{$order_no}" readonly/>
+                </div>
+              </div>
+            </div>
+            <div class="weui-cells__title fs28 color_3 fw_b">区块金额</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b pig_price" type="text" value="{$price}" readonly/>
+                </div>
+              </div>
+            </div>
+            <div class="weui-cells__title fs28 color_3 fw_b">对方名称</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b nickname" type="text"  value="{$username}" readonly/>
+                </div>
+              </div>
+            </div>
+            <div class="weui-cells__title fs28 color_3 fw_b">申诉理由</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell" style="height:auto">
+                <div class="weui-cell__bd">
+                    <textarea class="weui-textarea fs28 remark" placeholder="请写下申述的理由" rows="3" style="background-color: #f5f5f5;"></textarea>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="butBox"><div class="but">提交申诉</div></div>
+
+      </div>
+    </div>
+    <script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    // $(function() {
+    //     FastClick.attach(document.body);
+    //     var query = window.location.search.substring(1);
+    //     var id = query.substring(9);
+    //     var url = '/api/business/order_detail';
+    //     var type = 'post';
+    //     console.log(id)
+    //     __ajax(url,{order_id:id},type,function(data){
+    //         console.log(data.data.order_detail)
+    //         $('.order_sn').val(data.data.order_detail.pig_order_sn);
+    //         $('.pig_price').val(data.data.order_detail.pig_price);
+    //         $('.nickname').val(data.data.order_detail.buyer);
+    //     })
+    // });
+    $('.but').click(function(){
+      // alert(11)
+      //var query = window.location.search.substring(1);
+      //console.log(query)
+      var id    = $('#orderid').val();
+      var url   = '/index/User/appeal';
+      var type  = 'post';
+      var data  = {};
+      data.remark = $('.remark').val();
+      data.order_id = $('#orderid').val();
+      data.username = $('.nickname').val();
+      data.price = $('.pig_price').val();
+      // console.log(data);return;
+      __ajax(url,data,type,function(data){
+          if (data.code == 1) {
+              layer.open({
+                content: data.msg
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+              });
+              window.setTimeout(function(){
+                window.history.go(-1);
+              },1000);
+          } else {
+              layer.open({
+                content: data.msg
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+              });
+              // window.setTimeout(function(){
+              //   window.history.go(-1);
+              // },1000);
+          }
+      })
+    })
+
+    
+
+</script>
+    <script></script>
+  </body>
+</html>

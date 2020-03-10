@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="noarchive">
+    <!-- 屏蔽-->
+    <title>SLGS</title>
+    <meta name="keywords" content=" " />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="IE=9; IE=EDGE" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="/public/static/Index/com/sm.css">
+    <link rel="stylesheet" href="__CSS__/sm-extend.css">
+    <!--    <script type='text/javascript' src='__JS__/sm-extend.js' charset='utf-8'></script>-->
+
+    <!--图标-->
+    <link rel="stylesheet" href="/public/static/Index/com/fonts/iconfont.css">
+    <!--自定义-->
+
+    <link rel="stylesheet" href="/public/static/Index/com/main.css">
+    <!--<link rel="stylesheet" href="__CSS__/order.css">-->
+    <style type="text/css">
+         .img img {
+            height: 150px;
+            width: 200px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="page">-->
+    <!-- 标题栏 -->
+    <header class="bar bar-nav">
+
+        <a style="position: absolute;z-index: 19;width: 94%;text-align: center;display: inline-block;line-height: 50px;font-size: 1.1rem; color:#FFF;">订单详情</a>
+        <div class="logo">
+            <a id="cancle" href="{:url('trade/index')}"><i class="icon icon-left"></i></a> </div>
+        <a class="icon pull-right open-panel"></a>
+    </header>
+    <nav class="foot-bar">
+        <div class="foot-menu"><a href="{:url('Index/index')}">
+            <i class="iconfont icon-shouye"></i><span>首页</span></a></div>
+        <div class="foot-menu"><a onclick="alert('暂未开放！')">
+            <i class="iconfont icon-wxbmingxingdianpu"></i><span>商城</span></a></div>
+        <div class="foot-menu"><a href="{:url('myTeam')}">
+            <i class="iconfont icon-gouwuche"></i><span>我的团队</span></a></div>
+        <div class="foot-menu"><a href="{:url('Trade/index')}">
+            <i class="iconfont icon-wxbdingwei"></i><span>交易平台</span></a></div>
+        <div class="foot-menu"><a href="{:url('index')}">
+            <i class="iconfont icon-geren"></i><span>会员中心</span></a></div>
+    </nav>
+
+    <!-- Main Container start -->
+    <div class="content" id="main_content">
+    <style type="text/css">
+        body {
+            background: #FFF;
+        }
+
+        .li_touxiang img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+    </style>
+        <div class="list-block">
+            <form class="cmxform form-horizontal tasi-form" action="" id="form1" method="post">
+                <div class="content-block" style="margin:10px;">
+                    <div class="row">
+                        <div class="col-100">
+                            <button class="button button-big button-fill button-success" style="width: 100%;">订单详情</button>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">订单号</div>
+                                <div class="item-input">
+                                    {$info.id}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">订单金额</div>
+                                <div class="item-input">￥{$info.num*$info.price}</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">交易数量</div>
+                                <div class="item-input">{$info.num}</div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--<li>-->
+                        <!--<div class="item-content">-->
+                            <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+                            <!--<div class="item-inner">-->
+                                <!--<div class="item-title label">手续费</div>-->
+                                <!--<div class="item-input">$10</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">交易价格</div>
+                                <div class="item-input">￥{$info.price}</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">交易状态</div>
+                                <div class="item-input">
+                                    {switch name="$info.status"}
+                                        {case value="1"}待付款{/case}
+                                        {case value="2"}已付款{/case}
+                                        {case value="3"}已完成{/case}
+                                    {/switch}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">冻结状态</div>
+                                <div class="item-input">
+                                    正常
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                {if condition="$info.buy_id == $user.id"}
+                <div class="content-block" style="margin:10px;">
+                    <div class="row">
+                        <div class="col-100">
+                            <button class="button button-big button-fill button-success" style="width: 100%;">卖家信息</button>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">卖家手机号</div>
+                                <div class="item-input">
+                                    {$sell_info.mobile}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">卖家姓名</div>
+                                <div class="item-input">
+                                    {$sell_info.realname}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">卖家支付宝</div>
+                                <div class="item-input">{$sell_info.info.alipay_code}</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">支付宝付款码</div>
+                                <div class="item-input">
+                                    <img style="width: 50px;height: 50px" class="preview" src="{$sell_info.info.alipay_img}" onclick="previewImg(this)">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {if condition="$info.status==1"}
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value="{$info.id}">
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label">支付凭证</div>
+                                    <div class="item-input">
+                                        <div>
+                                            <input class="ajax-data" type="hidden" name="alipay_code" value="">
+                                            <input type="file" name="image" class="shangcanj" style="display:none;">
+                                            <!--用来存放item-->
+                                            <div class="uploader-list filePicker1" style="display: none;">
+                                            <img style="width: 60px;height: 60px;" src=""/>
+                                        </div>
+
+                                        <div class="filePicker1 uploader-no ajax-data">上传支付凭证</div>
+
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </li>
+
+                    <li>
+                        <div class="col-100">
+                        <button type="button" class="order-confirm button button-big button-fill button-success">确认付款</button>
+                        </div>
+                    </li>
+
+                    </form>
+                    {/if}
+                </ul>
+                {else/}
+                <div class="content-block" style="margin:10px;">
+                    <div class="row">
+                        <div class="col-100">
+                            <button class="button button-big button-fill button-success" style="width: 100%;">买家信息</button>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">买家手机号</div>
+                                <div class="item-input">
+                                   {$buy_info.mobile}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">买家姓名</div>
+                                <div class="item-input">
+                                    {$buy_info.realname}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {eq name="$info.status" value="2"}
+
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">付款截图</div>
+                                <div class="item-input">
+                                    <img style="width: 50px;height: 50px" class="preview" src="{$info.receipt}" onclick="previewImg(this)">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                        <input type="hidden" name="id" value="{$info.id}">
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label">二级密码</div>
+                                    <div class="item-input">
+                                        <input type="password" name="pwd_trade">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <!--<div class="item-title label">付款截图</div>-->
+                                <!--<div class="item-input">-->
+                                    <!--<img style="width: 50px;height: 50px" class="preview" src="{$info.receipt}">-->
+                                <!--</div>-->
+                               <button  class="button button-big button-fill button-success sell-confirm" type="button" style="margin: auto auto;"> 确认</button>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    {/eq}
+                </ul>
+                {/if}
+            </form>
+        </div>
+    </div>
+</body>
+<script src="__JS__/jquery-1.10.2.min.js"></script>
+<script src="/public/static/Admin/js/layui/lay/dest/layui.all.js"></script>
+<script src="__JS__/wym.js"></script>
+<script type="text/javascript">
+    $(".filePicker1").click(function(){
+        $('.shangcanj').click();
+    })
+    $('.shangcanj').change(function (e) {
+        var old_this = this;
+        var formData=new FormData();
+        formData.append('image', old_this.files[0]);
+        $.ajax({
+            url: '{:url("api/Upload/upload")}',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if(data.error){
+                    alert(data.message);
+                }else{
+                    $(old_this).parent().find("input[name='alipay_code']").val(data.url);
+                    $(old_this).parent().find("img").attr('src',data.url);
+                    $(old_this).parent().find(".filePicker1.uploader-list").show();
+                    $(old_this).parent().find(".filePicker1.uploader-no").hide();
+                }
+            }
+        })
+        return;
+    })
+
+    $('.order-confirm').click(function () {
+        //console.log($('#form1').serialize());return false;
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "/index/Trade/qrdk" ,//url
+            data: $('#form1').serialize(),
+            success: function (result) {
+                alert(result.msg)
+                if (result.code == 1) {
+                    location.href = result.url
+                }
+
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
+        //return false;
+    });
+    $('.sell-confirm').click(function () {
+        //console.log($('#form1').serialize());return false;
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "/index/Trade/confirmOrder" ,//url
+            data: $('#form1').serialize(),
+            success: function (result) {
+                alert(result.msg)
+                if (result.code == 1) {
+                    location.href = result.url
+                }
+
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
+        //return false;
+    });
+
+    function previewImg(obj) {
+        var img = new Image();
+        img.src = obj.src;
+        //var height = img.height + 50; // 原图片大小
+        //var width = img.width; //原图片大小
+        var imgHtml = "<img src='" + obj.src + "' width='100%' height='100%'/>";
+        //弹出层
+        layer.open({
+            type: 1,
+            shade: 0.8,
+            offset: 'auto',
+            area: ['80%','80%'],  // area: [width + 'px',height+'px']  //原图显示
+            shadeClose:true,
+            scrollbar: false,
+            title: "图片预览", //不显示标题
+            content: imgHtml, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+            cancel: function () {
+                //layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', { time: 5000, icon: 6 });
+            }
+        });
+    }
+</script>
+</html>

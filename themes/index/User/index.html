@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+ <style>
+              /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+ </style>
+    <title>个人中心</title>
+  </head>
+  <body>
+    <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: -25px;
+    top: 8px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page my">
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="top fs34 fw_b">个人中心</div>
+        <div class="info">
+            <div class="name">
+              <div class="left">
+                <div class="fw_b fs32 color_3 nickname" style="color: #999;"></div>
+                <span class="fs24 color_9 mobile"></span>
+                  <span class="fs24 color_9 level_name"></span>
+              </div>
+              <a href="set.html"><img src="/public/static/index/assets/images/setIcon.png" alt=""></a> 
+            </div>
+            <div class="data">
+               <div class="row border_b">
+                 <div class="list border_r"><div class="fs36 fw_b color_3 pig pig_currency">{$user.pig}</div><span class="fs24 color_ "><a style="color:#999;"_ href="{:url('pig_currency')}">PIG币</a></span></div>
+                 <div class="list border_r"><div class="fs36 fw_b color_3 doge_money">{$user.doge}</div><span class="fs24 color_9"><a style="color:#999;" href="{:url('doge_money')}">DOGE币</a></span></div>
+                 <div class="list"><div class="fs36 fw_b color_3 pay_points">{$user.pay_points}</div><span class="fs24 color_9"><a style="color:#999;" href="{:url('blessings_log')}">微分</a></span></div>
+               </div>
+               <div class="row">
+                <div class="list border_r"><div class="fs36 fw_b color_3 contract_revenue">{$contract_revenue}</div><span class="fs24 color_9"><a style="color:#999;" href="{:url('profit_log')}">合约收益</a></span></div>
+                <div class="list border_r"><div class="fs36 fw_b color_3 pig_price">{$user_pigs}</div><span class="fs24 color_9">总资产</span></div>
+                <div class="list"><div class="fs36 fw_b color_3 user_money">{$user.share_integral}</div><span class="fs24 color_9"><a style="color:#999;" href="{:url('profit')}">推广收益</a></span></div>
+              </div>
+            </div>
+        </div>
+        <div class="logBox">
+             <a href="{:url('adopt_log')}"><img src="/public/static/index/assets/images/myIcon01.png" alt=""><span class="fs24 color_3 adopt">领养记录(<span class="adopt_num" style="color: red">{$adoptcount}</span>)</span></a>
+             <a href="{:url('transfer_log')}"><img src="/public/static/index/assets/images/myIcon02.png" alt=""><span class="fs24 color_3">转让记录(<span class="transfero_num" style="color: red">{$trancount}</span>)</span></a>
+             <a href="{:url('reservation_log')}"><img src="/public/static/index/assets/images/myIcon03.png" alt=""><span class="fs24 color_3">预约记录</span></a>
+        </div>
+        <div class="gird">
+             <div class="row border_b">
+              <a href="{:url('safety_center')}" class="border_r"><img src="/public/static/index/assets/images/myIcon04.png" alt=""><span class="fs24 color_3">安全中心</span></a>
+                 {if condition="$hasBank eq 1"}
+                     {if condition="$isAuth eq 1"}
+                     <a href="javascript:;" class="border_r" onclick="layer.open({
+                content: '你已经认证过了!'
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+              })"><img src="/public/static/index/assets/images/myIcon05.png" alt=""><span class="fs24 color_3 authentication">实名验证</span></a>
+                     {else/}
+                  <a href="{:url('authentication')}" class="border_r"><img src="/public/static/index/assets/images/myIcon05.png" alt=""><span class="fs24 color_3 authentication">实名验证</span></a>
+                     {/if}
+                 {else/}
+                 <a href="javascript:;" class="border_r" onclick="layer.open({
+                content: '请先添加银行卡!'
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+              })"><img src="/public/static/index/assets/images/myIcon05.png" alt=""><span class="fs24 color_3 authentication">实名验证</span></a>
+                 {/if}
+              <a href="{:url('bankcard')}"><img src="/public/static/index/assets/images/myIcon06.png" alt=""><span class="fs24 color_3">我的银行卡</span></a>
+             </div>
+             <div class="row">
+              <a href="{:url('team')}" class="border_r"><img src="/public/static/index/assets/images/myIcon07.png" alt=""><span class="fs24 color_3">我的团队</span></a>
+              <a href="{:url('invitation')}" class="border_r"><img src="/public/static/index/assets/images/myIcon08.png" alt=""><span class="fs24 color_3">邀请好友</span></a>
+              <a href="{:url('system_message')}"><img src="/public/static/index/assets/images/myIcon09.png" alt=""><span class="fs24 color_3">系统消息</span></a>
+             </div>
+        </div>
+      </div>
+      <div class="bottom-tabbar-wrapper">
+  <div class="bottom-tabbar">
+    <a href="{:url('Index/index')}" class="bottom-tabbar__item ">
+        <span class="icon">
+            <img src="/public/static/index/assets/images/bottom_icon01.png"/>
+            <img class="lhimg" src="/public/static/index/assets/images/bottom_icon01_lh.png"/>
+        </span>
+      <p class="label">宠物集市</p>
+    </a>
+    <a href="{:url('Service/index')}" class="bottom-tabbar__item ">
+      <span class="icon">
+          <img src="/public/static/index/assets/images/bottom_icon02.png"/>
+          <img class="lhimg" src="/public/static/index/assets/images/bottom_icon02_lh.png"/>
+      </span>
+    <p class="label">服务中心</p>
+    </a>
+    <a href="" class="bottom-tabbar__item active">
+        <span class="icon">
+            <img src="/public/static/index/assets/images/bottom_icon03.png"/>
+            <img class="lhimg" src="/public/static/index/assets/images/bottom_icon03_lh.png"/>
+        </span>
+      <p class="label">我的宠物</p>
+    </a>
+  </div>
+</div>
+    </div>
+
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+
+    // var url = '/api/User/index';
+    // var mehod = 'post';
+    // __ajax(url,{},mehod,function(data){
+    //   console.log(data);
+    //   sessionStorage.setItem('user_info', JSON.stringify(data.data));
+    //   $('.nickname').html(data.data.nickname);
+    //   $('.mobile').html(data.data.mobile);
+    //     $('.level_name').html(data.data.level_name);
+    //     $('.user_money').html(data.data.user_money);
+    //   $('.pay_points').html(data.data.pay_points);
+    //   $('.distribut_money').html(data.data.distribut_money);
+    //   $('.contract_revenue').html(data.data.contract_revenue);
+    //   $('.pig_currency').html(data.data.pig_currency);
+    //   $('.doge_money').html(data.data.doge_money);
+    //   $('.pig_price').html(data.data.price);
+    //   $('.adopt_num').html(data.data.adopt_num);
+    //   $('.transfero_num').html(data.data.transfero_num);
+    //   if (data.data.payment_count == 0) {
+    //     window.payment_count = false;
+    //   } else {
+    //     window.payment_count = true;
+    //   }
+    //   if (data.data.identity && data.data.real_name) {
+    //     window.renzheng = true;
+    //   } else {
+    //     window.renzheng = false;
+    //   }
+    //
+    //   if(data.data.user_identity == -1){
+    //       window.status = -1;
+    //   }else{
+    //       window.status = 1;
+    //   }
+    // });
+
+    $('.authentication').click(function(){
+        if (window.payment_count == false) {
+            layer.open({
+              content: '请先绑定银行卡'
+              ,time: 2
+              ,skin: 'msg'
+            });
+            window.setTimeout(function(){
+                window.location.href = '/index/User/add_payment'
+            },1000);
+            return false;
+        }
+     
+      if (window.renzheng) {
+        layer.open({
+            content: '你已经认证过了!'
+            ,skin: 'msg'
+            ,time: 1 //2秒后自动关闭
+          });
+        return false;
+      }else{
+
+        if(window.status == -1){
+
+              layer.open({
+                  content: '实名失败,请重新填写提交！'
+                  ,time: 2
+                  ,skin: 'msg'
+              });
+              window.setTimeout(function(){
+                  window.location.href = '/dist/pages/authentication.html'
+              },1000);
+
+            }else if(window.status==1){
+
+              window.location.href = '/dist/pages/authentication.html'
+            }
+      }
+    })
+    function autherr() {
+        layer.open({
+            content: '请先绑定银行卡'
+            ,time: 2
+            ,skin: 'msg'
+        });
+        window.setTimeout(function(){
+            window.location.href = '/index/User/add_payment'
+        },1000);
+    }
+</script>
+  
+  </body>
+</html>

@@ -1,0 +1,239 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">用户管理</li>
+            <li class=""><a href="{:url('admin/user/add')}">添加用户</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+
+                <form class="layui-form layui-form-pane" action="{:url('admin/user/index')}" method="get">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn">搜索</button>
+                    </div>
+                    <div class="layui-inline" style="margin: 0 50px;">
+                        <label class="layui-form-label" style="width: 120px;">正常用户数量</label>
+                        <div class="layui-input-inline" style="width: 50px;">
+                            <input type="text" name=""  value="{$user_num.normal}" placeholder="" class="layui-input" disabled>
+                        </div>
+
+                    </div>
+                    <div class="layui-inline" style="margin: 0 50px;">
+                        <label class="layui-form-label" style="width: 120px;">冻结用户数量</label>
+                        <div class="layui-input-inline" style="width: 50px;">
+                            <input type="text" name=""  value="{$user_num.frozen}" placeholder="" class="layui-input" disabled>
+                        </div>
+
+                    </div>
+
+                </form>
+                <br>
+                <form class="layui-form layui-form-pane" action="{:url('admin/user/index')}" method="get">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">排序字段</label>
+                        <div class="layui-input-inline">
+                            <select name="order_by" id="">
+                                <option value="id">ID</option>
+                                <option value="mobile">手机号</option>
+                                <option value="pay_points">微分</option>
+                                <option value="share_integral">推广收益</option>
+                                <option value="contract_revenue">智能合约收益</option>
+                                <option value="pig">PIG币</option>
+                                <option value="doge">DOGE币</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">顺序</label>
+                        <div class="layui-input-inline">
+                            <select name="sort" id="">
+                                <option value="asc">正序</option>
+                                <option value="desc">倒序</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn">筛选</button>
+                    </div>
+
+                </form>
+                <hr>
+                <div id="ajaxreturn">
+
+                </div>
+                <form action="" id="form2">
+                <input type="hidden" name="order_by">
+                <input type="hidden" name="sort">
+                </form>
+                <table id="tab" class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;" onclick="sort('id')">ID</th>
+                        <th class="thsort">手机号</th>
+                        <th>用户名</th>
+                        <th>推荐人</th>
+                        <th>一级线下人数</th>
+                        <th>二级下线人数</th>
+                        <th>三级下线人数</th>
+                        <th>微分</th>
+
+                        <th>推广收益</th>
+                        <th>智能合约收益</th>
+<!--                        <th>PIG</th>-->
+<!--                        <th>DOGE</th>-->
+                         <th>状态</th>
+                        <th>创建时间</th>
+                        <th>注册IP</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="user_list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+
+                        <td>{$vo.mobile}</td>
+                        <td>{$vo.nickname}</td>
+                        <td>{$vo.pusername ? $vo.pusername : '系统推荐'}</td>
+                        <td>{$vo.firstcnt}</td>
+                        <td>{$vo.secondcnt}</td>
+                        <td>{$vo.thirdcnt}</td>
+                        <td>{$vo.pay_points}</td>
+                        <td>{$vo.share_integral}</td>
+                        <td>{$vo.contract_revenue}</td>
+<!--                        <td>{$vo.pig}</td>-->
+<!--                        <td>{$vo.doge}</td>-->
+                        <td>
+                            {$vo.status ? '正常' : '冻结'}
+                        </td>
+
+                        <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
+                        <th>{$vo.reg_ip}</th>
+                        <td>
+							<a href="javascript:;" data-mobile="{$vo.mobile}" data-nickname="{$vo.nickname}" data-id="{$vo.id}" class="config layui-btn layui-btn-normal layui-btn-mini">赠送宠物</a>
+                            <a href="{:url('admin/user/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+							<br>
+                           <!--  <a href="{:url('admin/user/delete',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a> -->
+                            {if condition="$vo.status eq 1"}
+                            <a href="{:url('admin/user/activate',['id'=>$vo['id'],'status'=>0])}" class="layui-btn layui-btn-danger layui-btn-mini jh-btn">冻结</a>
+                            {else/}<a href="{:url('admin/user/activate',['id'=>$vo['id'],'status'=>1])}" class="layui-btn  layui-btn-mini jh-btn">解冻</a>
+                            {/if}
+                            <a href="{:url('admin/wealth/setwealth',['id'=>$vo['id']])}" class="layui-btn layui-btn-mini">充值扣款</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$user_list->render()}
+            </div>
+        </div>
+        <div style="display: none" id='hide'>
+            <div class="layui-form-item">
+                <label class="layui-form-label">类型</label>
+                <div class="layui-input-block">
+                    <select name="identity" lay-verify="required">
+                        <option value="0">普通会员</option>
+                        <option value="1">经理</option>
+                        <option value="2">高级经理</option>
+                        <option value="3">总监</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="zzz" style="position: fixed;left: 0;right: 0;top: 0;bottom: 0;background-color: rgba(0,0,0,.7);z-index: 9999;display: none;">
+	<div style="width: 50%;background-color: #fff;height: 300px;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;">
+		<div style="background-color: #54bcf0;color: #fff;text-align: center;font-size: 18px;line-height: 50px;">
+			提示
+			<span class="close" style="float: right;cursor: pointer;position: absolute;right: 15px;">关闭</span>
+		</div>
+		<div style="padding: 20px 0;">
+			<div style="display: flex;font-size: 14px;line-height: 50px;padding: 0 30px;">
+				<div style="width: 100px;text-align: right;font-weight: bold;">赠送至</div>
+				<div id="uuu" style="flex: 1;padding-left: 15px;"></div>
+			</div>
+			
+			<div style="display: flex;font-size: 14px;line-height: 50px;padding: 0 30px;">
+				<div style="width: 100px;text-align: right;font-weight: bold;"><span style="color: red;">*</span>赠送宠物</div>
+				<div style="flex: 1;padding-left: 15px;">
+					<select class="layui-input" id="task" style="margin-top: 8px;">
+						<option value="0">请选择</option>
+						{foreach name="task_config" item="vo"}
+							<option value="{$vo.id}">{$vo.name}</option>
+						{/foreach}
+					</select>
+				</div>
+			</div>
+			
+			<div style="display: flex;font-size: 14px;line-height: 50px;padding: 0 30px;">
+				<div style="width: 100px;text-align: right;font-weight: bold;"><span style="color: red;">*</span>赠送宠物价格</div>
+				<div style="flex: 1;padding-left: 15px;">
+					<input type="text" class="layui-input" id="money" style="margin-top: 8px;" placeholder="请填写金额">
+				</div>
+			</div>
+			
+			<div style="display: flex;font-size: 14px;line-height: 50px;padding: 0 30px;">
+				<div style="width: 100px;text-align: right;font-weight: bold;"></div>
+				<div style="flex: 1;padding-left: 15px;">
+					<a href="javascript:;" class="submit layui-btn layui-btn-normal">立即提交</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+	idd = '';
+	
+	$('.config').click(function(){
+		$('#zzz').show();
+		$('#uuu').text($(this).attr('data-mobile')+'('+$(this).attr('data-nickname')+')');
+		idd = $(this).attr('data-id')
+	})
+	$('.close').click(function(){
+		$('#zzz').hide();
+	})
+	$('.submit').click(function(){
+		if($('#task').val() == 0 || $('#task').val() == ''){
+			return layer.msg('请选择宠物');
+		}
+		if($('#money').val() == '' ){
+			return layer.msg('请填写金额');
+		}
+		
+		$.ajax({
+			url: '{:url('admin/user/zensong')}',
+			type: 'post',
+			data: {
+				user_id: idd,
+				task_id: $('#task').val(),
+				money: $('#money').val()
+			},
+			success: function(res){
+				layer.msg(res.msg)
+				$('#zzz').hide();
+			},
+			error: function(){
+				layer.msg('网络错误');
+			}
+		})
+		
+	})
+</script>
+{/block}

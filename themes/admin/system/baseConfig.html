@@ -1,0 +1,95 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">配置</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form layui-form-pane" action="" method="post">
+                    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+                      <legend>基础配置</legend>
+                    </fieldset>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">直推奖励</label>
+                            <div class="layui-input-inline">
+                              <input type="text" name="share_reward" placeholder="直推实名奖励" autocomplete="off" class="layui-input"  value="{$base_config['share_reward']|default=''}">
+                            </div>
+                        </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">直推分成(%)</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="parent_reward" placeholder="直推兑换分成" autocomplete="off" class="layui-input"  value="{$base_config['parent_reward']|default=''}">
+                                </div>
+                            </div>
+
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">果实上限</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="max_fruit" placeholder="会员最多持有果实数目" autocomplete="off" class="layui-input"  value="{$base_config['max_fruit']|default=''}">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">交易手续费（%）</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="trade_sxf" placeholder="交易手续费" autocomplete="off" class="layui-input"  value="{$base_config['trade_sxf']|default=''}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">奖金池比例(%)</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="bonus_ratio" placeholder="奖金池比例" autocomplete="off" class="layui-input"  value="{$base_config['bonus_ratio']|default=''}">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">公益池比例(%)</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="welfare_ratio" placeholder="公益池比例" autocomplete="off" class="layui-input"  value="{$base_config['welfare_ratio']|default=''}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">项目池比例(%)</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="project_ratio" placeholder="项目池比例" autocomplete="off" class="layui-input"  value="{$base_config['project_ratio']|default=''}">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">泡沫池比例(%)</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="foam_ratio" placeholder="泡沫池比例" autocomplete="off" class="layui-input"  value="{$base_config['foam_ratio']|default=''}">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('baseConfig')}");
+</script>
+{/block}

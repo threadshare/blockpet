@@ -1,0 +1,154 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">订单管理</li>
+        </ul>
+        <div class="layui-tab-content">
+
+            <form class="layui-form layui-form-pane" action="" method="get">
+                <div class="layui-inline">
+                    <label class="layui-form-label">买方手机</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="buy_mobile" value="{$Think.request.buy_mobile}" placeholder="请输入用户账户" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">卖方手机</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="sell_mobile" value="{$Think.request.sell_mobile}" placeholder="请输入用户账户" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">宠物品种</label>
+                    <div class="layui-input-inline">
+                        <select name="pig_id" id="">
+                            <option value="">--请选择宠物--</option>
+                            {volist name="piglist" id="pig"}
+                            <option value="{$pig.id}">{$pig.name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">交易状态</label>
+                    <div class="layui-input-inline">
+                        <select name="status" id="">
+                            <option value="">请选择</option>
+                            <option value="1" {eq name="1" value="$Think.request.status"}selected{/eq}>待付款</option>
+                            <option value="2" {eq name="2" value="$Think.request.status"}selected{/eq}>已付款</option>
+                            <option value="3" {eq name="3" value="$Think.request.status"}selected{/eq}>已完成</option>
+                            <option value="4" {eq name="4" value="$Think.request.status"}selected{/eq}>已取消</option>
+                        </select>
+                    </div>
+                </div>
+                <!--<div class="layui-inline">-->
+                    <!--<label class="layui-form-label">变动原由</label>-->
+                    <!--<div class="layui-input-inline">-->
+                        <!--<input type="text" name="mark" value="" placeholder="请输入变动原由" class="layui-input">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="layui-inline">
+                    <button class="layui-btn">搜索</button>
+                </div>
+            </form>
+            <hr>
+            <div class="layui-tab-item layui-show">
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>买家手机</th>
+                        <th>卖家手机</th>
+                        <th>猪等级</th>
+                        <th>价格</th>
+                        <th>付款凭证</th>
+                        <th>交易状态</th>
+                        <th>订单状态</th>
+                        <th>购买时间</th>
+                        <th>成交时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="orderlist" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.buy_mobile}</td>
+                        <td>{$vo.sell_mobile}</td>
+                        <td>{$vo.pig_name}</td>
+                        <td>{$vo.price}</td>
+                        <td><img src="{$vo.voucher}" alt="" style="width: 60px;height: 40px" onclick="previewImg(this)"></td>
+                        <td>
+                            {switch name="$vo.status"}
+                            {case value="1"}未付款</a>{/case}
+                            {case value="2"}已付款{/case}
+                            {case value="3"}已完成{/case}
+                            {case value="4"}已取消{/case}
+                            {/switch}
+                        </td>
+                        <td>
+                            {switch name="$vo.is_lock"}
+                            {case value="0"}正常</a>{/case}
+                            {case value="1"}冻结{/case}
+
+                            {/switch}
+                        </td>
+                        <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                        <td>
+                            {neq name="vo.update_time" value="null"}
+                            {$vo.update_time|date="Y-m-d H:i:s",###}
+                            {/neq}
+                        </td>
+                        <td>
+                            {if condition="$vo.is_lock eq 1"}
+                            <a href="{:url('orderUnlock',['order_id'=>$vo['id']])}" class="layui-btn-normal layui-btn jh-btn">解冻</a>
+                            {/if}
+                            {switch name="$vo.status"}
+                            {case value="1"}<a href="{:url('orderDel',['order_id'=>$vo['id']])}" class="layui-btn layui-btn-danger jh-btn">取消</a>{/case}
+                            {case value="2"}<a href="{:url('orderConfirm',['order_id'=>$vo['id']])}" class="layui-btn-normal layui-btn jh-btn"> 确认</a>{/case}
+                            {case value="3"}<a>已完成</a>{/case}
+                            {case value="4"}<a>已取消</a>{/case}
+                            {/switch}
+
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$orderlist->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('pigOrder')}");
+
+    function previewImg(obj) {
+        var img = new Image();
+        img.src = obj.src;
+        //var height = img.height + 50; // 原图片大小
+        //var width = img.width; //原图片大小
+        var imgHtml = "<img src='" + obj.src + "' width='500px' height='500px'/>";
+        //弹出层
+        layer.open({
+            type: 1,
+            shade: 0.8,
+            offset: 'auto',
+            area: [500 + 'px',550+'px'],  // area: [width + 'px',height+'px']  //原图显示
+            shadeClose:true,
+            scrollbar: false,
+            title: "图片预览", //不显示标题
+            content: imgHtml, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+            cancel: function () {
+                //layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', { time: 5000, icon: 6 });
+            }
+        });
+    }
+</script>
+{/block}

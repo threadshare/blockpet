@@ -1,0 +1,222 @@
+
+.index .page-bd .model {
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 10000;
+}
+.index .page-bd .model3 {
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 99;
+}
+.index .page-bd .model .modelBG {
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+}
+.index .page-bd .model3 .modelBG3 {
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+}
+.index .page-bd .model .Box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.index .page-bd .model3 .Box3 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.index .page-bd .model .Box span {
+  color: #fff;
+  text-align: center;
+  margin-top: 0.266667rem;
+  display: block;
+}
+
+.index .page-bd .model .Box .closeBox {
+  margin-top: 0.466667rem;
+}
+
+.index .page-bd .model .Box .closeBox img {
+/*  width: 0.946667rem;*/
+  height: 0.946667rem;
+}
+
+.index .page-bd .model .Box > img {
+  width: 100%;
+  height: 10.84rem;
+  margin-top: -0.8rem;
+}
+
+.index .page-bd .model .Box > img.loadingimg {
+  width: 0.573333rem;
+  height: 0.333333rem;
+  margin-top: 3.333333rem;
+}
+
+.index .page-bd .model .closeBox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+
+.index .page-bd .model .loadBox {
+  height: 0.386667rem;
+}
+.index .page-bd .model3 .loadBox3 {
+  height: 0.386667rem;
+}
+.index .page-bd .model .loadBox div:first-child {
+  -webkit-animation: loading 1s 0.1s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: loading 1s 0.1s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+}
+.index .page-bd .model3 .loadBox3 div:first-child {
+  -webkit-animation: loading 1s 0.1s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: loading 1s 0.1s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+.index .page-bd .model .loadBox div:nth-child(2) {
+  -webkit-animation: loading 1s 0.3s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: loading 1s 0.3s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+.index .page-bd .model3 .loadBox3 div:nth-child(2) {
+  -webkit-animation: loading 1s 0.3s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: loading 1s 0.3s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+
+.index .page-bd .model .loadBox div:nth-child(3) {
+  -webkit-animation: loading 1s 0.5s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: loading 1s 0.5s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+.index .page-bd .model3 .loadBox3 div:nth-child(3) {
+  -webkit-animation: loading 1s 0.5s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: loading 1s 0.5s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+
+.index .page-bd .model .loadBox div:nth-child(4) {
+  -webkit-animation: aloading 1s 0.7s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: loading 1s 0.7s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+.index .page-bd .model3 .loadBox3 div:nth-child(4) {
+  -webkit-animation: aloading 1s 0.7s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: loading 1s 0.7s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+
+.index .page-bd .model .loadBox div:nth-child(5) {
+  -webkit-animation: loading 1s 0.9s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: loading 1s 0.9s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+.index .page-bd .model3 .loadBox3 div:nth-child(5) {
+  -webkit-animation: loading 1s 0.9s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: loading 1s 0.9s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+.index .page-bd .model .loadBox div {
+  background-color: #f4c300;
+  width: 0.093333rem;
+  height: 0.333333rem;
+  border-radius: 0.013333rem;
+  margin: 0 0.026667rem;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  display: inline-block;
+}
+.index .page-bd .model3 .loadBox3 div {
+  background-color: #f4c300;
+  width: 0.093333rem;
+  height: 0.333333rem;
+  border-radius: 0.013333rem;
+  margin: 0 0.026667rem;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  display: inline-block;
+}
+
+
+.fs30 {
+  font-size: 0.2rem;
+}
+
+.fs36 {
+  font-size: 0.94rem;
+}
+
+.fs34 {
+  font-size: 0.226667rem;
+}
+
+.fs28 {
+  font-size: 0.186667rem;
+}
+
+.fs26 {
+  font-size: 0.173333rem;
+}
+
+.fs24 {
+  font-size: 0.16rem;
+}
+
+.fs22 {
+  font-size: 0.146667rem;
+}
+
+.fs18 {
+  font-size: 0.12rem;
+}
+
+.fw600 {
+  font-weight: 600;
+}
+
+.fw500 {
+  font-weight: 500;
+}
+

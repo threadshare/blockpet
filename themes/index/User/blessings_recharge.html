@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+<style>
+              /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+ </style>
+    <title>充值</title>
+  </head>
+
+  <body>
+   <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: -25px;
+    top: 8px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page verify">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">充值</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd" style="background-color: #fff;">
+
+        <div class="payimgBox">
+            <span class="fw_b fs28 color_3">支付宝收款二维码</span>
+            <img class="recharge_zfb_qrcode" src="{$ewm.alipay_img}" alt="" onclick="zfb_qrcode()">
+        </div>
+        <div class="fromBox">
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:0">支付宝收款账号: <span class="fs28 fw_b color_3 account_zfb_number">{$ewm.alipay_account}</span>
+                </div>
+            </div>
+        </div>
+
+                <!-- 页面内容 -->
+        <div class="payimgBox">
+            <span class="fw_b fs28 color_3">微信收款二维码</span>
+            <img class="recharge_wx_qrcode" src="{$ewm.wechat_img}" alt="" onclick="wx_qrcode()">
+        </div>
+        <div class="fromBox">
+
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:0">微信收款账号: <span class="fs28 fw_b color_3 account_wx_number">{$ewm.wechat_account}</span></div>
+
+            <div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:0">购买数量</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <!-- <select class="weui-input fs28 fw_b number" type="number" placeholder="请输入购买数量"/> -->
+                <select class="weui-input fs28 fw_b number">
+                    <option value ="50">50</option>
+                    <option value ="200">200</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="5000">5000</option>
+                    <option value="10000">10000</option>
+                </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:0">上传付款凭证</div>
+              <div class="weui-cells weui-cells_form">
+                <div class="weui-cell fileBox" style="padding-left: 0px">
+                 <form id="head_pic" method="post" enctype="multipart/form-data">
+                  <div class="weui-cell__bd">
+                    <img src="" width="335px" style="height: 2.333333rem;" id="img">
+                    <input id="uploaderInput" class="weui-uploader__input imgs" type="file" accept="image/*" />
+                  </div>
+                  </form>
+                </div>
+              </div>
+
+            <div class="weui-cells__title  fs28 color_3 fw_b" style="padding-left:0">二级密码</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b paypwd" type="password" placeholder="请输入二级密码"/>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="butBox"><div class="but">确认</div></div>
+      </div>
+    </div>
+<style type="text/css">
+    .baocun{
+        margin: 0 auto;
+    }
+</style>
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    // var url = '/index/User/index';
+    //   var mehod = 'post';
+    //   __ajax(url,{},mehod,function(data){
+    //     console.log(data.data.recharge_qrcode);
+    //     $('.recharge_zfb_qrcode').attr('src',data.data.recharge_zfb_qrcode);
+    //     $(".account_zfb_number").html(data.data.account_zfb_number);
+    //
+    //     $('.account_wx_number').html(data.data.account_wx_number);
+    //     $(".recharge_wx_qrcode").attr('src',data.data.recharge_wx_qrcode);
+    //   });
+
+    $("#uploaderInput").change(function (e) {
+      var _this = this;
+      let type = ['jpeg','jpg','png'];
+      var file = e.target.files[0] || e.dataTransfer.files[0];
+      var img       = $('#uploaderInput').get(0).files[0];
+      var img_type  = img.type.split("/")[1];
+      if( type.indexOf(img_type) == -1  ){
+        layer.open({
+              content: '图片格式必须是:jpg,jpeg,png'
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+        });
+        return false;
+      }
+      if (file) {
+          var reader = new FileReader();
+          reader.onload = function () {
+              $("#img").attr("src", this.result);
+              $("#uploaderInput").hide();
+              $("#img").show();
+              var url       = '/api/upload/upload_base64_paycode'
+              var mehod = 'post';
+              a_load(url,{img:this.result},mehod,function(data){
+                  if(data.status == 200){
+                    window.return_img = data.data
+                  }else {
+                      layer.open({
+                      content: data.message
+                      ,skin: 'msg'
+                      ,time: 1 //2秒后自动关闭
+                    });
+                  }
+              });
+          }
+          reader.readAsDataURL(file);
+      }
+    });
+
+    $('.but').click(function(){
+      var url       = '/index/user/blessings_recharge';
+      var data      = {};
+      data.paypwd   = $('.paypwd').val();
+      data.number   = $('.number').val();
+      data.imgs     = window.return_img;
+      if (!data.imgs) {
+        layer.open({
+              content: '请上传支付凭证!'
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+        });
+      }
+      // console.log(data);return;
+      var mehod = 'post';
+      __ajax(url,data,mehod,function(data){
+          if(data.code == 1){
+            layer.open({
+              content: data.msg
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+            });
+            window.setTimeout(function(){
+              window.location.href = data.url
+            },1000);
+          }else {
+              layer.open({
+              content: data.msg
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+            });
+          }
+      });
+    })
+    // function zfb_qrcode(){
+    //   img_url = $('.recharge_zfb_qrcode').attr('src')
+    //   // console.log($('#img'));
+    //   layer.open({
+    //     content: '<img class="baocun"  width="90%" height="90%" src="'+img_url+'"/>',
+    //   });
+    // }
+    // function wx_qrcode(){
+    //   img_url = $('.recharge_wx_qrcode').attr('src')
+    //   // console.log($('#img'));
+    //   layer.open({
+    //     content: '<img class="baocun" width="90%" height="90%" src="'+img_url+'"/>',
+    //   });
+    // }
+
+      function AppReturnBase64Image(base64imag){
+       var form = document.getElementById("head_pic");
+        // 用表单来初始化
+        var formData = new FormData();   //这里连带form里的其他参数也一起提交了,如果不需要提交其他参数可以直接FormData无参数的构造函数
+   
+        formData.append("head_pic",convertBase64UrlToBlob(base64imag));
+        var url       = '/api/payment/uploadimage'
+        var mehod = 'post';
+
+        var e = layer.open({
+              type:2
+          });
+          $.ajax({
+          type: "POST",
+          url: url,
+          data: formData,
+          dataType: 'json',
+          cache: false,
+          contentType: false, /*不可缺*/
+          processData: false, /*不可缺*/
+          success: function (data) {
+              layer.close(e);
+
+              if(data.status == 200){
+                 var img = data.data.imgpath;
+                  $("#img").attr("src",img );
+                  $("#img").show();
+                    window.return_img = img
+                  }else {
+                      layer.open({
+                      content: data.message
+                      ,skin: 'msg'
+                      ,time: 1 //2秒后自动关闭
+                    });
+              }
+
+          },
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("上传失败，请检查网络后重试");
+            return false;
+          }
+        });
+
+      }
+   /* var src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAkCAYAAABIdFAMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAHhJREFUeNo8zjsOxCAMBFB/KEAUFFR0Cbng3nQPw68ArZdAlOZppPFIBhH5EAB8b+Tlt9MYQ6i1BuqFaq1CKSVcxZ2Acs6406KUgpt5/LCKuVgz5BDCSb13ZO99ZOdcZGvt4mJjzMVKqcha68iIePB86GAiOv8CDADlIUQBs7MD3wAAAABJRU5ErkJggg';
+    AppReturnBase64Image(src);*/
+  
+    function convertBase64UrlToBlob(urlData){  
+      
+        var bytes=window.atob(urlData.split(',')[1]);        //去掉url的头，并转换为byte  
+
+        //处理异常,将ascii码小于0的转换为大于0  
+        var ab = new ArrayBuffer(bytes.length);  
+        var ia = new Uint8Array(ab);  
+        for (var i = 0; i < bytes.length; i++) {  
+            ia[i] = bytes.charCodeAt(i);  
+        }  
+
+        return new Blob( [ab] , {type : 'image/png'});  
+    }
+</script>
+      
+  </body>
+</html>

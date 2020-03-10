@@ -1,0 +1,90 @@
+{extend name="base" /}
+{block name="body"}
+<style type="text/css">
+    .right-arrow {
+        position: absolute;
+        width: 64px;
+        margin-top: -0.2rem;
+        right: 20px;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 18px;
+        background-color: #009688;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+    .right-arrow:hover{
+        color: #000;
+    }
+</style>
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('index')}">管理员</a></li>
+            <li class=""><a href="{:url('add')}">添加管理员</a></li>
+            <li class="layui-this">编辑管理员</li>
+            <a href="javascript:history.go(-1)" class="right-arrow">返回</a>
+
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('update')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="username" value="{$admin_user.username}" required  lay-verify="required" placeholder="请输入用户名" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密码</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="password" value="" placeholder="（选填）如不修改则留空" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">重复密码</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="confirm_password" value="" placeholder="（选填）如不修改则留空" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="status" value="1" title="启用" {if condition="$admin_user.status==1"} checked="checked"{/if}>
+                            <input type="radio" name="status" value="0" title="禁用" {if condition="$admin_user.status==0"} checked="checked"{/if}>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">所属权限组</label>
+                        <div class="layui-input-block">
+                            <select name="group_id" lay-verify="required">
+                                {foreach name="auth_group_list" item="vo"}
+                                <option value="{$vo.id}" {if condition="$admin_user.group_id==$vo.id"} selected="selected"{/if}>{$vo.title}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="id" value="{$admin_user.id}">
+                            <button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+</script>
+{/block}

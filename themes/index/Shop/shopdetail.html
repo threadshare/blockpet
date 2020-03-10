@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>商品详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/mui.css"/>
+    <link rel="stylesheet" href="__CSS__/xiangqing.css" />
+    <link rel="stylesheet" href="__CSS__/daohang.css" />
+    <link rel="stylesheet" href="__CSS__/style.css" />
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">商品详情</h1>
+	</header>
+	<div class="mui-content">
+		<img src="{$info.img}" style='width:100%;'>
+		<div class="xinxi" style="height:70px;padding-left: 10px;">
+			<p>
+				<span style="color: #333;">{$info.title}</span>
+			</p>
+			<p style="display: inline-block;width:48%;">
+				<span>价格：<b style="color: #fc2125;">￥{$info.price}</b></span>
+			</p>
+			<p style="display: inline-block;width:50%;">
+				<span style="color: #999;">销售量：{$info.sales}件</span>
+			</p>
+		</div>
+		<div class="shuliang" style="border-bottom:4px solid #eee;margin-top: 4px;">
+			<p>
+				<span style="display: inline-block;margin-top: 5px;">数量：</span>
+				<input type="button" value="-" class="jian mui-pull-left" />
+				<input type="text" value="1" disabled class="nums mui-pull-left" />
+				<input type="button" value="+" class="jia mui-pull-left" />
+			</p>
+			<p>
+				<span>总价：<b style="color: #fc2125;" class="total_price">￥{$info.price}</b></span>
+			</p>
+		</div>
+		<div class="box">
+
+			<div class="shangpin shangpins">
+				{$info.content|htmlspecialchars_decode}
+			</div>
+		</div>
+		<!--<image style="width:100%;" src="https://img.alicdn.com/imgextra/i1/1637818290/TB21VqJc9YH8KJjSspdXXcRgVXa_!!1637818290.jpg"></image>-->
+
+		<div style="width: 100%;height: 50px;float: left;"></div>
+		<div class="dibu">
+			<div class="dibu_l mui-pull-left">
+				<a href="{:url('index/index')}">
+					<p style="height: 25px;"><img src="__IMG__/sy07.png" alt="" /></p>
+					<p><span>首页</span></p>
+				</a>
+				<a href="{:url('car/index')}">
+					<p style="height: 25px;"><img src="__IMG__/sx02.png" alt="" /></p>
+					<p><span>购物车</span></p>
+				</a>
+			</div>
+			<div class="dibu_r mui-pull-left">
+				<button style="background: #ff9934;" id="gouwu">加入购物车</button>
+				<button style="background: #d13334;" id="goumai">立即购买</button>
+			</div>
+		</div>
+	</div>
+	<script src="__JS__/jquery-3.1.0.min.js"></script>
+	<script src="/public/static/Admin/js/layui/lay/dest/layui.all.js"></script>
+    <script src="__JS__/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	mui.init();
+    	$('.jian').click(function() {
+    		var num=$('.nums').val();
+    		var price="{$info.price}";
+    		if(parseInt(num)>1){
+    			num=parseInt(num)-1;
+    			var total=parseFloat(num)*parseFloat(price);
+    			$('.nums').val(parseInt(num));
+    			$('.total_price').text(parseFloat(total).toFixed(2));
+    		}
+    	});
+    	$('.jia').click(function() {
+    		var num=$('.nums').val();
+    		var price="{$info.price}";
+    		num=parseInt(num)+1;
+    		var total=parseFloat(num)*parseFloat(price);
+    		$('.nums').val(parseInt(num));
+    		$('.total_price').text(parseFloat(total).toFixed(2));
+    	});
+    	$('#gouwu').click(function(){
+    		var product_id="{$info.id}";
+    		var num=$('.nums').val();
+    		$.post("{:url('Car/addCar')}",{'product_id':product_id,'num':num},function(res){
+    			alert(res.msg);
+    			if(res.url){
+    				location.href=res.url;
+    			}
+    		},'json');
+    	});
+    	$('#goumai').click(function(){
+    		var product_id="{$info.id}";
+    		var num=$('.nums').val();
+    		location.href="{:url('Car/buyNow')}?product_id="+product_id+"&num="+num;
+    	});
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="noarchive">
+    <!-- 屏蔽-->
+    <title></title>
+    <meta name="keywords" content=" " />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="IE=9; IE=EDGE" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="__CSS__/sm.css">
+    <!--如果你用到了拓展包中的组件，还需要引用下面两个-->
+    <link rel="stylesheet" href="__CSS__/sm-extend.css">
+
+    <!--图标-->
+    <link rel="stylesheet" href="__CSS__/fonts/iconfont.css">
+    <!--自定义-->
+		<link rel="stylesheet" type="text/css" href="__CSS__/mui.css"/>
+    <link rel="stylesheet" href="__CSS__/main.css">
+		<link rel="stylesheet" href="__CSS__/order.css">
+		<link rel="stylesheet" href="__CSS__/daohang.css" />
+		<link rel="stylesheet" href="__CSS__/style.css" />
+</head>
+
+<body>
+		<style>
+			.foot a p{height: 22.5px;line-height: 20.5px;color: #111; overflow: hidden;}	
+		</style>
+		<style type="text/css">
+			/* .back{
+				padding-top: 10px;
+			} */
+			body{
+				background: #fff;
+			}
+			.tupian_box{
+				overflow: hidden;
+				padding-left: 1%;
+				padding-right: 1%;
+				padding-top: 1vw;
+			}
+			.mui-icon-redo{
+				position: absolute;
+				top: 10px;
+				right: 15px;
+				width: 30px;
+				height: 35px;
+			}
+			.tupian_box img{width: 100%;}
+			.tishi{
+				font-size: 16px;
+				text-align: center;
+				margin-top: 15px;
+			}
+			.newscontent {
+					padding: 16px;
+			}
+			.newscontent .titleasd {
+					font-size: 22px;
+					font-weight: 700;
+					padding-bottom: 10px;
+					line-height: 40px;
+			}
+			.newscontent .pubtime {
+					font-size: 16px;
+					color: #444;
+					padding-bottom: 6px;
+			}
+			.newscontent .content {
+					font-size: 27px;
+					line-height: 48px;
+			}
+			.contentdas p {
+					margin: 10px 0;
+					line-height: 35px;
+					font-size: 16px;
+			}
+			.contentdas img {
+					width: 100%;
+			}
+			.mui-icon-redo{
+				position: absolute !important;
+				top: 0;
+				color: #fff;
+				height: 44px;
+				/* padding-right: 20px; */
+				right: 25px;
+			}
+		</style>
+    <!--  <div class="page">-->
+
+    <!-- 标题栏 -->
+    <header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">商品介绍</h1>
+			<span class="mui-icon mui-icon-redo" id="fenxiang"></span>
+		</header>
+    <!-- Main Container start -->
+    <div class="content" id="main_content">
+        <div id="view">
+					<div class="newscontent">
+						<div class="titleasd">{$detail.title}</div>
+						<div class="pubtime">{$detail.create_time|date="y-m-d H:i:s",###}</div>
+						<div class="contentdas">
+							<!--<video src="__IMG__/a.mp4" width="95%" controls="controls" autoplay style="margin: 0 auto; display: block;"></video>-->
+							<!--<p>　　中新社盐城3月27日电 (记者 于从文 谷华 钟升)27日早晨7时30分，凄厉的鸣笛声响彻江苏省盐城市响水县陈家港镇。在陈家港化工园区管委会，200多人身着正装、手持白花，一起悼念“3·21”特别重大事故中的遇难者。</p> -->
+							<!--<p>　　3月21日14时48分许，位于当地的江苏天嘉宜化工有限公司发生爆炸。</p> -->
+							<!--<div style="text-align:center">-->
+								<!--<img src="http://i2.chinanews.com/simg/cmshd/2019/03/27/3d47aa390c1549479487c4f43acfedb8.jpg" onclick="picChange()" order="2">-->
+							<!--</div> -->
+							<!--<p>　　目前，爆炸事故现场的清理和污染废水处置工作仍在进行中。自3月25日18时开始，事故地下风向1000米处苯时有超标。附近新丰河已筑起多道土坝进行截流。外围地区各项监测指标均低于标准限值。(完)</p>-->
+							<!--<div class="btpauthor" style="width:100%;">-->
+							<!--<p class="wdtop" style="text-align:right;margin-right:0px;font-size:16px;color:#808080;">责任编辑：姜贞宇</p>-->
+							<!--</div>-->
+							{$detail.content|htmlspecialchars_decode}
+						</div>
+					</div>
+				</div>
+				
+    </div>
+</body>
+<script src="__JS__/jquery-3.1.0.min.js"></script>
+<script src="/public/static/Admin/js/layui/lay/dest/layui.all.js"></script>
+<script src="__JS__/mui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $('#fenxiang').on('click',function(){
+				var txt=window.location.href;
+				console.log(txt)
+				copy(txt);
+		})
+		function copy(message) {
+				var input = document.createElement("input");
+				input.value = message;
+				document.body.appendChild(input);
+				input.select();
+				input.setSelectionRange(0, input.value.length), document.execCommand('Copy');
+				document.body.removeChild(input);
+				layer.msg("已复制成功，请粘贴分享哦");
+		}
+</script>
+</html>

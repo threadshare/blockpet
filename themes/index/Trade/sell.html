@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="noarchive">
+    <!-- 屏蔽-->
+    <title>SLGS</title>
+    <meta name="keywords" content=" " />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="IE=9; IE=EDGE" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="/public/static/Index/com/sm.css">
+    <script src="/public/static/Index/js/jquery-1.10.2.min.js"></script>
+    <!--<script type='text/javascript' src='/public/static/Index/js/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='/public/static/Index/js/sm.js' charset='utf-8'></script>-->
+    <!--如果你用到了拓展包中的组件，还需要引用下面两个-->
+    <link rel="stylesheet" href="/public/static/Index/com/sm-extend.css">
+    <!--    <script type='text/javascript' src='/public/static/Index/js/sm-extend.js' charset='utf-8'></script>-->
+
+    <!--图标-->
+    <link rel="stylesheet" href="/public/static/Index/com/fonts/iconfont.css">
+    <!--自定义-->
+
+    <link rel="stylesheet" href="/public/static/Index/com/main.css">
+    <link rel="stylesheet" href="/public/static/Index/com/order.css">
+    <!-- 变量声明  -->
+    <!--<script type="text/javascript">
+    var URL = '/Member';
+    var APP = '';
+    var PUBLIC = '/Public';
+    var TMPL = "App/Tpl/Wap/Default/"; //主题路径
+    var GROUP = '';
+    var ROOT = '';
+    </script>-->
+</head>
+
+<body>
+    <script type='text/javascript'>
+        var sid = '226988';
+    </script>
+    <script language="javascript">
+        function get_mobile_code() {
+
+            document.getElementById('zphone').value = '正在发送';
+            //document.getElementById('zphone').disabled = true;
+            //mobile:jQuery.trim($('#mobile').val()),
+            $.post('/Home/Index/fssjyzm', {
+                send_code: sid
+            }, function (msg) {
+                alert(jQuery.trim(unescape(msg)));
+                if (msg == '验证码发送成功') {
+                    RemainTime();
+                } else {
+                    document.getElementById('zphone').value = '重新发送';
+                    document.getElementById('zphone').disabled = false;
+                }
+            });
+        };
+        var iTime = 59;
+        var Account;
+
+        function RemainTime() {
+            document.getElementById('zphone').disabled = true;
+            var iSecond, sSecond = "",
+                sTime = "";
+            if (iTime >= 0) {
+                iSecond = parseInt(iTime % 60);
+                iMinute = parseInt(iTime / 60)
+                if (iSecond >= 0) {
+                    if (iMinute > 0) {
+                        sSecond = iMinute + "分" + iSecond + "秒";
+                    } else {
+                        sSecond = iSecond + "秒";
+                    }
+                }
+                sTime = sSecond;
+                if (iTime == 0) {
+                    clearTimeout(Account);
+                    sTime = '获取手机验证码';
+                    iTime = 59;
+                    document.getElementById('zphone').disabled = false;
+                } else {
+                    Account = setTimeout("RemainTime()", 1000);
+                    iTime = iTime - 1;
+                }
+            } else {
+                sTime = '没有倒计时';
+            }
+            document.getElementById('zphone').value = sTime;
+        }
+    </script>
+
+    <script language="javascript">
+        //     function cs_cl(bl1){
+        // 	location='/Home/Index/cs_cl/id/'+bl1+'/';
+        // 	//var mobile_code=jQuery.trim($('#mobile_code').val());
+        // 	//if(mobile_code==''){
+        // 	//	alert('请先输入短信验证码!');
+        // 	//}else{
+        // 	//	location='/Home/Index/cs_cl/id/'+bl1+'/mobile_code/'+mobile_code+'/';
+        // 	//}
+
+
+        // }	
+        // function cs_cl2(bl1){
+        // 	//location='/Home/Index/cs_cl/id/'+bl1+'/';
+        // 	var ejmm=jQuery.trim($('#ejmm').val());
+        // 	var sfz=jQuery.trim($('#sfz').val());
+        // 	var mobile_code=jQuery.trim($('#mobile_code').val());
+        // 	if(ejmm==''){
+
+
+        // 	$( '#yzmxs_tr'+bl1 ).show();//
+        // 	$( '#yzmxs_div'+bl1 ).html("请输入二级密码和身份证号和短信验证码，输入后重新点击(卖给TA) <br>二级密码: <input name='ejmm' type='password'  id='ejmm' /><br>身份证号: <input name='sfz' type='text'  id='sfz' /><br>短信验证码: <input name='sfz' type='text'  id='mobile_code' /><br><input name='button' type='button' id='zphone' onClick='get_mobile_code();' value='获取验证码' /> ");
+        // 		//alert('请先输入短信验证码!');
+        // 	}else{
+        // 		location='/Home/Index/cs_cl/id/'+bl1+'/ejmm/'+ejmm+'/sfz/'+sfz+'/mobile_code/'+mobile_code+'/';
+        // 	}
+
+
+        // }	
+        // function cs_cl3(bl1){
+        // 	//location='/Home/Index/cs_cl/id/'+bl1+'/';
+        // 	var ejmm=jQuery.trim($('#ejmm').val());
+        // 	var sfz=jQuery.trim($('#sfz').val());
+        // 	//var mobile_code=jQuery.trim($('#mobile_code').val());
+        // 	if(ejmm==''){
+        // 	//<br><input name='button' type='button' id='zphone' onClick='get_mobile_code();' value='获取验证码' /> 
+        // 	//和短信验证码
+        // 	//<br>短信验证码: <input name='sfz' type='text'  id='mobile_code' />
+        // 	//mobile_code/'+mobile_code+'/'
+        // 	$( '#yzmxs_tr'+bl1 ).show();//
+        // 	$( '#yzmxs_div'+bl1 ).html("请输入二级密码和身份证号，输入后重新点击(卖给TA) <br>二级密码: <input name='ejmm' type='password'  id='ejmm' /><br>身份证号: <input name='sfz' type='text'  id='sfz' />");
+        // 		//alert('请先输入短信验证码!');
+        // 	}else{
+        // 		location='/Home/Index/cs_cl/id/'+bl1+'/ejmm/'+ejmm+'/sfz/'+sfz+'/';
+        // 	}
+
+
+        // }
+    </script>
+    <!-- <div class="page">-->
+
+    <!-- 标题栏 -->
+    <header class="bar bar-nav">
+
+        <a style="position: absolute;z-index: 19;width: 94%;text-align: center;display: inline-block;line-height: 50px;font-size: 1.1rem; color:#FFF;">交易平台</a>
+        <!-- <div class="logo">
+            <a id="cancle" href="javascript:history.go(-1)"><i class="icon icon-left"></i></a> 
+        </div> -->
+        <a class="icon pull-right open-panel"></a>
+    </header>
+    <nav class="foot-bar">
+        <div class="foot-menu"><a href="{:url('Index/index')}">
+                <i class="iconfont icon-shouye"></i><span>首页</span></a></div>
+        <div class="foot-menu"><a href="./jihuo2.html">
+                <i class="iconfont icon-wxbmingxingdianpu"></i><span>商城</span></a></div>
+        <div class="foot-menu"><a href="{:url('User/myTeam')}">
+                <i class="iconfont icon-gouwuche"></i><span>我的团队</span></a></div>
+        <div class="foot-menu"><a href="{:url('index')}">
+                <i class="iconfont icon-wxbdingwei"></i><span>交易平台</span></a></div>
+        <div class="foot-menu"><a href="{:url('User/index')}">
+                <i class="iconfont icon-geren"></i><span>会员中心</span></a></div>
+    </nav>
+
+    <div class="content" id="main_content">
+
+        <div class="buttons-tab">
+            <a href="{:url('index')}" class="button">交易大厅</a>
+            <a href="{:url('buy')}" class="button">买入果实</a>
+            <a href="" class="active button">卖出果实</a>
+        </div>
+
+
+
+
+        <!--表格开始-->
+        <div class="tabs"><br>
+
+            <h4 style="color: #333333; font-size:18px;">我的出售列表</h4>
+            <hr color="#333333" size="1">
+            <div class="card">
+
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" id="table-5">
+                    <thead>
+                        <tr>
+                            <th align="center">
+                                <div align="center">时间</div>
+                            </th>
+                            <th align="center">
+                                <div align="center">数量</div>
+                            </th>
+
+                            <th align="center">
+                                <div align="center">单价</div>
+                            </th>
+                            <th align="center">
+                                <div align="center">合计金额</div>
+                            </th>
+                            <th align="center">
+                                <div align="center">状态</div>
+                            </th>
+
+                            <th align="center">
+                                <div align="center">操作</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    {volist name="list" id="v"}
+                    <tr>
+                        <td>{$v.update_time|date="Y-m-d H:i:s",###}</td>
+                        <td>{$v.num}</td>
+                        <td>
+                            {$v.price}
+                        </td>
+                        <td>￥{$v.price*$v.num}</td>
+                        <td>
+                            {switch name="$v.status"}
+                            {case value="1" }待付款{/case}
+                            {case value="2"}已付款{/case}
+                            {case value="3"}已完成{/case}
+                            {/switch}
+                        </td>
+                        <td><a href="{:url('orderInfo',['id'=>$v.id])}">详情</a></td>
+                    </tr>
+                    {/volist}
+                </table>
+            </div>
+        </div>
+        <div id="list_bottom" class="list-bottom">
+            <div align="right" class="pages">
+
+            <div>
+                <!--<li class="rows">共<b>1</b>条记录&nbsp;第<b>1</b>页/共<b>1</b>页</li>-->
+                {$list->render()}
+            </div>
+
+
+            </div>
+        </div>
+
+        <!--表格结束-->
+        <!--表格开始-->
+        <div class="tabs"><br>
+
+            <h4 style="color: #333333; font-size:18px;">我的出售交易列表</h4>
+            <hr color="#333333" size="1">
+            <div class="card">
+            </div>
+        </div>
+
+        <div class="card">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" id="table-5">
+
+                <tbody>
+                <tr>
+                    <!---->
+                    <th colspan="3" bgcolor="#CCCCCC">交易状态: 已确认 </th>
+                </tr>
+                {volist name="slist" id="sv"}
+                <tr>
+                    <td>{$sv.create_time|date="Y-m-d H:i:s",###}</td>
+                    <td>买入数量:{$sv.num}</td>
+                    <td>单价:￥{$sv.price}</td>
+                </tr>
+                {/volist}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+        <!--表格结束-->
+    </div>
+
+</body>
+
+</html>

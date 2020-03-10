@@ -1,0 +1,124 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">配置</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form layui-form-pane" action="" method="post">
+                    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+                      <legend>基础配置</legend>
+                    </fieldset>
+                    <div class="layui-form-item">
+
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">一级推广分成(%)</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="firt_parent" placeholder="直推兑换分成" autocomplete="off" class="layui-input"  value="{$base_config['firt_parent']|default=''}">
+                                </div>
+                            </div>
+
+                    </div>
+                    <div class="layui-form-item">
+
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">二级推广分成(%)</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="second_parent" placeholder="直推兑换分成" autocomplete="off" class="layui-input"  value="{$base_config['second_parent']|default=''}">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="layui-form-item">
+
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">三级推广分成(%)</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="third_parent" placeholder="直推兑换分成" autocomplete="off" class="layui-input"  value="{$base_config['third_parent']|default=''}">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">PIG提币手续费（%）</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="pig_sxf" placeholder="交易手续费" autocomplete="off" class="layui-input"  value="{$base_config['pig_sxf']|default=''}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">DOGE提币手续费（%）</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="doge_sxf" placeholder="交易手续费" autocomplete="off" class="layui-input"  value="{$base_config['doge_sxf']|default=''}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">注册赠送微分</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="pay_points" placeholder="注册赠送微分" autocomplete="off" class="layui-input"  value="{$base_config['pay_points']|default=''}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">销毁猪裂变个数</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="split_num" placeholder="销毁裂变个数" autocomplete="off" class="layui-input"  value="{$base_config['split_num']|default=''}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">推广收益最低出售额</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="sell_min" placeholder="推广收益最低出售额" autocomplete="off" class="layui-input"  value="{$base_config['sell_min']|default=''}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">推广收益出售次数</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="sell_num" placeholder="推广收益推广次数" autocomplete="off" class="layui-input"  value="{$base_config['sell_num']|default=''}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">账户激活所需微分</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="jihuo_weifen" placeholder="账户激活所需微分" autocomplete="off" class="layui-input"  value="{$base_config['jihuo_weifen']|default=''}">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('baseConfig')}");
+</script>
+{/block}

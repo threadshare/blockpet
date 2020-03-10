@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+<style>
+              /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+ </style>
+    <title>我的银行卡</title>
+  </head>
+  <style type="text/css">
+    .close-popup{
+      float: right;
+      height: 0.333333rem;
+      line-height: 0.333333rem;
+    }
+  </style>
+  <body>
+    <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: -25px;
+    top: 8px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page appoint">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1).reload()" class="left-arrow"></a>
+    </div>
+    <div class="header-title">我的银行卡</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="weui-cells">
+            {volist name="banklist" id="bank"}
+            <a href="javascript:;" onclick="edit_payment('{$bank.id}')">
+            <div class="weui-cell box bankCard">
+                <div class="weui-cell__hd">
+                    {switch name="bank.type"}
+                    {case value="1"}<img src="/public/static/index/assets/images/alipay.png" alt="">{/case}
+                    {case value="2"}<img src="/public/static/index/assets/images/weixinpay.png" alt="">{/case}
+                    {default /}<img src="/public/static/index/assets/images/bankpay.png" alt="">
+                    {/switch}
+
+                </div>
+                <div class="weui-cell__bd">
+                    <div class="fs28 color_9">账户名称:<span class="color_3">{$bank.name}</span></div>
+                    <a href="javascript:;" onclick="del('{$bank.id}')"><img src="/public/static/index/assets/images/icon_trash3.png" class="close-popup"></a>
+                    <div class="fs28 color_9">账号:<span class="color_3">{$bank.account}</span></div>
+                    <div class="fs28 color_9">账户类型:
+                        <span class="color_3">
+                        {switch name="bank.type"}
+                            {case value="1"}支付宝支付{/case}
+                            {case value="2"}微信支付{/case}
+                            {default/}银行卡支付
+                        {/switch}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            </a>
+            {/volist}
+           <!--<div class="weui-cell box bankCard">-->
+              <!--<div class="weui-cell__hd">-->
+                <!--<img src="/public/static/index/assets/images/weixinpay.png" alt="">-->
+              <!--</div>-->
+             <!--<div class="weui-cell__bd">-->
+                 <!--<div class="fs28 color_9">账户名称:<span class="color_3">我的女神</span></div>-->
+                 <!--<a href="javascript:;" onclick="del('+obj.id+')"><img src="/public/static/index/assets/images/icon_trash3.png" class="close-popup"></a>-->
+               <!--<div class="fs28 color_9">账号:<span class="color_3">19563698756</span></div>-->
+               <!--<div class="fs28 color_9">账户类型:<span class="color_3">微信支付</span></div>-->
+             <!--</div>-->
+           <!--</div>-->
+          
+        </div>
+        <a href="{:url('add_payment')}" class="butBox"><div class="but">添加</div></a>
+      </div>
+    </div>
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    // $(function(){
+    //     var url       = '/api/payment/user_payment'
+    //     var data      = {}
+    //     var mehod     = 'get';
+    //     var str       = '';
+    //     __ajax(url,data,mehod,function(data){
+    //       if (data.status == 200 ) {
+    //         console.log(data.data)
+    //         $.each(data.data, function(i, obj) {
+    //             //str += '<a href="javascript:;" onclick="edit_payment('+obj.id+')">';
+    //             str += '<div class="weui-cell box bankCard">';
+    //             str += '<div class="weui-cell__hd">';
+    //             str += '<img src="/public/static/index/assets/images/'+obj.type+'.png" alt="">';
+    //             str += '</div>';
+    //             str += '<div class="weui-cell__bd">';
+    //             str += '<div class="fs28 color_9">账户名称:<span class="color_3 name" id="name">'+obj.name+'</span></div>';
+    //             str += '<a href="javascript:;" onclick="del('+obj.id+')"><img src="/public/static/index/assets/images/icon_trash3.png" class="close-popup"></a>';
+    //             str += '<div class="fs28 color_9">账号:<span class="color_3">'+obj.account+'</span></div>';
+    //             str += '<div class="fs28 color_9">账户类型:<span class="color_3">'+obj.pay_name+'</span></div>';
+    //             str += '</div>';
+    //             str += '</div>';
+    //            // str += '</a>';
+    //           });
+    //         $('.weui-cells').append(str);
+    //       } else {
+    //
+    //         if(data.status == -1){
+    //             str += '<div class="butBox" style="color:red;">';
+    //             str +=  '您的收款账号存在异常,请联系管理员修改';
+    //             str += '</div>';
+    //         }else{
+    //             str += '<div class="butBox">';
+    //             str +=  '暂未添加银行卡';
+    //             str += '</div>';
+    //         }
+    //
+    //         $('.weui-cells').append(str);
+    //       }
+    //   });
+    // })
+  function edit_payment(id){
+      window.location.href = '/index/User/edit_payment?id='+id
+  }
+  function del(id){
+      console.log(id)
+      //询问框
+      layer.open({
+        content: '您确定要删除吗？'
+        ,btn: ['确定', '取消']
+        ,yes: function(index){
+          var url       = '/index/User/del_payment';
+          var data      = {};
+          data.id       = id;
+          var mehod     = 'post';
+          __ajax(url,data,mehod,function(data){
+            if (data.code == 1) {
+                //提示
+                layer.open({
+                  content: data.msg
+                  ,skin: 'msg'
+                  ,time: 2 //2秒后自动关闭
+                });
+                window.setTimeout(function(){
+                  location.reload();
+                },2000);
+            } else {
+              //提示
+              layer.open({
+                content: data.msg
+                ,skin: 'msg'
+                ,time: 2 //2秒后自动关闭
+              });
+            }
+          });
+          layer.close(index);
+        }
+      });
+  }
+</script>
+
+  </body>
+</html>

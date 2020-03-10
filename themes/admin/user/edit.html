@@ -1,0 +1,110 @@
+{extend name="base" /}
+{block name="body"}
+<style type="text/css">
+    .right-arrow {
+        position: absolute;
+        width: 64px;
+        margin-top: -0.2rem;
+        right: 20px;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 18px;
+        background-color: #009688;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+    .right-arrow:hover{
+        color: #000;
+    }
+</style>
+
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/user/index')}">用户管理</a></li>
+            <li class=""><a href="{:url('admin/user/add')}">添加用户</a></li>
+            <li class="layui-this">编辑用户</li>
+            <a href="javascript:history.go(-1)" class="right-arrow">返回</a>
+
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/user/update')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">手机号码</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="mobile" value="{$user.mobile}" required  lay-verify="required" placeholder="请输入用户名" class="layui-input layui-disabled ">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">排单序号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="trade_order" value="{$user.trade_order}" placeholder="请输入排单序号" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">信用积分</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="credit_score" value="{$user.credit_score}" placeholder="请输入信用积分" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户等级</label>
+                        <div class="layui-input-block">
+                            <select type="text" name="ulevel" placeholder="请输入信用积分" class="layui-input">
+                                <option value="">--请选择--</option>
+                                {volist name="levlist" id="lev"}
+                                <option {eq name='user.ulevel' value="$lev.level"}selected{/eq} value="{$lev.level}" >{$lev.name}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="password" value="" placeholder="（选填）如不修改则留空" class="layui-input">
+                    </div>
+                </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">重复密码</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="confirm_password" value="" placeholder="（选填）如不修改则留空" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">二级密码</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="pwd_pay" value="" placeholder="（选填）如不修改则留空" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">重复二级密码</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="confirm_pwd_pay" value="" placeholder="（选填）如不修改则留空" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="id" value="{$user.id}">
+                            <button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+</script>
+{/block}

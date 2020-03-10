@@ -1,0 +1,81 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">销毁的宠物</li>
+        </ul>
+        <div class="layui-tab-content">
+
+            <form class="layui-form layui-form-pane" action="{:url('admin/Task/destoryPigs')}" method="get">
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户账户</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" value="{$Think.request.username}" placeholder="请输入用户账户" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">宠物等级</label>
+                    <div class="layui-input-inline">
+                        <!--<input type="text" name="note" value="" placeholder="请输入变动原由" class="layui-input">-->
+                        <select name="pig_id" id="">
+                            <option value="">--请选择宠物--</option>
+                            {volist name="tasklist" id="task"}
+                            <option value="{$task.id}" {eq name="task.id" value="$Think.request.pig_id"}selected{/eq}>{$task.name}</option>
+
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn">搜索</button>
+                </div>
+            </form>
+            <hr>
+            <div class="layui-tab-item layui-show">
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>所属人手机</th>
+                        <th>猪等级</th>
+                        <th>价值</th>
+                        <th>状态</th>
+
+                        <th>销毁时间</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="piglist" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.mobile}</td>
+                        <td>{$vo.pig_level}</td>
+
+                        <td>{$vo.price}</td>
+                        <td>
+                            {switch name="vo.status"}
+                                {case value="1"}成熟{/case}
+                                {case value="0"}产生收益中{/case}
+                            {/switch}
+                        </td>
+                        <td>{$vo.delete_time|date="Y-m-d H:i:s",###}</td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$piglist->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('destoryPigs')}");
+</script>
+{/block}

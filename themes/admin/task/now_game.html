@@ -1,0 +1,111 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">今日开抢</li>
+        </ul>
+        <div class="layui-tab-content">
+
+            <form class="layui-form layui-form-pane" action="{:url('admin/Task/nowGame')}" method="get">
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户账户</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" value="{$Think.request.username}" placeholder="请输入用户账户" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">宠物等级</label>
+                    <div class="layui-input-inline">
+                        <!--<input type="text" name="note" value="" placeholder="请输入变动原由" class="layui-input">-->
+                        <select name="pig_id" id="">
+                            <option value="">--请选择宠物--</option>
+                            {volist name="tasklist" id="task"}
+                            <option value="{$task.id}" {eq name="task.id" value="$Think.request.pig_id"}selected{/eq}>{$task.name}</option>
+
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">是否已指定用户</label>
+                    <div class="layui-input-inline">
+                        <!--<input type="text" name="note" value="" placeholder="请输入变动原由" class="layui-input">-->
+                        <select name="status">
+                            <option value="">--请选择--</option>
+                            <option value="2" {eq name="2" value="$Think.request.status"}selected{/eq}>未指定</option>
+                            <option value="1" {eq name="1" value="$Think.request.status"}selected{/eq}>已指定</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn">搜索</button>
+                </div>
+                <br>
+                <br>
+
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-inline" style="margin-right: 50px;">
+                        <label class="layui-form-label" style="width: 120px;">已指定数量</label>
+                        <div class="layui-input-inline" style="width: 50px;">
+                            <input type="text" name=""  value="{$Statistics.point_num}" placeholder="" class="layui-input" disabled>
+                        </div>
+
+                    </div>
+                    <div class="layui-inline" style="margin-right: 50px;">
+                        <label class="layui-form-label" style="width: 120px;">未指定数量</label>
+                        <div class="layui-input-inline" style="width: 50px;">
+                            <input type="text" name=""  value="{$Statistics.non_point_num}" placeholder="" class="layui-input" disabled>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+            <hr>
+            <div class="layui-tab-item layui-show">
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>出售人账户</th>
+                        <th>猪等级</th>
+                        <th>领养开始时间	</th>
+                        <th>领养结束时间	</th>
+                        <th>原出售价格</th>
+                        <th>价格</th>
+                        <th>指定ID</th>
+                        <th>修改价值</th>
+                        <th>操作</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="piglist" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.mobile}</td>
+                        <td>{$vo.pig_attr.name}</td>
+                        <td>{$vo.pig_attr.start_time}</td>
+                        <td>{$vo.pig_attr.end_time}</td>
+                        <td>{$vo.source_price}</td>
+                        <td>{$vo.price}</td>
+                        <td>{$vo.point_id}</td>
+                        <td><a href="{:url('editPrice',['id'=>$vo.id])}" class="layui-btn">修改价值</a></td>
+                        <td><a href="{:url('pointId',['id'=>$vo.id])}" class="layui-btn">指定ID</a></td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$piglist->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('nowGame')}");
+</script>
+{/block}

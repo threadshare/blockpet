@@ -1,0 +1,79 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">交易列表</li>
+        </ul>
+        <div class="layui-tab-content">
+
+            <form class="layui-form layui-form-pane" action="" method="get">
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户账户</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" value="" placeholder="请输入手机号" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <button class="layui-btn">搜索</button>
+                </div>
+            </form>
+            <hr>
+            <div class="layui-tab-item layui-show">
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>卖家账户</th>
+                        <th>卖家账号</th>
+                        <th>价格</th>
+
+                        <th>数目</th>
+                        <th>创建时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.buyname}</td>
+                        <td>{$vo.sellname}</td>
+                        <td>{$vo.price}</td>
+
+                        <td>{$vo.num}</td>
+                        <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                        <td>
+                            {switch name="vo.status"}
+                            {case value="0"}未匹配{/case}
+                            {case value="1"}已匹配{/case}
+                            {case value="2"}已打款{/case}
+                            {case value="3"}已完成{/case}
+                            {/switch}
+                        </td>
+                        <td>
+
+                            {eq name="$vo.status" value="1"}
+                            <a href="{:url('admin/Wealth/orderDel',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                            {/eq}
+                            {eq name="$vo.status" value="2"} <a href="{:url('admin/Wealth/orderConfirm',['id'=>$vo['id']])}" class="layui-btn  layui-btn-mini jh-btn">确定</a>{/eq}
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$page}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+</script>
+{/block}

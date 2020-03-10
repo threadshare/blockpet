@@ -1,0 +1,88 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">抢猪列表</li>
+            <li class=""><a href="{:url('admin/Task/taskAdd')}">添加</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">id</th>
+                        <th>名称</th>
+                        <th>预约积分</th>
+                        <th>即抢积分</th>
+                        <th>最低价格</th>
+                        <th>最高价格</th>
+                        <th>领养开始时间</th>
+                        <th>领养结束时间</th>
+                        <th>周期</th>
+                        <th>智能合约收益比例（%）/天</th>
+                        <th>可挖PIG</th>
+                        <th>可挖DOGE/(%)</th>
+                        <th>今日领养状态</th>
+                        <th>已放数量</th>
+                        <th>最大库存</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="taskConfig" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.name}</td>
+                        <td>{$vo.pay_points}</td>
+                        <td>{$vo.qiang_points}</td>
+                        <td>{$vo.min_price}</td>
+                        <td>{$vo.max_price}</td>
+                        <td>{$vo.start_time}</td>
+                        <td>{$vo.end_time}</td>
+                        <td>{$vo.cycle}</td>
+                        <td>{$vo.contract_revenue}</td>
+                        <td>{$vo.pig}</td>
+                        <td>{$vo.doge}</td>
+                        <td>{$vo.is_open?'已领养':'待领养'}</td>
+                        <td>{$vo.selled_stock}</td>
+                        <td>{$vo.max_stock}</td>
+                        <td>
+                            <a href="{:url('admin/Task/taskEdit',['id'=>$vo.id])}" class="layui-btn-mini layui-btn">编辑</a>
+                            <a href="{:url('admin/Task/taskDel',['id'=>$vo.id])}" class="layui-btn-mini layui-btn layui-btn-danger ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+
+            </div>
+        </div>
+        <div style="display: none" id='hide'>
+            <div class="layui-form-item">
+                <label class="layui-form-label">类型</label>
+                <div class="layui-input-block">
+                    <select name="identity" lay-verify="required">
+                        <option value="0">普通会员</option>
+                        <option value="1">经理</option>
+                        <option value="2">高级经理</option>
+                        <option value="3">总监</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('taskConfig')}");
+
+</script>
+{/block}

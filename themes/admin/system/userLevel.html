@@ -1,0 +1,75 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">市场管理</li>
+            <li class=""><a href="{:url('admin/System/leveladd')}">添加会员级别</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">id</th>
+                        <th>市场级别</th>
+                        <th>级别名称</th>
+
+                        <th>购买果实</th>
+
+                        <th>分红比例</th>
+
+
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.level}</td>
+                        <td><a href="{:url('index/index/index',['user_id'=>$vo.id])}" >{$vo.name}</a></td>
+
+                        <td>{$vo.money}</td>
+
+                        <td>{$vo.ratio}%</td>
+
+
+                        <td>
+                            <a href="{:url('admin/System/leveledit',['id'=>$vo.id])}" class="layui-btn-mini layui-btn">编辑</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+
+            </div>
+        </div>
+        <div style="display: none" id='hide'>
+            <div class="layui-form-item">
+                <label class="layui-form-label">类型</label>
+                <div class="layui-input-block">
+                    <select name="identity" lay-verify="required">
+                        <option value="0">普通会员</option>
+                        <option value="1">经理</option>
+                        <option value="2">高级经理</option>
+                        <option value="3">总监</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+
+</script>
+{/block}

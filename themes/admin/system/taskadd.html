@@ -1,0 +1,61 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/System/taskConfig')}">任务配置</a></li>
+            <li class="layui-this">添加</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/System/taskAdd')}" method="post">
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">任务名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" value="" required lay-verify="required" placeholder="请输入任务名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">日产出</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="daily_forward" value="" required lay-verify="required" placeholder="请输入日产出果实" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">周期</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="cycle" value="" required lay-verify="required" placeholder="请输入任务周期" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">勤奋值</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="qf_forward" value="" required lay-verify="required" placeholder="请输入产出勤奋值" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">消耗种子/果实</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="seed" value="" required lay-verify="required" placeholder="请输入领取任务消耗种子" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+</script>
+{/block}

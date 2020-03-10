@@ -1,0 +1,131 @@
+{extend name="base" /}
+{block name="body"}
+<link type="text/css" rel="stylesheet" href="/public/static/Admin/jedate/test/jeDate-test.css">
+<link type="text/css" rel="stylesheet" href="/public/static/Admin/jedate/skin/jedate.css">
+<script type="text/javascript" src="/public/static/Admin/jedate/src/jedate.js"></script>
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/Task/taskConfig')}">抢购列表</a></li>
+            <li class="layui-this">添加</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/Task/taskAdd')}" method="post">
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" value="" required lay-verify="required" placeholder="请输入名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">等级</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="level" value="" required lay-verify="required" placeholder="请输入等级" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">封面</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="img" value="" class="layui-input layui-input-inline" id="thumb">
+                            <input type="file" name="image" class="layui-upload-file">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">预约积分</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="pay_points" value="" required lay-verify="required" placeholder="请输入预约积分" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">即抢积分</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="qiang_points" value="" required lay-verify="required" placeholder="请输入即抢积分" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">最低价格</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="min_price" value=""  required lay-verify="required" placeholder="请选择开抢时间" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">最高价格</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="max_price" value=""  required lay-verify="required" placeholder="请输入最高价格" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">开抢时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="start_time" value="" id="start-time" required lay-verify="required" placeholder="请选择开抢时间" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">结束时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="end_time" value="" id="end-time" required lay-verify="required" placeholder="请选择开抢时间" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">周期</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="cycle" value="" required lay-verify="required" placeholder="请输入产出周期" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">智能合约</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="contract_revenue" value="" required lay-verify="required" placeholder="请输入产出智能合约" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">可挖PIG</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="pig" value="" required lay-verify="required" placeholder="请输入可挖PIG" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">可挖DOGE</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="doge" value="" required lay-verify="required" placeholder="请输入可挖DOGE" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">最大库存</label>
+                        <div class="layui-input-block" style="width: 32%;">
+                            <input type="text" name="max_stock" value="" required lay-verify="required" placeholder="请输入最大库存" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="/public/static/Admin/js/layui/lay/modules/laydate.js"></script>
+<script>
+    high_nav("{:url('index')}");
+    jeDate("#start-time",{
+        isinitVal:true,
+        format:"hh:mm"
+    });
+    jeDate('#end-time',{
+        isinitVal:true,
+        format:"hh:mm"
+    })
+
+
+</script>
+{/block}

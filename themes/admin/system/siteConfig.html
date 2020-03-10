@@ -1,0 +1,151 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">站点配置</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/system/updateSiteConfig')}" method="post">
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">注册是否需要设置交易密码</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="site_config[secpass]" lay-skin="switch" lay-text="开启|关闭" {notempty name="site_config.secpass"} checked {/notempty}>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">平台名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="site_config[site_title]" value="{$site_config.site_title|default=''}" placeholder="请输入平台名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">平台登录logo(158*136)</label>
+                        <div class="layui-input-block">
+                            <img src="{$site_config.login_img|default='../../../public/static/Index/assets/images/logo-login.png'}">
+                            <input type="hidden" name="site_config[login_img]" value="{$site_config.login_img|default=''}" class="layui-input layui-input-inline">
+                            <br/>
+                            <input type="file" name="image" class="layui-upload-file">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">平台背景图片(750*1334)</label>
+                        <div class="layui-input-block">
+                            <img src="{$site_config.bg_img|default='../../../public/static/Index/assets/images/loginbg.png'}" >
+                            <input type="hidden" name="site_config[bg_img]" value="{$site_config.bg_img|default=''}" class="layui-input layui-input-inline">
+                            <br/>
+                            <input type="file" name="image" class="layui-upload-file">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">推广海报背景图片(750*1334)</label>
+                        <div class="layui-input-block">
+                            <img src="{$site_config.hb_img|default='../../../public/static/Index/assets/images/loginbg.png'}" >
+                            <input type="hidden" name="site_config[hb_img]" value="{$site_config.hb_img|default=''}" class="layui-input layui-input-inline">
+                            <br/>
+                            <input type="file" name="image" class="layui-upload-file">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">平台首页logo(251*43)</label>
+                        <div class="layui-input-block">
+                            <img src="{$site_config.index_img|default='../../../public/static/Index/assets/images/guilogo.png'}" >
+                            <input type="hidden" name="site_config[index_img]" value="{$site_config.index_img|default=''}" class="layui-input layui-input-inline">
+                            <br/>
+                            <input type="file" name="image" class="layui-upload-file">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">首页banner图片(634*165)</label>
+                        <div class="layui-input-block">
+                            <img src="{$site_config.banner_img|default='../../../public/static/Index/assets/images/banner.png'}" >
+                            <input type="hidden" name="site_config[banner_img]" value="{$site_config.banner_img|default=''}" class="layui-input layui-input-inline">
+                            <br/>
+                            <input type="file" name="image" class="layui-upload-file">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">短信开关</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="site_config[sms_open]" lay-skin="switch" lay-text="开启|关闭" {notempty name="site_config.sms_open"} checked {/notempty}>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">短信签名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="site_config[sms_sign]" value="{$site_config.sms_sign|default=''}" placeholder="请输入短信签名" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">短信api_account</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="site_config[api_account]" value="{$site_config.api_account|default=''}" placeholder="请输入短信api_account" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">短信api_password</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="site_config[api_password]" value="{$site_config.api_password|default=''}" placeholder="请输入短信api_password" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">网站开关</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="site_config[open]" lay-skin="switch" lay-text="开启|关闭" {notempty name="site_config.open"} checked {/notempty}>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">关闭说明</label>
+                        <div class="layui-input-block">
+                            <textarea name="site_config[content]" placeholder="关闭说明" class="layui-textarea">{$site_config.content|default=''}</textarea>
+                        </div>
+                    </div>
+                    <!--<div class="layui-form-item">-->
+                        <!--<label class="layui-form-label">APP开放时间</label>-->
+                        <!--<div class="layui-input-block">-->
+                            <!--开始时间:<input name="site_config[start_time]" placeholder="" class="layui-input" style="display: inline-block;width: 40%;" value="{$site_config['start_time']|default=''}">-->
+                            <!--结束时间:<input name="site_config[close_time]" placeholder="" class="layui-input" style="display: inline-block;width: 40%;" value="{$site_config['close_time']|default=''}">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!-- <div class="layui-form-item">
+                        <label class="layui-form-label">SEO标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="site_config[seo_title]" value="{$site_config.seo_title|default=''}" placeholder="请输入SEO标题" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">SEO关键字</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="site_config[seo_keyword]" value="{$site_config.seo_keyword|default=''}" placeholder="请输入SEO关键字" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">SEO说明</label>
+                        <div class="layui-input-block">
+                            <textarea name="site_config[seo_description]" placeholder="请输入SEO说明" class="layui-textarea">{$site_config.seo_description|default=''}</textarea>
+                        </div>
+                    </div> -->
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('siteConfig')}");
+</script>
+{/block}

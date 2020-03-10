@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>地址管理</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/mui.css"/>
+    <link rel="stylesheet" href="__CSS__/daohang.css" />
+    <link rel="stylesheet" href="__CSS__/style.css" />
+    <style type="text/css">
+    	.content_dizhi{
+    		width: 100%;
+    		height: 60px;
+    		background: #fff;
+    		margin-top: 2px;
+    	}
+    	.dizhi_l{
+    		width: 80%;
+    		height: 60px;
+    		float: left;
+    	}
+    	.dizhi_l p{
+    		margin: 0;
+    		margin-top: 5px;
+    		padding: 0 10px;
+    		color: #333;
+    	}
+		.content_dizhi{
+			height:auto;
+			padding:10px 0;
+			overflow: hidden;
+		}
+		.dizhi_l{
+			height:auto;
+		}
+    	.dizhi_r{
+    		width: 20%;
+    		height: 60px;
+    		float: left;
+    		text-align: center;
+    		line-height: 60px;
+    	}
+    	.dizhi_r img{
+    		width: 20px;
+    		height: 20px;
+    		margin-top: 20px;
+    	}
+    	.dbs{
+    		width: 100%;
+    		height: 50px;
+    		position: fixed;
+    		bottom: 0;
+    		left: 0;
+    		
+    	}
+    	.dbs img{
+    		vertical-align: middle;
+    		width: 20px;
+    		height: 20px;
+    		margin-right: 10px;
+    		margin-bottom: 3px;
+    	}
+    	.dbs button{
+    		width: 100%;
+    		height: 50px;
+    		border: none;
+    		font-size: 1em;
+    		background: #fff;
+    		color: #333;
+    	}
+    	.mui-icon-arrowright{color: #9b9b9b;}
+    </style>
+</head>
+<body>
+    <header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">收货地址</h1>
+	</header>
+	<div class="mui-content">
+        {volist name="list" id="vo"}
+        <a href="{$returnurl}&address_id={$vo.id}">
+		<div class="content_dizhi">
+			<div class="dizhi_l">
+				<p style="color: #313233;font-size: 1em;">
+					<span>{$vo.contect_name}</span><span>{$vo.contect_tel}</span>
+				</p>
+				<p style="color: #bfbebe;">{:$vo.province}
+                {$vo.city}{$vo.area}{$vo.address}</p>
+			</div>
+			<div class="dizhi_r">
+				<a href="{:url('editAddress',['id'=>$vo.id])}">
+					<img src="__IMG__/dz01.png"/>
+				</a>
+                <a href="{:url('delAddress',['id'=>$vo.id])}" class='del'>
+                    <img src="__IMG__/dz3.jpg"/>
+                </a>
+			</div>
+		</div>
+        </a>
+        {/volist}
+		<div class="dbs">
+			<a href="{:url('editAddress')}">
+				<button><img src="__IMG__/dz02.png" align="middle"/>新增收货地址</button>
+			</a>
+		</div>
+	</div>
+    <script src="__JS__/jquery-3.1.0.min.js"></script>
+    <script src="/public/static/Admin/js/layui/lay/dest/layui.all.js"></script>
+    <script src="__JS__/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init()
+    $('.del').click(function(){
+        url=$(this).attr('href');
+        $.post(url,{},function(res){
+            if(res.code){
+                layer.msg(res.msg,{time:1500},function(){
+                    location.href=res.url;
+                });
+            }else{
+                layer.msg(res.msg);
+            }
+        },'json');
+        return false;
+    })
+    </script>
+</body>
+</html>
+
+
+

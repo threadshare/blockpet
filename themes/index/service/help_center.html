@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+<style>
+        /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+</style>
+    <title>帮助中心</title>
+  </head>
+  <body>
+    <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: 0px;
+    top: 10px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page centre">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">帮助中心</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+         <div class="box">
+             {volist name="newslist" id="news"}
+           <div class="row">
+               <div class="fs30 fw_b color_3">{$news.title}：
+                     <!--<div class="color_6 fs26 time"><span>1</span>扫码注册</div>-->
+                     <!--<div class="color_6 fs26 time"><span>2</span>填写身份证资讯提交认证资料</div>-->
+                     <!--<div class="color_6 fs26 time"><span>3</span>购买至少30个微分启动账户</div>-->
+                     <!--<div class="color_6 fs26 time"><span>4</span>完善收款信息(支付宝、微信、银行卡收款信息)</div>-->
+                     <!--<div class="color_6 fs26 time"><span>5</span>进入安全中心设置二级密码</div>-->
+                   <div class="color_6 fs26 time">{$news.content|htmlspecialchars_decode}</div>
+                </div>
+           </div>
+             {/volist}
+          <!--<div class="row"><div class="fs30 fw_b color_3">每天过了0:01分后可以预约，请在以下时间段内进入龟龟市集抢单领养：-->
+            <!--<div class="color_6 fs26 time">14:00~15:00</div>-->
+            <!--<div class="color_6 fs26 time">15:00~16:00</div>-->
+            <!--<div class="color_6 fs26 time">16:30~17:30</div>-->
+            <!--<div class="color_6 fs26 time">19:00~20:00</div>-->
+            <!--<div class="color_6 fs26 time">20:00~21:00</div>-->
+            <!--<div class="color_6 fs26 time">20:30~21:30</div>-->
+           <!--</div></div>-->
+          <!--<div class="row"><div class="fs30 fw_b color_3">进入宠物猪集市后如繁殖中就在预约下一交易时间段</div></div>-->
+                   </div>
+      </div>
+    </div>
+
+
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+
+    // var url = '/api/User/help';
+    // var mehod = 'post';
+    // __ajax(url,{id:123},mehod,function(data){
+    //   $('.box').html(data.data);
+      
+    //   return;
+    // });
+</script>
+    <script></script>
+
+
+  </body>
+</html>

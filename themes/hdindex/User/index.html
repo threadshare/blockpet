@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>我的</title>
+    <style>
+
+        html {
+            font-size: 6.25vw!important;
+        }
+        html, body {
+              background: url(/public/uploads/20200207/44ab28cfb8430f2631f955ca94c48292.png) no-repeat;
+              background-size: cover;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              background-color: rgba(0,0,0,0)!important;
+          }
+        .footer, .top_fixed{-webkit-transform: translateZ(0);
+        }
+		
+		.weui-cell__ft:after {
+			height: 0.106667rem;
+			width: 0.106667rem;
+		}
+		.weui-cell__ft{
+			position: relative;
+			display: inline-block;
+			height: 6px;
+			width: 6px;
+			top: 0.15rem;
+		}
+		.weui-cell__ft:after {
+			content: " ";
+			display: inline-block;
+			height: 6px;
+			width: 6px;
+			border-width: 1px 1px 0 0;
+			border-color: #fff;
+			border-style: solid;
+			-webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+			transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+			position: absolute;
+			right: 2px;
+		}
+        .footer{
+            background: #0e1118!important
+        }
+        .grid_menu2{
+            background-color: rgba(255,255,255,0.8)!important;
+        }
+        .grid_menu2 .item a{
+            color: #2b274c!important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://block-dog.oss-cn-beijing.aliyuncs.com/template/mobile/block/static/css/style.css?v=1.33">
+    <link rel="stylesheet" type="text/css" href="https://block-dog.oss-cn-beijing.aliyuncs.com/template/mobile/block/static/css/iconfont.css?v1.1"/>
+    <script src="https://block-dog.oss-cn-beijing.aliyuncs.com/template/mobile/block/static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script src="https://block-dog.oss-cn-beijing.aliyuncs.com/template/mobile/block/static/js/mobile-util.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="https://block-dog.oss-cn-beijing.aliyuncs.com/public/js/global4.js?v1.11"></script>
+    <script src="https://block-dog.oss-cn-beijing.aliyuncs.com/public/js/layer/mobile/layer.js"  type="text/javascript" ></script>
+    <script src="https://block-dog.oss-cn-beijing.aliyuncs.com/public/js/dropload.min.js"></script>
+    <script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+    <script src="https://block-dog.oss-cn-beijing.aliyuncs.com/template/mobile/block/static/js/common14.js?v=1.82"  type="text/javascript" ></script>
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+
+</head>
+<body class="gray" style="overflow: auto;padding-bottom: 10px;">
+
+<style>
+    .my_center_top ,.top_fixed{position:static!important;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;top:unset!important;left:unset!important;
+        z-index:unset!important;
+        -webkit-text-size-adjust: none;
+        -webkit-tap-highlight-color: transparent;}
+    .footer{position:absolute!important;bottom:0px; z-index:unset!important;  -webkit-transform:unset!important; }
+    .my_center_top .account_info ul li h3{color: #fff;}
+    .my_center_top .account_info ul li span{color: #fff;}
+
+</style>
+<div class="my_center_top" style="padding-top: 1rem;">
+    <a class="setting" href="set.html"><i class="iconfont icon-gongnengjianyi"></i></a>
+    <!-- <div class="user_info">
+        <div class="t">
+            <h3>{$user.nickname}<span style="margin-left: .7rem; font-size: .5rem; color:#ffd100;"></span>{$userlevel['name']}</h3>
+            <p>ID/手機：{$user.mobile}</p>
+            <p style="margin-top: 5px;">当前状态：{$user.is_jihuo != 1 ? '未激活' : '已激活'}
+                <?php if ($user['is_jihuo'] != 1): ?>
+                    <a id="jihuo" href="javascript:void(0)" style="color: #fff;font-size: 0.3rem;background-color: #46B39D;padding: 0.1rem 0.2rem;border-radius: 0.1rem;">立即激活</a>
+                <?php endif ?>
+            </p>
+        </div>
+    </div> -->
+
+    <div style="padding: 0.6rem 1rem 2rem;display: flex;">
+        <div>
+            <img style="width: 2.5rem;height: 2.5rem;" src="/public/uploads/20200211/ecdc444afb5110213f51c06421c0b9ae.png">
+        </div>
+        <div style="flex: 1;padding-left: 0.4rem;padding-top: 0.2rem;">
+            <div style="font-size: 0.8rem;color: #fff;">ID : {$user.mobile}
+                <span style="font-size: 0.4rem">({$user.is_jihuo != 1 ? '未认证' : '已认证'})</span>
+            </div>
+            <div>
+                <p style="font-size: 0.4rem;background-color: #292850;color: #cacdd2;display: inline-block;padding: 0.2rem 0.4rem;border-radius: 0.15rem;margin-top: 0.5rem;">
+                    激活状态: {$user.is_jihuo != 1 ? '未激活' : '已激活'}
+                </p>
+                <!-- <a id="jihuo" href="javascript:void(0)" style="color: #fff;font-size: 0.3rem;background-color: #ffb902;padding: 0.3rem 0.5rem;border-radius: 0.1rem;float: right;margin-top: .3rem;">立即激活</a> -->
+                <?php if ($user['is_jihuo'] != 1): ?>
+                    <a id="jihuo" href="javascript:void(0)" style="color: #fff;font-size: 0.3rem;background-color: #ffb902;padding: 0.3rem 0.5rem;border-radius: 0.1rem;float: right;margin-top: .3rem;">立即激活</a>
+                <?php endif ?>
+            </div>
+        </div>
+    </div>
+    
+    <div class="account_info" style="margin-top: -1.5rem;background-color: rgba(0,0,0,0);background-image: url(/public/images/资产背景.png);background-size: 100% 100%;background-position: center;">
+        <ul>
+            <li><a href="{:url('pig_currency')}"><h3>{$user.pig}</h3><span>WIA/趣游链</span></a></li>
+            <li><a href="{:url('doge_money')}"><h3>{$user.doge}</h3><span>DOGE/龟币</span></a></li>
+            <li><a href="{:url('blessings_log')}"><h3>{$user.pay_points}</h3><span>微分</span></a></li>
+            <li><a href="{:url('profit_log')}"><h3>{$contract_revenue}</h3><span>合约收益</span></a></li>
+            <li><a href="javascript:;"><h3>{$user_pigs}</h3><span>总资产</span></a></li>
+            <li><a href="{:url('profit')}"><h3>{$user.share_integral}</h3><span>推广收益</span></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="grid_menu2" style="margin-bottom: 0.4rem;">
+    <div class="item">
+        <a href="{:url('adopt_log')}">
+            <!-- <i class="iconfont icon-mairu"></i> -->
+            <img style="height: 1.2rem" src="/public/images/记录1.png">
+            <h3>领取记录</h3>
+        </a>
+    </div>
+    <div class="item">
+        <a href="{:url('transfer_log')}">
+            <!-- <i class="iconfont icon-maichu"></i> -->
+            <img style="height: 1.2rem" src="/public/images/记录3.png">
+            <h3>转让记录</h3>
+        </a>
+    </div>
+    <div class="item">
+        <a href="{:url('reservation_log')}">
+            <!-- <i class="iconfont icon-yiwancheng-"></i> -->
+            <img style="height: 1.2rem" src="/public/images/记录2.png">
+            <h3>预约记录</h3>
+        </a>
+    </div>
+</div>
+<div style="padding: 0.2rem 0.8rem;">
+	<ul>
+<!-- 		<li style="padding: 0.6rem 0.2rem;border-bottom: 1px solid #989898;">
+			<a href="{:url('adopt_log')}" style="color:#fff;font-size: 0.6rem;display: block;">
+				<i class="iconfont icon-mairu" style="position: relative; top: 0.02rem;"></i>
+				領養記錄
+				<span class="weui-cell__ft" style="float: right;"></span>
+			</a>
+		</li>
+		<li style="padding: 0.6rem 0.2rem;border-bottom: 1px solid #989898;">
+			<a href="{:url('transfer_log')}" style="color:#fff;font-size: 0.6rem;display: block;">
+				<i class="iconfont icon-maichu" style="position: relative; top: 0.02rem;"></i>
+				轉讓記錄
+				<span class="weui-cell__ft" style="float: right;"></span>
+			</a>
+		</li>
+		<li style="padding: 0.6rem 0.2rem;border-bottom: 1px solid #989898;">
+			<a href="{:url('reservation_log')}" style="color:#fff;font-size: 0.6rem;display: block;">
+				<i class="iconfont icon-yiwancheng-" style="position: relative; top: 0.02rem;"></i>
+				預約記錄
+				<span class="weui-cell__ft" style="float: right;"></span>
+			</a>
+		</li> -->
+		
+		<li style="padding: 0.6rem 0.2rem;border-bottom: 1px solid #989898;">
+			<a href="{:url('safety_center')}" style="color:#fff;font-size: 0.6rem;display: block;">
+				<i class="iconfont icon-anquan" style="position: relative; top: 0.02rem;"></i>
+				安全中心
+				<span class="weui-cell__ft" style="float: right;"></span>
+			</a>
+		</li>
+		<li style="padding: 0.6rem 0.2rem;border-bottom: 1px solid #989898;">
+			<a href="javascript:checkAuth();" style="color:#fff;font-size: 0.6rem;display: block;">
+				<i class="iconfont icon-z045" style="position: relative; top: 0.02rem;"></i>
+				实名认证
+				<span class="weui-cell__ft" style="float: right;"></span>
+			</a>
+		</li>
+        <li style="padding: 0.6rem 0.2rem;border-bottom: 1px solid #989898;">
+            <a href="javascript:alert('待开放');" style="color:#fff;font-size: 0.6rem;display: block;">
+                <i class="iconfont icon-payment" style="position: relative; top: 0.02rem;"></i>
+                社区商城
+                <span class="weui-cell__ft" style="float: right;"></span>
+            </a>
+        </li>
+		<li style="padding: 0.6rem 0.2rem;border-bottom: 1px solid #989898;">
+			<a href="{:url('bankcard')}" style="color:#fff;font-size: 0.6rem;display: block;">
+				<i class="iconfont icon-qia" style="position: relative; top: 0.02rem;"></i>
+				我的钱包
+				<span class="weui-cell__ft" style="float: right;"></span>
+			</a>
+		</li>
+		<li style="padding: 0.6rem 0.2rem;border-bottom: 1px solid #989898;">
+			<a href="{:url('team')}" style="color:#fff;font-size: 0.6rem;display: block;">
+				<i class="iconfont icon-tuandui" style="position: relative; top: 0.02rem;"></i>
+				我的团队
+				<span class="weui-cell__ft" style="float: right;"></span>
+			</a>
+		</li>
+		<li style="padding: 0.6rem 0.2rem;border-bottom: 1px solid #989898;">
+			<a href="javascript:checkAuthToInvit();" style="color:#fff;font-size: 0.6rem;display: block;">
+				<i class="iconfont icon-erweima" style="position: relative; top: 0.02rem;"></i>
+				邀请好友
+				<span class="weui-cell__ft" style="float: right;"></span>
+			</a>
+		</li>
+		<li style="padding: 0.6rem 0.2rem;border-bottom: 1px solid #989898;">
+			<a href="{:url('system_message')}" style="color:#fff;font-size: 0.6rem;display: block;">
+				<i class="iconfont icon-iconfontmark" style="position: relative; top: 0.02rem;"></i>
+				系統消息
+				<span class="weui-cell__ft" style="float: right;"></span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+<!--
+<div class="grid_menu2" style="margin-bottom: 0.4rem;">
+    <div class="item">
+        <a href="{:url('adopt_log')}">
+            <i class="iconfont icon-mairu"></i>
+            <h3>領養記錄</h3>
+        </a>
+    </div>
+    <div class="item">
+        <a href="{:url('transfer_log')}">
+            <i class="iconfont icon-maichu"></i>
+            <h3>轉讓記錄</h3>
+        </a>
+    </div>
+    <div class="item">
+        <a href="{:url('reservation_log')}">
+            <i class="iconfont icon-yiwancheng-"></i>
+            <h3>預約記錄</h3>
+        </a>
+    </div>
+</div>
+
+
+<div class="grid_menu" style="margin-top: 0.1rem;">
+    <div class="item">
+        <a href="{:url('safety_center')}">
+            <i class="iconfont icon-anquan c1"></i>
+            <h3>安全中心</h3>
+        </a>
+    </div>
+    <div class="item">
+        <a href="javascript:checkAuth();">
+            <i class="iconfont icon-z045 c2"></i>
+            <h3>實名認證</h3>
+        </a>
+    </div>
+    <div class="item">
+        <a href="{:url('bankcard')}">
+            <i class="iconfont icon-qia c3"></i>
+            <h3>我的錢包</h3>
+        </a>
+    </div>
+    <div class="item">
+        <a href="{:url('team')}">
+            <i class="iconfont icon-tuandui c4"></i>
+            <h3>我的團隊</h3>
+        </a>
+    </div>
+    <div class="item">
+        <a href="javascript:checkAuthToInvit();">
+            <i class="iconfont icon-erweima c3"></i>
+            <h3>邀請好友</h3>
+        </a>
+    </div>
+    <div class="item">
+        <a href="{:url('system_message')}">
+            <i class="iconfont icon-iconfontmark c2"></i>
+            <h3>系統消息</h3>
+        </a>
+    </div>
+	
+	
+</div>
+-->
+
+
+<div style="text-align:center;">
+ 
+</div>
+
+<style>
+
+    .bgfooter {
+        height: 2.13333rem;
+        background: #1E1E29;
+        position: absolute;display:none;
+
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    @media screen and (min-width: 1300px) {
+        .bgfooter {
+            height: 1.06667rem
+        }
+    }
+
+    .bgfooter ul li {
+        float: left;
+        text-align: center;
+        width: 50%
+    }
+
+    .bgfooter ul li .yello {
+        color: #46B39D
+    }
+
+    .bgfooter ul li a {
+        display: inline-block;
+        cursor: pointer;
+        color: #585858;
+    }
+
+    .bgfooter ul li a .icon {
+        margin-top: .128rem
+    }
+
+    @media screen and (min-width: 1300px) {
+        .bgfooter ul li a .icon {
+            margin-top: .04267rem
+        }
+    }
+
+    .bgfooter ul li a .icon .iconfont {
+        font-size: 1.06667rem
+    }
+
+    @media screen and (min-width: 1300px) {
+        .bgfooter ul li a .icon .iconfont {
+            font-size: .59733rem
+        }
+    }
+
+    .bgfooter ul li a .icon p {
+        font-size: .55467rem;
+        margin-top: .21333rem
+    }
+    .footer ul li{width:25%!important}
+    @media screen and (min-width: 1300px) {
+        .bgfooter ul li a .icon p {
+            font-size: .29867rem;
+            margin-top: .08533rem
+        }
+    }
+
+
+</style>
+
+<div class="foohi">
+    <div class="footer" style="position: fixed!important;">
+        <ul>
+            <li>
+                <a  href="{:url('index/index')}">
+                    <div class="icon">
+<!--                         <i class="icon-gongneng iconfont"></i>
+                        <p>猪猪集市</p> -->
+                        <img style="width: 1rem;" src="/public/images/灵宠集市1.png">
+                        <p style="color: #818287;">灵宠集市</p>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a style="color:#585858" href="{:url('service/index')}" >
+                    <div class="icon">
+<!--                         <i class="icon-yinxingqia iconfont"></i>
+                        <p>服務中心</p> -->
+                        <img style="width: 1rem;" src="/public/images/服务咨询1.png">
+                        <p style="color: #818287;">服务咨询</p>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a style="color:#585858" href="javascript:alert('待开发')" >
+                    <div class="icon">
+<!--                         <i class="icon-yinxingqia iconfont"></i>
+                        <p>服務中心</p> -->
+                        <img style="width: 1rem;" src="/public/images/c2c交易1.png">
+                        <p style="color: #818287;">c2c交易</p>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="{:url('user/index')}" class="yello">
+                    <div class="icon">
+                       <!--  <i class="icon-my iconfont"></i>
+                        <p>我的猪窩</p> -->
+                        <img style="width: 1rem;" src="/public/images/个人中心1.png">
+                        <p style="color: #fff;">个人中心</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+<script>
+    <?php if ($user['is_jihuo'] != 1): ?>
+        $('#jihuo').click(function(){
+            $.ajax({
+                url: '{:url('index/user/jihuo')}',
+                type: 'post',
+                dataType: 'json',
+                success: function(res){
+                    if(res.code != 200){
+                        layer.open({
+                            content: res.msg
+                            ,skin: 'msg'
+                            ,time: 2 //2秒后自动关闭
+                        })
+                    }else{
+                        layer.open({
+                            content: '账户已激活'
+                            ,skin: 'msg'
+                            ,time: 1 //2秒后自动关闭
+                            ,end: function(){
+                                window.location.href = window.location.href
+                            }
+                        })
+                    }
+                }
+            })
+        })                
+    <?php endif ?>
+
+    function checkAuth(){
+        local_ajax('/index/User/isAuthApi',{},'get',function (res) {
+            if(res.data.hasBank == 1){
+                if(res.data.isStatus == 1){
+                    layer.open({
+                        content: '你已经认证过了!'
+                        ,skin: 'msg'
+                        ,time: 1 //2秒后自动关闭
+                    })
+                }else if(res.data.isStatus == 0){
+                    layer.open({
+                        content: '實名審核中!'
+                        ,skin: 'msg'
+                        ,time: 1 //2秒后自动关闭
+                    })
+                }else{
+                    window.location.href="{:url('authentication')}";
+                }
+            }else{
+                layer.open({
+                    content: '請先在我的錢包中添加銀行卡!'
+                    ,skin: 'msg'
+                    ,time: 1 //2秒后自动关闭
+                })
+            }
+        });
+    }
+
+    function checkAuthToInvit(){
+        local_ajax('/index/User/isAuthApi',{},'get',function (res) {
+            if(res.data.hasBank == 1){
+                if(res.data.isAuth == 1){
+                    window.location.href="{:url('invitation')}";
+                }else if(res.data.isStatus == 0){
+                    layer.open({
+                        content: '實名審核中!'
+                        ,skin: 'msg'
+                        ,time: 1 //2秒后自动关闭
+                    })
+                }else{
+                    layer.open({
+                        content: '請先實名!'
+                        ,skin: 'msg'
+                        ,time: 1 //2秒后自动关闭
+                    })
+                }
+            }else{
+                layer.open({
+                    content: '請先實名!'
+                    ,skin: 'msg'
+                    ,time: 1 //2秒后自动关闭
+                })
+            }
+        });
+    }
+
+    var ifcanload = 0;
+    function weburlview(weburls,id)
+    {
+        if (1==1) {
+            //ifcanload = 1;
+
+            var page = plus.webview.getWebviewById(id);
+            if (page) {
+                //
+                var nwaiting = plus.nativeUI.showWaiting();//显示原生等待框
+
+
+
+
+                var curdoghomeviewurl = page.getURL();
+                if (curdoghomeviewurl == weburls) {
+                    page.reload(true);
+                    page.show();
+                    nwaiting.close();
+                    //page.show();
+                }
+                else {
+                    //page.destroy();
+                    location.href = weburls;
+                    //page.loadURL(weburls);
+                    //page.show();
+                    nwaiting.close();
+
+                }
+
+
+
+                //page.reload(true);
+                //if (id == "dogmarket")
+                //{
+                //    ajaxshowdoglist();
+                //}
+                //page.show();
+            }
+            else {
+                var nwaiting = plus.nativeUI.showWaiting();//显示原生等待框
+                var webview = plus.webview.create(weburls, id, { statusbar: { background: '#272834' } });//后台创建webview并打开show.html
+                webview.addEventListener("loaded", function () { //注册新webview的载入完成事件
+                    nwaiting.close(); //新webview的载入完毕后关闭等待框
+                    //ifcanload = 0;
+                    webview.show();//把新webview窗体显示出来，显示动画效果为速度150毫秒的右侧移入动画
+                }, false);
+            }
+        }
+        else
+        {
+
+        }
+
+
+    }
+
+</script>
+
+</body>
+</html>

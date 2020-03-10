@@ -1,0 +1,98 @@
+{extend name="base" /}
+{block name="body"}
+<style type="text/css">
+    .right-arrow {
+        position: absolute;
+        width: 64px;
+        margin-top: -0.2rem;
+        right: 20px;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 18px;
+        background-color: #009688;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+    .right-arrow:hover{
+        color: #000;
+    }
+</style>
+
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+
+            <li class="layui-this">银行卡详情</li>
+            <a href="javascript:history.go(-1)" class="right-arrow">返回</a>
+
+        </ul>
+
+        <div class="layui-tab-content">
+            {volist name="user_payment" id="v"}
+            <div class="layui-tab-item layui-show">
+                <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+                    <legend>
+                        {switch name="v.type"}
+                        {case value="1"}支付宝{/case}
+                        {case value="2"}微信{/case}
+                        {case value="3"}银行卡{/case}
+                        {/switch}
+                    </legend>
+                </fieldset>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">收款人</label>
+                    <div class="layui-input-block">
+                        <input type="text" disabled class="layui-input" value="{$v.name}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">账号</label>
+                    <div class="layui-input-block">
+                        <input type="text" disabled class="layui-input" value="{$v.account}">
+                    </div>
+                </div>
+                {if condition="$v.type neq 3"}
+                <div class="layui-form-item">
+                    <label class="layui-form-label">收款码</label>
+                    <div class="layui-input-block">
+                        <img src="{$v.qrcode_url}" id="thumb2" >
+                    </div>
+                </div>
+                {else/}
+                <div class="layui-form-item">
+                    <label class="layui-form-label">开户行{$v.bank_name}</label>
+                    <div class="layui-input-block">
+                        <input type="text" disabled class="layui-input" value="{$v.bank_name}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">支行</label>
+                    <div class="layui-input-block">
+                        <input type="text" disabled class="layui-input" value="{$v.branch_name}">
+                    </div>
+                </div>
+                {/if}
+            </div>
+            {/volist}
+        </div>
+
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script src="__JS__/ueditor/ueditor.config.js"></script>
+<script src="__JS__/ueditor/ueditor.all.min.js"></script>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('editrecharge')}");
+
+</script>
+{/block}

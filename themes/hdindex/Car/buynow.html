@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>结算</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/mui.css"/>
+    <link rel="stylesheet" href="__CSS__/daohang.css" />
+    <link rel="stylesheet" href="__CSS__/style.css" />
+    <style type="text/css">
+        .box{
+            width: 100%;
+            height: auto;
+            float: left;
+        }
+        .content_dizhi{
+            width: 100%;
+            height: 60px;
+            background: #fff;
+            margin-top: 2px;
+        }
+        .dizhi_l{
+            width: 90%;
+            height: 60px;
+            float: left;
+        }
+        .dizhi_l p{
+            margin: 0;
+            margin-top: 5px;
+            padding: 0 10px;
+            color: #333;
+        }
+        .dizhi_r{
+            width: 10%;
+            height: 60px;
+            float: left;
+            text-align: center;
+            line-height: 60px;
+        }
+        .mui-icon-arrowright{
+            margin-top: 15px;
+            color: #666;
+        }
+        .tiao{
+            width: 100%;
+            height: 5px;
+            background: url(__IMG__/js02.jpg);
+            float: left;
+            background-size: 100% 100%;
+        }
+        .shangpin{
+            width: 100%;
+            height: 100px;
+            background: #fff;
+            float: left;
+            margin-top: 2px;
+        }
+        .shangpin_l{
+            width: 30%;
+            height: 90px;
+            margin-top: 5px;
+            border-right: 1px solid #eee;
+            text-align: center;
+        }
+        .shangpin_l img{
+            width: 80px;
+            height: 80px;
+        }
+        .shangpin_r{
+            width: 70%;
+            height: 90px;
+        }
+        .shangpin_r p{
+            margin: 0;
+            margin-top: 5px;
+        }
+        .kd{
+            width: 100%;
+            height: 40px;
+            background: #fff;
+            float: left;
+            margin-top: 3px;
+            line-height: 40px;
+            padding: 0 10px 0 10px;
+            font-size: .85em;
+        }
+        .jiage{
+            width: 100%;
+            height: 230px;
+            float: left;
+            margin-top: 5px;
+            float: left;
+            background: #fff;
+        }
+        .jiage p{
+            width: 100%;
+            float: left;
+            padding: 0 10px 0 10px;
+        }
+        .bz{
+            width: 100%;
+            height: 40px;
+            float: left;
+            background: #fff;
+            margin-top: 5px;    
+        }
+        .bz span{
+            display: inline-block;
+            width: 25%;
+            text-align: center;
+            float: left;
+            line-height: 40px;
+            font-size: .85em;
+        }
+        .bz input{
+            width: 75%;
+            height: 40px;
+            float: left;
+            border: none;
+            font-size: .85em;
+        }
+        .dibu{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+            width: 100%;
+            height: 40px;
+        }
+        .dibu_l{
+            width: 75%;
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            font-size: .85em;
+        }
+        .dibu_l span{
+            color: #666;
+        }
+        .dibu_r{
+            width: 25%;
+            float: right;
+            height: 40px;
+        }
+        .dibu_r button{
+            width: 100%;
+            height: 40px;
+            border: none;
+            color: #fff;
+            background: #4db927;
+            border-radius: 1px;
+        }
+    </style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">结算</h1>
+    </header>
+    <div class="mui-content">
+        <div class="box">
+            <div class="content_dizhi">
+                {notempty name='address'}
+                <div class="dizhi_l">
+                    <p style="color: #313233;font-size: 1em;">
+                        <span>{$address.contect_name}</span><span>{$address.contect_tel}</span>
+                    </p>
+                    <p style="color: #bfbebe;">{:getAreaTitle($address.province)}
+                        {:getAreaTitle($address.city)}{:getAreaTitle($address.area)}{$address.address}
+                    </p>
+                </div>
+                {/notempty}
+                {empty name='address'}
+                <div class="dizhi_l" style='line-height: 60px;text-align: center;'>
+                    <span style='line-height: 60px;text-align: center;'>请先填写收货地址</span>
+                </div>
+                {/empty}
+                <div class="dizhi_r">
+                    <a href="{:url('address/index')}" class="mui-icon mui-icon-arrowright mui-pull-right"></a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="tiao"></div>
+        <div class="shangpin">
+            <div class="shangpin_l mui-pull-left">
+                <img src="{$product_info.img}"/>
+            </div>
+            <div class="shangpin_r mui-pull-left">
+                <p style="color: #333;margin-top: 10px;">
+                    <b>{$product_info.title}</b>
+                </p>
+                <p>
+                    <span>￥{$product_info.price}</span>
+                    <del>市场价：{$product_info.market_price}</del>
+                </p>
+                <p>
+                    <span>{$num} 件</span>
+                </p>
+            </div>
+        </div>
+        <div class="kd">
+            <span>配送方式</span>
+            <a href="" class="mui-icon mui-icon-arrowright mui-pull-right" style="margin-top: 7px;"></a>
+            <span class="mui-pull-right">快递</span>
+        </div>
+        <div class="jiage">
+            <p style="margin-top: 15px;">
+                <span class="mui-pull-left">推广积分</span>
+                <span class="mui-pull-right">￥{$share_integral}</span>
+            </p>
+
+            <p style="margin-top: 15px;">
+                <span class="mui-pull-left">余额</span>
+                <span class="mui-pull-right">￥{$sta_balance}</span>
+            </p>
+
+            <p style="margin-top: 15px;">
+                <span class="mui-pull-left">可用余额</span>
+                <span class="mui-pull-right">￥{$dym_balance}</span>
+            </p>
+
+            <p style="margin-top: 15px;">
+                <span class="mui-pull-left">现金</span>
+                <span class="mui-pull-right" id="cash">{$cash}</span>
+            </p>
+
+            <p>
+                <span class="mui-pull-left">总计</span>
+                <span class="mui-pull-right">￥{$amount}</span>
+            </p>
+        </div>
+
+        <div class="bz">
+            <span>备注</span>
+            <input type="text" name='info' placeholder="请留言" value=''/>
+        </div>
+        <div class="dibu">
+            <div class="dibu_l">
+                <span>总金额：<b style="color: #4db927;">￥{$amount}</b></span>
+            </div>
+            <div class="dibu_r">
+                <button class="pay" type="submit">支付</button>
+            </div>
+        </div>
+        <iframe name="showZip" frameborder="0"></iframe>
+    </div>
+    <script src="__JS__/jquery-3.1.0.min.js"></script>
+    <script src="/public/static/Admin/js/layui/lay/dest/layui.all.js"></script>
+    <script src="__JS__/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init()
+    </script>
+    <script type="text/javascript">
+    $('.pay').click(function(){
+        var info=$("input[name='info']").val();
+        var cash = $('#cash').text();
+        // if (cash>0) {
+        //     $.post('',{'info':info},function(res){
+        //         console.log(res);
+        //         // if(res.code){
+        //         //     layer.msg(res.msg,{time:1500},function(){
+        //         //         location.href=res.url;
+        //         //     })
+        //         // }else{
+        //         //     layer.msg(res.msg);
+        //         // }
+        //         const div = document.createElement('div');
+        //         div.innerHTML = res; // html code
+        //         document.body.appendChild(div);
+        //         document.forms.alipaysubmit.setAttribute('target', 'showZip');
+        //         document.forms.alipaysubmit.submit();
+        //     },'html');
+        // } else {
+        //
+        // }
+        $.post('',{'info':info},function(res){
+            console.log(res);
+            if(res.code){
+                console.log(res.url)
+                layer.msg(res.msg,{time:1500},function(){
+                    location.href=res.url;
+
+                })
+            }else{
+                layer.msg(res.msg);
+            }
+        },'json');
+
+    })
+    </script>
+</body>
+</html>
+

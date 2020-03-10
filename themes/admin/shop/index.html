@@ -1,0 +1,109 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">商品管理</li>
+            <li class=""><a href="{:url('editProduct')}">添加商品</a></li>
+        </ul>
+        <div class="layui-tab-content">
+
+            <form class="layui-form layui-form-pane" action="{:url('index')}" method="post">
+                <div class="layui-inline">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <select name="status">
+                            <option value="">全部</option>
+                            <option value="0">已下架</option>
+                            <option value="3">已上架</option>
+                        </select>
+                    </div>
+                </div>
+                <!--<div class="layui-inline">-->
+                    <!--<label class="layui-form-label">购买类型</label>-->
+                    <!--<div class="layui-input-inline">-->
+                        <!--<select name="type">-->
+                            <!--<option value="">全部</option>-->
+                            <!--<option value="1">消费积分</option>-->
+                            <!--<option value="2">签到积分</option>-->
+                            <!--<option value="3">重消积分</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="layui-inline">
+                    <label class="layui-form-label">关键词</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="keyword" value="" placeholder="请输入关键词" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn">搜索</button>
+                </div>
+            </form>
+            <hr>
+
+            <form action="" method="post" class="ajax-form">
+                <button type="button" class="layui-btn layui-btn-small ajax-action" data-action="{:url('setStatus',['status'=>'3'])}">上架</button>
+                <button type="button" class="layui-btn layui-btn-warm layui-btn-small ajax-action" data-action="{:url('setStatus',['status'=>'0'])}">下架</button>
+                <button type="button" class="layui-btn layui-btn-danger layui-btn-small ajax-action" data-action="{:url('delProduct')}">删除</button>
+                <div class="layui-tab-item layui-show">
+                    <table class="layui-table">
+                        <thead>
+                        <tr>
+                            <th style="width: 15px;"><input type="checkbox" class="check-all"></th>
+                            <th style="width: 30px;">ID</th>
+                            <th>商品名称</th>
+                            <th>序号</th>
+                            <th>封面</th>
+                            <th>价格</th>
+                            <th>库存</th>
+                            <th>类型</th>
+                            <th>状态</th>
+                            <th>发布时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="list" item="vo"}
+                        <tr>
+                            <td><input type="checkbox" name="ids[]" value="{$vo.id}"></td>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.title}</td>
+                            <td>{$vo.sort}</td>
+                            <td><img src="{$vo.img}" style="width: 60px;height: 40px"></td>
+                            <td>{$vo.price}</td>
+                            <td>{$vo.num}</td>
+                            <td>
+                                {eq name='vo.type' value='1'}5倍积分{/eq}
+                                {eq name='vo.type' value='2'}1倍积分{/eq}
+                            </td>
+                            <td>
+                                {eq name='vo.status' value='3'}<span class="layui-btn layui-btn-normal layui-btn-mini">上架中</span>{/eq}
+                                {eq name='vo.status' value='0'}<span class="layui-btn layui-btn-danger layui-btn-mini">已下架</span>{/eq}
+                            </td>
+                            <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
+                            <td>
+                                <a href="{:url('editProduct',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+                                <a href="{:url('delProduct',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                            </td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                    <!--分页-->
+                    {$list->render()}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+
+    var type = ''
+
+</script>
+{/block}

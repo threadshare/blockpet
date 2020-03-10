@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+
+    <title>修改用户名</title>
+  </head>
+  <body>
+    <div class="page seting">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">修改用户名</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="weui-cells">
+            <div class="weui-cell alterBox">
+                <div class="weui-cell__bd">
+                    <input class="weui-input fs28 fw_b color_3 nickname" type="text"  placeholder="请输入用户名" value="{$user.nickname}">
+                  </div>
+              <div class="weui-cell__ft closeBox"><img src="/public/static/index/assets/images/close_icon.png" alt=""></div>
+            </div>
+  
+          </div>
+        <div class="butBox"><div class="but">完成</div></div>
+      </div>
+    </div>
+    <script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+    <script>
+    $(function(){
+      $('.weui-cell__ft').on('click',function(){
+          $('.weui-cell__bd input').val('')
+          $('.weui-cell__bd input').focus()
+      })
+    })
+   // var user_info = JSON.parse(sessionStorage.getItem('user_info'));
+    //console.log(user_info)
+    // if (user_info) {
+    //   $('.nickname').val(user_info.nickname);
+    // }
+    $('.but').click(function(){
+      var url = '/index/user/set_nickname';
+      var type = 'post';
+      var nickname = $('.nickname').val();
+      __ajax(url,{nickname:nickname},type,function(data){
+        if (data.code == 1) {
+              layer.open({
+              content: data.msg
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+            });
+
+          window.setTimeout(function(){
+            window.location.href = data.url
+          },1000);
+        } else {
+            layer.open({
+              content: data.msg
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+            });
+        }
+      })
+    })
+    </script>
+  </body>
+</html>

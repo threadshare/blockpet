@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+<style>
+        /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+</style>
+    <title>我的宠物</title>
+  </head>
+  <body>
+  <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: 0px;
+    top: 10px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page service">
+      
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="top fs34 fw_b">服务中心</div>
+        <div class="butt">
+          <a href="help_center.html">
+            <img src="/public/static/index/assets/images/service01.png" alt="">
+            <span class="fs24 fw_b">帮助中心</span>
+          </a>
+          <a href="call_center.html">
+              <img src="/public/static/index/assets/images/service02.png" alt="">
+              <span class="fs24 fw_b">线上客服</span>
+          </a>
+        </div> 
+      </div>
+      <div class="bottom-tabbar-wrapper">
+  <div class="bottom-tabbar">
+    <a href="{:url('Index/index')}" class="bottom-tabbar__item ">
+        <span class="icon">
+            <img src="/public/static/index/assets/images/bottom_icon01.png"/>
+            <img class="lhimg" src="/public/static/index/assets/images/bottom_icon01_lh.png"/>
+        </span>
+      <p class="label">宠物集市</p>
+    </a>
+    <a href="" class="bottom-tabbar__item active">
+      <span class="icon">
+          <img src="/public/static/index/assets/images/bottom_icon02.png"/>
+          <img class="lhimg" src="/public/static/index/assets/images/bottom_icon02_lh.png"/>
+      </span>
+    <p class="label">服务中心</p>
+  </a>
+    <a href="{:url('User/index')}" class="bottom-tabbar__item ">
+        <span class="icon">
+            <img src="/public/static/index/assets/images/bottom_icon03.png"/>
+            <img class="lhimg" src="/public/static/index/assets/images/bottom_icon03_lh.png"/>
+        </span>
+      <p class="label">我的宠物</p>
+    </a>
+  </div>
+</div>
+    </div>
+
+    <script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+    <script>
+    </script>
+      <script type="text/javascript">
+   /*  function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,ja,ko,zh-CN,zh-TW', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+    }
+    var googleUrl = '__PUBLIC__/static/js/google_translate/';
+
+   $(function(){
+       $.getScript("https://translate.google.cn/translate_a/element.js?cb=googleTranslateElementInit");
+      //$.getScript(googleUrl+"element.js?cb=googleTranslateElementInit"); 
+      //$.getScript("/public/static/index/assets/js/google_translate/element.js?cb=googleTranslateElementInit"); 
+      
+    });
+    $(document).on('click','.goog-te-combo',function(){
+        $(this).html('<option value="">Choose a language</option><option value="zh-CN">Chinese (Simplified)</option><option value="ko">Korean</option><option value="ja">Japanese</option><option value="zh-TW">traditional (Chinese)</option>');
+    });*/
+ 
+  </script>
+  </body>
+</html>

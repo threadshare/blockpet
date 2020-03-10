@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+
+    <title>邀请好友</title>
+  </head>
+  <style type="text/css">
+    img{
+      margin: 0 auto;
+      width: 100%;
+    }
+  </style>
+  <style>
+              /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+ </style>
+  <body>
+    <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: -25px;
+    top: 8px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page appoint">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">分享</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="weui-cells" class="width:100%">
+            <img src="{$codeurl}" alt="">
+        </div>
+
+       <div style="text-align: center;font-size: 0.213333rem;" class="btn" link-url="{$url}">点我复制分享链接</div>
+       <div style="text-align: center;font-size: 0.213333rem;"><a href="" target="_blank" class="img_url">点我保存图片</a></div> 
+      </div>
+    </div>
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script src="/public/static/index/assets/js/clipboard.min.js"></script>
+
+<script>
+    // $(function() {
+    //     FastClick.attach(document.body);
+    //       var url = '/api/user/share_image';
+    //       var type = 'get';
+    //       __ajax(url,{},type,function(data){
+    //         console.log(data.data)
+    //         if (data.status == 200) {
+    //           console.log(data.data)
+    //           window.url = data.data.url;
+    //           $('.img_url').attr('href', data.data.img_url);
+    //           var str = '';
+    //           str += '<img src="'+data.data.img_url+'" alt="" >';
+    //           $('.weui-cells').append(str);
+    //         }
+    //       })
+    // });
+
+</script>
+<script type="text/javascript">
+  var clipboard = new ClipboardJS('.btn', {
+        text: function() {
+            return window.url;
+        }
+    });
+
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+</script>
+<style type="text/css">
+  .fs30{
+    padding-bottom: 20px
+  }
+</style>
+    
+  </body>
+</html>

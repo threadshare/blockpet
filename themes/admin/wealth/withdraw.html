@@ -1,0 +1,81 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">提现管理</li>
+        </ul>
+        <div class="layui-tab-content">
+
+            <form class="layui-form layui-form-pane" action="{:url('withdraw')}" method="get">
+                <div class="layui-inline">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <select name="status">
+                            <option value="">全部</option>
+                            <option value="1">待处理</option>
+                            <option value="2">已处理</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn">搜索</button>
+                </div>
+            </form>
+            <hr>
+
+            <form action="" method="post" class="ajax-form">
+                <div class="layui-tab-item layui-show">
+                    <table class="layui-table">
+                        <thead>
+                        <tr>
+                            <th>会员ID</th>
+                            <th>提现金额</th>
+                            <th>实付金额</th>
+                            <th>手续费</th>
+                            <th>账户姓名</th>
+                            <th>账户账号</th>
+                            <th>账户类型</th>
+                            <th>提现时间</th>
+                            <th>处理时间</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="list" item="vo"}
+                        <tr>
+                            <td>{$vo.uid}</td>
+                            <td>{$vo.money}</td>
+                            <td>{$vo.real_money}</td>
+                            <td>{$vo.sxf}</td>
+                            <td>{$vo.account_name}</td>
+                            <td>{$vo.account}</td>
+                            <td><span class="layui-btn layui-btn-mini">{$vo.type}</span></td>
+                            <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
+                            <td>{$vo.over_time|date='Y-m-d H:i:s',###}</td>
+                            <td>
+                            {eq name='vo.status' value='2'}<span class="layui-btn layui-btn-normal layui-btn-mini">已处理</span>{/eq}
+                            {eq name='vo.status' value='1'}<span class="layui-btn layui-btn-danger layui-btn-mini">待处理</span>{/eq}
+                            </td>
+                            <td>
+                                {eq name='vo.status' value='1'}<a data-action="{:url('setWithdraw',['id'=>$vo['id']])}" class="layui-btn layui-btn-mini ajax-action">处理</a>{/eq}
+                            </td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                    <!--分页-->
+                    {$list->render()}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('withdraw')}");
+</script>
+{/block}

@@ -1,0 +1,102 @@
+{extend name="base" /}
+{block name="body"}
+<style type="text/css">
+    .right-arrow {
+        position: absolute;
+        width: 64px;
+        margin-top: -0.2rem;
+        right: 20px;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 18px;
+        background-color: #009688;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+    .right-arrow:hover{
+        color: #000;
+    }
+</style>
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">指定ID</li>
+            <a href="javascript:history.go(-1)" class="right-arrow">返回</a>
+
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form layui-form-pane" action="{:url('admin/Task/pointId')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">指定ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="uid" id="selectId" value="{$pigInfo.point_id}" required  lay-verify="required" placeholder="请输入用户ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <input type="hidden" name="id" value="{$pigInfo.id}">
+                    <hr>
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>预约账户</th>
+                                <th>会员等级</th>
+                                <th>微分</th>
+                                <th>状态</th>
+                                <th>预约时间</th>
+                                <th>注册IP</th>
+                                <th>操作</th>
+
+                            </tr>
+                            </thead>
+                            {foreach name="user_list" item="vo"}
+                            <tbody>
+                            <tr>
+                                <td>{$vo.id}</td>
+                                <td>{$vo.mobile}</td>
+                                <td>{switch name="vo.ulevel"}
+                                    {case value="1"}会员{/case}
+                                    {case value="2"}初级合伙人{/case}
+                                    {case value="3"}中级合伙人{/case}
+                                    {case value="4"}高级合伙人{/case}
+                                    {default/}注册会员
+                                    {/switch}</td>
+                                <td>{$vo.pay_points}</td>
+                                <td>{$vo.status ? '正常' : '冻结'}</td>
+                                <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
+                                <td>{$vo.reg_ip}</td>
+                                <td><a href="#" class="layui-btn select" value="{$vo.id}">指定</a></td>
+                            </tr>
+                            </tbody>
+                            {/foreach}
+                        </table>
+                        <!--分页-->
+                        {$user_list->render()}
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('siteConfig')}");
+    $('.select').click(function(){
+        $('#selectId').val($(this).attr("value"));
+    });
+</script>
+{/block}

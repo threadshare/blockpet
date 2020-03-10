@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="noarchive">
+    <!-- 屏蔽-->
+    <title>SLGS</title>
+    <meta name="keywords" content=" " />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="IE=9; IE=EDGE" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="/public/static/Index/com/sm.css">
+    <script src="/public/static/Index/js/jquery-1.10.2.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/assets/f2/3.3.8/f2.min.js"></script>
+    <!--<script type='text/javascript' src='/public/static/Index/js/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='/public/static/Index/js/sm.js' charset='utf-8'></script>-->
+    <!--如果你用到了拓展包中的组件，还需要引用下面两个-->
+    <link rel="stylesheet" href="/public/static/Index/com/sm-extend.css">
+    <!--    <script type='text/javascript' src='/public/static/Index/js/sm-extend.js' charset='utf-8'></script>-->
+
+    <!--图标-->
+    <link rel="stylesheet" href="/public/static/Index/com/fonts/iconfont.css">
+    <!--自定义-->
+
+    <link rel="stylesheet" href="/public/static/Index/com/main.css">
+    <link rel="stylesheet" href="/public/static/Index/com/order.css">
+</head>
+
+<body>
+
+    <!-- 标题栏 -->
+    <header class="bar bar-nav">
+
+        <a style="position: absolute;z-index: 19;width: 94%;text-align: center;display: inline-block;line-height: 50px;font-size: 1.1rem; color:#FFF;">交易平台</a>
+        <!-- <div class="logo">
+            <a id="cancle" href="javascript:history.go(-1)"><i class="icon icon-left"></i></a> 
+        </div> -->
+        <a class="icon pull-right open-panel"></a>
+    </header>
+    <nav class="foot-bar">
+        <div class="foot-menu"><a href="{:url('Index/index')}">
+            <i class="iconfont icon-shouye"></i><span>首页</span></a></div>
+    <div class="foot-menu"><a onclick="alert('暂未开放！')">
+            <i class="iconfont icon-wxbmingxingdianpu"></i><span>商城</span></a></div>
+    <div class="foot-menu"><a href="{:url('User/index')}">
+            <i class="iconfont icon-gouwuche"></i><span>我的团队</span></a></div>
+    <div class="foot-menu"><a href="">
+            <i class="iconfont icon-wxbdingwei"></i><span>交易平台</span></a></div>
+    <div class="foot-menu"><a href="{:url('User/index')}">
+            <i class="iconfont icon-geren"></i><span>会员中心</span></a></div>
+    </nav>
+
+    <div class="content" id="main_content">
+
+    
+      
+     <div class="buttons-tab">
+            <a href="" class="active button">交易大厅</a>
+            <a href="{:url('buy')}" class=" button">买入果实</a>
+            <a href="{:url('sell')}" class=" button">卖出果实</a>
+
+        </div>
+
+        <!--表格开始-->
+        <div class="tabs"><br />
+
+            <h4 style="color: #333333; font-size:18px;display: inline-block">交易大厅-等待买入列表 </h4>
+            <div class="page-refresh button button-fill button-warning" style="display: inline-block;margin-right: 2px">刷新</div>
+            <hr color="#333333" size=1>
+            <div class="chart-wrapper">
+                <div style="text-align: right;font-size: 8px;">求购总量：{$buyNum}</div>
+                <canvas id="mountNode"></canvas>
+            </div>
+            <!-- <form id="form2" name="form2" method="get" action="./jy.html">
+	   <label>
+	     编号:<input name="p_user" type="text" size="11" maxlength="11" />
+	     <input type="submit" name="Submit2"  value="搜索" />
+      </label>
+    </form>
+            <!--<input  type="button"  name="Submit" onClick="javascript:location='./jy.htmlpx/0/';" style="font-size:16px;" value="按单价排序"> <input  type="button" name="Submit" style="font-size:16px;"  onClick="javascript:location='./jy.htmlpx/1/';" value="按时间排序">-->
+            <div class="card">
+
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" id="table-5">
+                    <thead>
+                        <tr>
+                            <th align="center">
+                                <div align="center">买入果实数量</div>
+                            </th>
+                            <th align="center">
+                                <div align="center">单价/元</div>
+                            </th>
+                            <th align="center">
+                                <div align="center">合计金额/元</div>
+                            </th>
+                            <th align="center">
+                                <div align="center">操作</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tr style="display:none;" id="yzmxs_tr6217770">
+                        <td colspan="4" align="center">
+                            <div id="yzmxs_div6217770" style="color:#FF0000;" align="right">
+
+
+                            </div>
+                        </td>
+                    </tr>
+                    {volist name="list" id="v"}
+                    <tr>
+                        <td align="center">{$v.num}</td>
+                        <td align="center">￥{$cprice}</td>
+                        <td align="center">￥{$v.num*$cprice}</td>
+                        <td align="center"><input type="button" order-id ="{$v.id}" class="button button-fill button-warning sell-btn" style="width:80px;font-size:16px;"
+                                name="Submit"
+                                value="卖给TA"></td>
+                    </tr>
+                    {/volist}
+                    <tr style="display:none;" id="yzmxs_tr6217771">
+                        <td colspan="4" align="center">
+                            <div id="yzmxs_div6217771" style="color:#FF0000;" align="right">
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="list_bottom" class="list-bottom">
+            <div align="right" class="pages"> </div>
+        </div>
+
+        <!--表格结束-->
+
+    </div>
+
+    </div>
+    
+</body>
+<script src="/public/static/Admin/js/layui/lay/dest/layui.all.js"></script>
+ <script>
+     var page=parseInt("{$Request.param.page}");
+     console.log(page)
+     var last_page=parseInt("{$last_page}");
+
+     if(!page){page=1;}
+     //alert(page)
+     //下一页
+     $(".page-refresh").click(function() {
+         page=page+1;
+         console.log(page)
+         console.log(last_page)
+         if(page>=last_page){page=0;}
+         console.log(page)
+         var url="{:url('index')}?page="+page;
+         location.href=url;
+     });
+  //   var data = [{
+  //   date: "2017-06-05",
+  //   value: 116
+  // }, {
+  //   date: "2017-06-06",
+  //   value: 129
+  // }, {
+  //   date: "2017-06-07",
+  //   value: 135
+  // }, {
+  //   date: "2017-06-08",
+  //   value: 86
+  // }, {
+  //   date: "2017-06-09",
+  //   value: 73
+  // }, {
+  //   date: "2017-06-10",
+  //   value: 85
+  // }, {
+  //   date: "2017-06-11",
+  //   value: 73
+  // }, {
+  //   date: "2017-06-12",
+  //   value: 68
+  // }, {
+  //   date: "2017-06-13",
+  //   value: 92
+  // }, {
+  //   date: "2017-06-14",
+  //   value: 130
+  // }, {
+  //   date: "2017-06-15",
+  //   value: 245
+  // }, {
+  //   date: "2017-06-16",
+  //   value: 139
+  // }, {
+  //   date: "2017-06-17",
+  //   value: 115
+  // }, {
+  //   date: "2017-06-18",
+  //   value: 111
+  // }, {
+  //   date: "2017-06-19",
+  //   value: 309
+  // }, {
+  //   date: "2017-06-20",
+  //   value: 206
+  // }, {
+  //   date: "2017-06-21",
+  //   value: 137
+  // }, {
+  //   date: "2017-06-22",
+  //   value: 128
+  // }, {
+  //   date: "2017-06-23",
+  //   value: 85
+  // }, {
+  //   date: "2017-06-24",
+  //   value: 94
+  // }, {
+  //   date: "2017-06-25",
+  //   value: 71
+  // }, {
+  //   date: "2017-06-26",
+  //   value: 106
+  // }, {
+  //   date: "2017-06-27",
+  //   value: 84
+  // }, {
+  //   date: "2017-06-28",
+  //   value: 93
+  // }, {
+  //   date: "2017-06-29",
+  //   value: 85
+  // }, {
+  //   date: "2017-06-30",
+  //   value: 73
+  // }, {
+  //   date: "2017-07-01",
+  //   value: 83
+  // }, {
+  //   date: "2017-07-02",
+  //   value: 125
+  // }, {
+  //   date: "2017-07-03",
+  //   value: 107
+  // }, {
+  //   date: "2017-07-04",
+  //   value: 82
+  // }, {
+  //   date: "2017-07-05",
+  //   value: 44
+  // }, {
+  //   date: "2017-07-06",
+  //   value: 72
+  // }, {
+  //   date: "2017-07-07",
+  //   value: 106
+  // }, {
+  //   date: "2017-07-08",
+  //   value: 107
+  // }, {
+  //   date: "2017-07-09",
+  //   value: 66
+  // }];
+  var data = {:json_encode($priceArr)};
+  console.log(data);
+  var chart = new F2.Chart({
+    id: 'mountNode',
+    width:370,
+    pixelRatio: window.devicePixelRatio
+  });
+
+  chart.source(data, {
+    value: {
+      tickCount: 5,
+      min: 0
+    },
+    date: {
+      type: 'timeCat',
+      range: [0, 1],
+      tickCount: 3
+    }
+  });
+  chart.tooltip({
+    custom: true,
+    showXTip: true,
+    showYTip: true,
+    snap: true,
+    crosshairsType: 'xy',
+    crosshairsStyle: {
+      lineDash: [2]
+    }
+  });
+  chart.axis('date', {
+    label: function label(text, index, total) {
+      var textCfg = {};
+      if (index === 0) {
+        textCfg.textAlign = 'left';
+      } else if (index === total - 1) {
+        textCfg.textAlign = 'right';
+      }
+      return textCfg;
+    }
+  });
+  chart.line().position('date*value');
+  chart.render();
+
+  //匹配买入
+     $('.sell-btn').click(function () {
+         var order_id = $(this).attr('order-id')
+         // //alert(order_id);
+         // $.post('sellMoney',{id:order_id},function (data) {
+         //     alert(data.msg);
+         //     if (data.code==1) {
+         //         location.href = data.url
+         //     }
+         // })
+         layer.open({
+             id:1,
+             type: 1,
+             title:'请输入二级密码',
+             skin:'layui-layer-rim',
+             area:['80%', 'auto'],
+
+             content: ' <div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">'
+             +'<div class="col-sm-12">'
+             +'<div class="input-group">'
+             +'<span class="input-group-addon"> 二级 密 码   :</span>'
+             +'<input id="firstpwd" type="password" class="form-control" placeholder="请输入二级密码">'
+             +'</div>'
+             +'</div>'
+             +'</div>'
+             ,
+             btn:['确定','取消'],
+             btn1: function (index,layero) {
+
+                 var pwd_trade = $('#firstpwd').val();
+                 //layer.msg(pwd_trade)
+                 $.post('sellMoney',{id:order_id,pwd_trade:pwd_trade},function (data) {
+                     alert(data.msg);
+                     if (data.code==1) {
+                         location.href = data.url
+                     }
+                 })
+             },
+             btn2:function (index,layero) {
+                 layer.close(index);
+             }
+
+         });
+     })
+ </script>
+</html>

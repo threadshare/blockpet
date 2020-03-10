@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/hdindex/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/hdindex/assets/css/all_black.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+<style>
+              /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+ </style>
+    <title>修改二级密码</title>
+  </head>
+  <style type="text/css">
+  .send{
+      height: 2.5em;
+      text-decoration:none;
+      line-height: 2.5em;
+      padding:0px 3px;
+      background: #f8584f;
+      color: #fff;
+      text-align: center;
+      display: block;
+      float: right;
+      border-radius:5px;
+  }
+</style>
+  <body>
+    <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: -25px;
+    top: 8px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page verify">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">修改二级密码</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="fromBox">
+        
+          <div class="weui-cells__title color_3 fw_b fs28">验证码</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b code" type="text" placeholder="请输入验证码" />
+                </div>
+                <button  class="send"  id="btnSendCode" onclick="sendMessage()" >获取验证</button></p>
+              </div>
+            </div>
+            <div class="weui-cells__title fs28 color_3 fw_b">新密码</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b new_password" type="password" placeholder="请输入新的二级密码" />
+                </div>
+                <div class="weui-cell__ft ereImg"><img src="/public/static/index/assets/images/ere_no.png" data-ere="no" alt=""></div>
+              </div>
+            </div>
+            <div class="weui-cells__title fs28 color_3 fw_b">确认密码</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b confirm_password" type="password"  placeholder="请再次输入新的二级密码"/>
+                </div>
+                <div class="weui-cell__ft ereImg"><img src="/public/static/index/assets/images/ere_no.png" data-ere="no" alt=""></div>
+              </div>
+            </div>
+        </div>
+
+        <div class="butBox"><div class="but">提交</div></div>
+
+      </div>
+    </div>
+    <script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    // var url = '/api/User/index';
+    //   var mehod = 'post';
+    //   __ajax(url,{},mehod,function(data){
+    //     window.mobile = data.data.mobile
+    //   });
+      var mobile = "{$user.mobile}"
+    //console.log(mobile)
+      var InterValObj; 
+      var count = 60;
+      var curCount;
+      function sendMessage() {
+      curCount = count;  
+      // console.log(mobile);return;
+      var url       = '/index/Login/smsCode'
+      var data      = {}
+      var mehod = 'post';
+      data.mobile   = mobile;
+      data.scene   = 5;
+      __ajax(url,data,mehod,function(data){
+          if (data.code == 1) {
+              layer.open({
+                  content: data.msg,
+                  skin: 'msg',
+                  time: 3 //2秒后自动关闭
+              });
+              InterValObj = window.setInterval(SetRemainTime, 1000);
+          }else{
+              layer.open({
+                  content: data.msg,
+                  skin: 'msg',
+                  time: 3 //2秒后自动关闭
+              });
+              $("#btnSendCode").attr("disabled", "true");
+          }
+      })
+    }  
+  //timer处理函数  
+  function SetRemainTime() {
+      if (curCount <= 0) {
+          window.clearInterval(InterValObj);//停止计时器
+          $("#btnSendCode").removeAttr("disabled");//启用按钮  
+          $("#btnSendCode").html("发送验证码");
+      }  
+      else {  
+          curCount--;  
+          $("#btnSendCode").html(curCount + "秒重新发送");  
+      }
+  }
+    $('.but').click(function(){
+      var url   = '/index/User/set_paypwd';
+      var mehod = 'post';
+      var data  = {};
+      data.mobile = window.mobile;
+      data.code   = $('.code').val();
+      data.new_password  = $('.new_password').val();
+      data.confirm_password   = $('.confirm_password').val();
+      var mehod = 'post';
+      __ajax(url,data,mehod,function(data){
+          if (data.code == 1) {
+            layer.open({
+                content: data.msg
+                ,skin: 'msg'
+                ,time: 3 //2秒后自动关闭
+              });
+            window.setTimeout(function(){
+              window.location.href = data.url
+            },1000);
+          } else {
+            layer.open({
+                content: data.msg
+                ,skin: 'msg'
+                ,time: 3 //2秒后自动关闭
+              });
+          }
+      });
+    })
+</script>
+    <script>
+    $(function(){
+      $('.ereImg img').on('click',function(){
+        if($(this).attr('data-ere')=='no'){
+          $(this).attr('src','/public/static/index/assets/images/ere_off.png')
+          $(this).attr('data-ere','off')
+          $(this).parent().siblings().find('input').attr('type','text')
+        }else{
+          $(this).attr('src','/public/static/index/assets/images/ere_no.png')
+          $(this).attr('data-ere','no')
+          $(this).parent().siblings().find('input').attr('type','password')
+        }
+        
+      })
+    })
+    </script>
+   
+  </body>
+</html>

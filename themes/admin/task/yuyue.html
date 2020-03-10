@@ -1,0 +1,137 @@
+{extend name="base" /}
+{block name="body"}
+<link type="text/css" rel="stylesheet" href="/public/static/Admin/jedate/test/jeDate-test.css">
+<link type="text/css" rel="stylesheet" href="/public/static/Admin/jedate/skin/jedate.css">
+<script type="text/javascript" src="/public/static/Admin/jedate/src/jedate.js"></script>
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">预约列表</li>
+        </ul>
+        <div class="layui-tab-content">
+
+            <form class="layui-form layui-form-pane" action="{:url('admin/Task/yuyue')}" method="get">
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户账户</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" value="{$Think.request.username}" placeholder="请输入用户账户" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">宠物等级</label>
+                    <div class="layui-input-inline">
+                        <!--<input type="text" name="note" value="" placeholder="请输入变动原由" class="layui-input">-->
+                        <select name="pig_id" id="">
+                            <option value="">--请选择宠物--</option>
+                            {volist name="tasklist" id="task"}
+                            <option value="{$task.id}" {eq name="task.id" value="$Think.request.pig_id"}selected{/eq}>{$task.name}</option>
+
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <!--<input type="text" name="note" value="" placeholder="请输入变动原由" class="layui-input">-->
+                        <select name="status" id="">
+                            <option value="">--请选择--</option>
+
+                            <option value="3" {eq name="3" value="$Think.request.status"}selected{/eq}>待领养</option>
+                            <option value="1" {eq name="1" value="$Think.request.status"}selected{/eq}>领养成功</option>
+                            <option value="2" {eq name="2" value="$Think.request.status"}selected{/eq}>领养失败</option>
+
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="layui-inline">
+                    <label class="layui-form-label">请选择开始时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="start_time" id="start-time"  value="{$Think.request.start_time}" placeholder="开始时间" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">请选择结束时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="end_time" id="end-time" value="{$Think.request.end_time}" placeholder="结束时间" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn">搜索</button>
+                </div>
+
+                <br>
+                <br>
+                <div class="layui-tab-item layui-show">
+                    {foreach name="piggroup" item="vo"}
+                    <div class="layui-inline" style="margin-right: 20px;">
+                        <label class="layui-form-label" style="width: 78px;">{$vo.pig_name}</label>
+                        <div class="layui-input-inline" style="width: 50px;">
+                            <input type="text" name=""  value="{$vo.c}" placeholder="" class="layui-input" disabled>
+                        </div>
+                    </div>
+                    {/foreach}
+                </div>
+            </form>
+            <hr>
+            <div class="layui-tab-item layui-show">
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>预约账户</th>
+                        <th>猪等级</th>
+                        <th>类型</th>
+                        <th>状态</th>
+                        <th>预约时间</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.mobile}</td>
+                        <td>{$vo.pig_level}</td>
+                        <td>
+                            {switch name="vo.buy_type"}
+                                {case value="0"}预约{/case}
+                                {case value="1"}抢购{/case}
+                                {case value="2"}预约后抢购{/case}
+                            {/switch}
+                        </td>
+                        <td>
+                            {switch name="vo.status"}
+                                {case value="0"}待领养{/case}
+                                {case value="1"}领养成功{/case}
+                                {case value="2"}领养失败{/case}
+                            {/switch}
+                        </td>
+                        <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$list->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('yuyue')}");
+    jeDate("#start-time",{
+        isinitVal:false,
+        format:"YYYY-MM-DD"
+    });
+    jeDate("#end-time",{
+        isinitVal:false,
+        format:"YYYY-MM-DD"
+    });
+</script>
+{/block}

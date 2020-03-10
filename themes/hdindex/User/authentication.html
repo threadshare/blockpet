@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/hdindex/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/hdindex/assets/css/all_black.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+
+    <title>实名验证</title>
+  </head>
+  <body>
+    <div class="page verify">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">实名验证</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="fromBox">
+            <div class="weui-cells__title fs28 color_3 fw_b">真实姓名</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b real_name" type="text" placeholder="请输入您的真实姓名"/>
+                </div>
+              </div>
+            </div>
+            <div class="weui-cells__title  fs28 color_3 fw_b">身份证号</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b identity" type="text" placeholder="请输入您的身份证号"/>
+                </div>
+              </div>
+            </div>
+            <div class="tips fs24 color_3">一个身份证号只能注册一个账号，身份证号码要符合规则</div>
+        </div>
+
+        <div class="butBox"><div class="but">确认提交</div></div>
+
+      </div>
+    </div>
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+
+<script type="text/javascript">
+// $(function() {
+//   FastClick.attach(document.body);
+// });
+// /*    var user_info = JSON.parse(sessionStorage.getItem('user_info'));
+//     console.log(user_info)
+//     if (user_info) {
+//       $('.real_name').val(user_info.nickname);
+//       $('.identity').val(user_info.identity);
+//     }*/
+//     var url = '/api/User/index';
+//     var mehod = 'post';
+//     __ajax(url,{},mehod,function(data){
+//       // console.log(data.data.payment_count)
+//       if (!data.data.payment_count) {
+//         layer.open({
+//             content: '请先绑定银行卡'
+//             ,time: 2
+//             ,skin: 'msg'
+//           });
+//           window.setTimeout(function(){
+//               window.location.href = '/dist/pages/add_payment.html'
+//           },1000);
+//       }
+//     });
+  $('.but').click(function(){
+  var url   = '/index/User/authentication';
+  var mehod = 'post';
+  var data  = {};
+  data.real_name  = $('.real_name').val();
+  data.identity   = $('.identity').val();
+  __ajax(url,data,mehod,function(data){
+        if (data.code == 1) {
+            layer.open({
+                content: data.msg
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+              });
+            window.setTimeout(function(){
+              window.location.href = '/index/User/index'
+          },1000);
+        } else {
+            layer.open({
+                content: data.msg
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+              });
+        }
+    });
+  })
+</script>

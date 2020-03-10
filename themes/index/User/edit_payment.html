@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+<style type="text/css">
+  .weui-select-modal .weui-cells{
+    height: 200px;
+  }
+</style>
+    <title>修改支付方式</title>
+  </head>
+  <body>
+    <div class="page verify">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">修改收款方式</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="fromBox">
+          <div class="weui-cells__title fs28 color_3 fw_b">收款方式</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b type" type="text" readonly id="type" value="微信支付" />
+                </div>
+                <div class="weui-cell__ft"></div>
+              </div>
+            </div>
+
+              <div class="weui-cells__title  fs28 color_3 fw_b "><span class="zhanghao"></span>账号</div>
+              <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input fs28 fw_b account" type="text" placeholder="请输入银行卡账号"/>
+                  </div>
+                </div>
+              </div>
+
+              <div class="weui-cells__title  fs28 color_3 fw_b ">收款人</div>
+              <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input fs28 fw_b name" type="text" placeholder="请输入收款人姓名"/>
+                  </div>
+                </div>
+              </div>
+
+            <div class="bank_name1">
+              <div class="weui-cells__title fs28 color_3 fw_b ">开户银行</div>
+              <div class="weui-cells weui-cells_form">
+                <div class="weui-cell weui-cell_access">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input fs28 fw_b bank_name" type="text" readonly="readonly" id="bank_name" value="中国银行" />
+                  </div>
+                  <div class="weui-cell__ft"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="branch_name1">
+              <div class="weui-cells__title  fs28 color_3 fw_b branch_name1">支行</div>
+              <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                  <div class="weui-cell__bd">
+                    <input class="weui-input fs28 fw_b branch_name" type="text" placeholder="请输入支行名称"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="img1">
+              <div class="weui-cells__title  fs28 color_3 fw_b imgs1">收款二维码</div>
+              <div class="weui-cells weui-cells_form">
+                <div class="weui-cell fileBox" style="padding-left: 0px">
+                  <div class="weui-cell__bd">
+                    <img src="" width="335px" style="height: 2.333333rem;" id="img">
+                    <input id="uploaderInput" class="weui-uploader__input imgs" type="file" accept="image/*" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+             <div class="weui-cells__title  fs28 color_3 fw_b">手机号</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b mobile" type="text" placeholder="请输入手机号"/>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="weui-cells__title  fs28 color_3 fw_b">手机验证码</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b" type="text" placeholder="请输入验证码"/>
+                </div>
+                <div class="weui-cell__ft fs28 fw_b color_r">获取验证</div>
+              </div>
+            </div> -->
+        </div>
+
+        <div class="butBox"><div class="but">确认修改</div></div>
+      </div>
+    </div>
+<script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+
+
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    var query = window.location.search.substring(1);
+    var id = query.substring(3);
+    var url = '/index/User/payment_info';
+    var type = 'post';
+    __ajax(url,{id:id},type,function(data){
+        console.log(data)
+        $('#type').val(data.pay_name)
+        $('.zhanghao').html(data.pay_name)
+        $('.account').val(data.account)
+        $('.bank_name').val(data.bank_name)
+        $('.branch_name').val(data.branch_name)
+        $('.mobile').val(data.mobile)
+        $('.name').val(data.name)
+        $('#img').attr('src',data.qrcode_url)
+
+        if (data.pay_name == '银行卡') {
+              $(".bank_name1").show();
+              $(".branch_name1").show();
+              $(".img1").hide();
+        }else{
+              $(".bank_name1").hide();
+              $(".branch_name1").hide();
+              $(".img1").show();
+        }
+    })
+    $("#type").select({
+      title: "开户银行",
+      items: ["微信", "支付宝","银行卡"],
+      id: [1, 2,3]
+    });
+    $("#bank_name").select({
+      flex: 1,
+      title: "收款方式",
+      items: ["中国银行",
+              "中国建设银行",
+              "中国工商银行", 
+              "中国农业银行",
+              "中国邮政储蓄银行",
+              "招商银行",
+              "交通银行",
+              "中国光大银行",
+              "中国民生银行",
+              "平安银行",
+              "浦发银行",
+              "中信银行",
+              "兴业银行",
+              "华夏银行",
+              "广发银行"],
+    });
+    
+    $('#type').change(function(){
+        var type = $('#type').val();
+        $('.zhanghao').html(type)
+        if (type == '银行卡') {
+              $(".bank_name1").show();
+              $(".branch_name1").show();
+              $(".img1").hide();
+        }else{
+              $(".bank_name1").hide();
+              $(".branch_name1").hide();
+              $(".img1").show();
+        }
+    })
+    $("#uploaderInput").change(function (e) {
+      var _this = this;
+      let type = ['jpeg','jpg','png'];
+      var file = e.target.files[0] || e.dataTransfer.files[0];
+      var img       = $('#uploaderInput').get(0).files[0];
+      var img_type  = img.type.split("/")[1];
+      if( type.indexOf(img_type) == -1  ){
+        layer.open({
+              content: '图片格式必须是:jpg,jpeg,png'
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+        });
+        return false;
+      }
+      if (file) {
+          var reader = new FileReader();
+          reader.onload = function () {
+              $("#img").attr("src", this.result);
+              $("#uploaderInput").hide();
+              $("#img").show();
+              var url       = '/api/Upload/upload_base64_paycode'
+              var mehod = 'post';
+              a_load(url,{img:this.result},mehod,function(data){
+                  if(data.status == 200){
+                    window.return_img = data.data
+                  }else {
+                      layer.open({
+                      content: data.message
+                      ,skin: 'msg'
+                      ,time: 1 //2秒后自动关闭
+                    });
+                  }
+              });
+          }
+          reader.readAsDataURL(file);
+      }
+    });
+    $('.but').click(function(){
+      var url       = '/index/User/edit_payment'
+      var data      = {}
+      data.id       = id;
+      data.c_type   = $('#type').val();
+      data.type     = 2;
+      data.account  = $('.account').val();
+      data.bank_name   = $('.bank_name').val();
+      data.branch_name = $('.branch_name').val();
+      data.mobile   = $('.mobile').val();
+      data.name     = $('.name').val();
+      data.imgs     = window.return_img ? window.return_img : $('#img').attr('src');
+      // console.log(data);return;
+      var mehod = 'post';
+      __ajax(url,data,mehod,function(data){
+          if(data.code == 1){
+            layer.open({
+              content: data.msg
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+            });
+            window.setTimeout(function(){
+              window.location.href = data.url
+            },1000);
+          }else {
+              layer.open({
+              content: data.msg
+              ,skin: 'msg'
+              ,time: 1 //2秒后自动关闭
+            });
+          }
+      });
+    })
+</script>
+  </body>
+</html>

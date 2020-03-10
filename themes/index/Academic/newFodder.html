@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="noarchive">
+    <!-- 屏蔽-->
+    <title></title>
+    <meta name="keywords" content=" " />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="IE=9; IE=EDGE" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="__CSS__/sm.css">
+    <!--如果你用到了拓展包中的组件，还需要引用下面两个-->
+    <link rel="stylesheet" href="__CSS__/sm-extend.css">
+
+    <!--图标-->
+    <link rel="stylesheet" href="__CSS__/fonts/iconfont.css">
+    <!--自定义-->
+		<link rel="stylesheet" type="text/css" href="__CSS__/mui.css"/>
+    <link rel="stylesheet" href="__CSS__/main.css">
+		<link rel="stylesheet" href="__CSS__/order.css">
+		<link rel="stylesheet" href="__CSS__/daohang.css" />
+		<link rel="stylesheet" href="__CSS__/style.css" />
+</head>
+
+<body>
+		<style>
+			.foot a p{height: 22.5px;line-height: 20.5px;color: #111; overflow: hidden;}	
+		</style>
+    <!--  <div class="page">-->
+
+    <!-- 标题栏 -->
+    <header id="header" class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">商学院</h1>
+		</header>
+    <!-- Main Container start -->
+    <div class="content" id="main_content">
+        <div class="buttons-tab">
+            <a href="{:url('academic/baokuan')}" class="button">每日爆款</a>
+            <a href="{:url('academic/newFodder')}" class="active button">拉新素材</a>
+            <a href="{:url('academic/scoll')}" class="button">商学院</a>
+        </div>
+        <style type="text/css">
+            body {
+                background: #FFF;
+            }
+
+            .li_touxiang img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+						}
+						.newsitem {
+							height: auto;
+							margin: 10px;
+						}
+						.m0 {
+								padding: 16px 8px;
+								position: relative;
+								border-bottom: 1px dotted #888;
+						}
+						.m0 img {
+								float: right;
+								height: 80px;
+								width: 128px;
+								margin-left: 10px;
+						}
+						.m0 .title_news {
+								color: #444;
+								
+								overflow: hidden;
+								font-size: 14px;
+								line-height: 28px;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								display: -webkit-box;
+								-webkit-line-clamp: 2;
+								-webkit-box-orient: vertical;
+						}
+						.m0 .pubtime {
+								color: #888;
+								line-height: 21px;
+								font-size: 12px;
+								padding-top: 10px;
+								
+						}
+        </style>
+				<div class="newsitem">
+					{volist name="list" id="v"}
+					<a href="{:url('detail',['id'=>$v['id']])}">
+						<div class="m0">
+							<img src="{$v.img}" type="3_2">
+							<div class="title_news">{$v.title}</div>
+							<div class="pubtime">
+								<span>中国新闻网 {$v.create_time|date="m-d H:i",###}</span>
+							</div>
+						</div>
+					</a>
+					{/volist}
+					<!--<a href="{:url('detail')}">-->
+						<!--<div class="m0">-->
+							<!--<img src="http://www.chinanews.com/sh/2019/03-27/U621P4T8D8791781F19930DT20190327134234.jpg" type="3_2">-->
+							<!--<div class="title_news">江苏响水爆炸江苏响水爆炸事故遇难者“头七”祭举行</div>-->
+							<!--<div class="pubtime">-->
+								<!--<span>中国新闻网 03-27 13:42</span>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</a>-->
+				</div>
+
+
+				<div class="foot">
+						<a href="{:url('Index/index')}">
+							<p><img src="__IMG__/sy07.png" alt="" /></p>
+							<p>首页</p>
+						</a>
+						<a href="{:url('car/index')}">
+							<p><img src="__IMG__/sy09.png" alt="" /></p>
+							<p>购物车</p>
+						</a>
+						<a href="{:url('trade/wallet')}">
+							<p><img src="__IMG__/sy08.png" alt="" /></p>
+							<p>交易大厅</p>
+						</a>
+						<a href="{:url('academic/baokuan')}" >
+							<p class="shang"><img src="__IMG__/s16.png" alt="" /></p>
+							<p class="wode">商学院</p>
+						</a>
+						<a href="{:url('user/index')}">
+							<p><img src="__IMG__/sy10.png" alt="" /></p>
+							<p>我的</p>
+						</a>
+					</div>
+    </div>
+</body>
+<script src="__JS__/jquery-3.1.0.min.js"></script>
+<script src="__JS__/mui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    
+</script>
+</html>

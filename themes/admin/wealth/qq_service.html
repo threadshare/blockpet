@@ -1,0 +1,49 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('editRecharge')}">微信充值二维码</a></li>
+            <li class=""><a href="{:url('wechatService')}">支付宝</a></li>
+            <li class="layui-this">客服</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('editRecharge')}" method="post">
+
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">客服二维码</label>
+                        <div class="layui-input-block">
+                            <img src="{$info.wechat_img}" id="thumb2">
+                            <input type="hidden" name="img" value="{$info.server_img}" class="layui-input layui-input-inline" id="thumb">
+                            <br/>
+                            <input type="file" name="image" class="layui-upload-file">
+                        </div>
+                    </div>
+                    <input type="hidden" name="type" value="3">
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="id" value="{$info.id}">
+                            <button class="layui-btn" lay-submit lay-filter="*">更新</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script src="__JS__/ueditor/ueditor.config.js"></script>
+<script src="__JS__/ueditor/ueditor.all.min.js"></script>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+
+</script>
+{/block}

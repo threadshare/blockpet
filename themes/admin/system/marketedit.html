@@ -1,0 +1,72 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/System/marketConfig')}">团队奖励配置</a></li>
+            <li class="layui-this">编辑</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/System/marketedit')}" method="post">
+                    <input type="hidden" name="id" value="{$confInfo.id}">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">级别</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="level" value="{$confInfo.level}" required lay-verify="required" placeholder="请输入级别" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" value="{$confInfo.name}" required lay-verify="required" placeholder="请输入级别名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">团队人数</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="cnt" value="{$confInfo.cnt}" required lay-verify="required" placeholder="请输入直推人数限制" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">提成比例(%)</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="reward" value="{$confInfo.reward}" placeholder="请输入提成比例" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">团队业绩</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="tperf" value="{$confInfo.tperf}" placeholder="请输入团队业绩限制" class="layui-input">
+                        </div>
+                    </div>
+                    <!-- <div class="layui-form-item">
+                        <label class="layui-form-label">手机</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="mobile" value="" placeholder="（选填）请输入手机" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">邮箱</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="email" value="" placeholder="（选填）请输入邮箱" class="layui-input">
+                        </div>
+                    </div> -->
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    high_nav("{:url('index')}");
+</script>
+{/block}

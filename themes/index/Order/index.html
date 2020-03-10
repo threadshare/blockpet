@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>我的订单</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/mui.css"/>
+    <link rel="stylesheet" href="__CSS__/dingdan.css" />
+   	<link rel="stylesheet" href="__CSS__/style.css" />
+    <style>
+        .nav ul{
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            padding:  0;
+        }
+        .nav ul li{
+            width: 25%;
+        }
+        .nav  a{
+            width: 100%;
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            padding: 10px 0;
+            color: #333;
+        }
+        .active{
+            /* background: #e2af53; */
+			border-bottom: 2px #ff3000 solid;
+        }
+        .active a{
+            color: #ff3000;
+        }
+        .mui-table-view-cell > a:not(.mui-btn) {font-size: .8rem;}
+        .mui-table-view-cell.mui-collapse .mui-collapse-content {padding: 0px 7px 0 0;}
+        .mui-table-view-cell.mui-collapse .mui-table-view {margin-top: 0;margin-bottom: 0;}
+        .mui-table-view-cell.mui-collapse .mui-table-view .mui-table-view-cell {font-size: .7rem;}
+    </style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a href="{:url('user/index')}" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title" style="color: #fff;">我的订单</h1>
+    </header>
+    <div class="mui-content">
+        <div class="nav">
+            <ul>
+                <li {empty name='Request.param.status'}class="active"{/empty}>
+                <a href="{:url('index')}">全部</a>
+                </li>
+                <li {eq name='Request.param.status' value='1'}class="active"{/eq}>
+                <a href="{:url('index',['status'=>1])}">待发货</a>
+                </li>
+                <li {eq name='Request.param.status' value='2'}class="active"{/eq}>
+                <a href="{:url('index',['status'=>2])}">已发货</a>
+                </li>
+                <li {eq name='Request.param.status' value='3'}class="active"{/eq}>
+                <a href="{:url('index',['status'=>3])}">已完成</a>
+                </li>
+            </ul>
+        </div>
+    	<div class="hbj" style="display: none;"></div>
+        {volist name='list' id='vo'}
+            <ul class="mui-table-view"> 
+                <li class="mui-table-view-cell mui-collapse">
+                    <a class="mui-navigate-right" href="#">订单编号：{$vo.order_num}&nbsp;&nbsp;{eq name='vo.status' value='1'}待发货{/eq}
+                                {eq name='vo.status' value='2'}已发货{/eq}
+                                {eq name='vo.status' value='3'}已完成{/eq}</a>
+                    <div class="mui-collapse-content">
+                        <ul class="mui-table-view">
+                            <li class="mui-table-view-cell">订单编号： 
+                                <span class="mui-badge mui-badge-primary">{$vo.order_num}</span>
+                            </li>
+                            <li class="mui-table-view-cell">订单状态：
+                                <span class="mui-badge mui-badge-success">
+                                    {eq name='vo.status' value='1'}待发货{/eq}
+                                    {eq name='vo.status' value='2'}已发货{/eq}
+                                    {eq name='vo.status' value='3'}已完成{/eq}
+                                </span>
+                            </li>
+                            <li class="mui-table-view-cell">下单时间：
+                                <span class="mui-badge">{$vo.create_time|date='Y-m-d H:i:s',###}</span>
+                            </li>
+                            <li class="mui-table-view-cell">订单详情：
+                                <span class="mui-badge"><a href="{:url('orderInfo',['id'=>$vo.id])}">详情</a></span>
+                            </li>
+                            {eq name='vo.status' value='2'}
+                            <li class="mui-table-view-cell">订单操作：
+                                <span class="mui-badge mui-badge-success ajax-post"  _href="{:url('orderSh',['order_id'=>$vo.id])}">确认收货</span>
+                            </li>
+                            {/eq}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        {/volist}
+    </div>
+    <script src="__JS__/jquery-3.1.0.min.js"></script>
+    <script src="/public/static/Admin/js/layui/lay/dest/layui.all.js"></script>
+    <script src="__JS__/wym.js"></script>
+    <script src="__JS__/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init();
+    $(".shanchu").click(function(){
+    	$(".hbj").fadeIn(500);
+    	$(".tanchu").fadeIn(500);
+    })
+    $(".quxiao").click(function(){
+    	$(".tanchu").fadeOut(500);
+    	$(".hbj").fadeOut(500);
+    })
+    </script>
+</body>
+</html>
+

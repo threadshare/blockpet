@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>订单详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/mui.css"/>
+   	<link rel="stylesheet" href="__CSS__/dingdan.css" />
+    <link rel="stylesheet" href="__CSS__/style.css" />
+    <style>
+        .mui-row1 {
+            padding: 10px;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 10px;
+            background-color: white;
+            background-clip: padding-box;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a href="{:url('user/index')}" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title" style="color: #fff;">订单详情</h1>
+    </header>
+    <div class="mui-content">
+        <div class="mui-row">
+        {volist name="product" id='vo'}
+            <div class="mui-col-xs-12">
+                <div class="mui-card">
+                    <!--页眉，放置标题-->
+                    <div class="mui-card-header">商品名称：{$vo.product_info.title}</div>
+                    <!--内容区-->
+                    <div class="mui-card-content"><img src="{$vo.product_info.img}" style="width: 100px;height: 100px;"></div>
+                    <!--页脚，放置补充信息或支持的操作-->
+                    <div class="mui-card-footer">商品价格：{$vo.price} 商品数量：{$vo.num}</div>
+                </div>
+            </div>
+        {/volist}
+            <div class="mui-col-xs-12" style="margin-bottom: 10px;">
+                <div class="mui-row1">
+                    <p>
+                        订单总额：{$info.amount}
+                    </p>
+                    <p>
+                        消费积分：{$info.bonus_score}
+                    </p>
+                    <p>
+                        联系人：{$info.contect_name}
+                    </p>
+                    <p>
+                        联系电话：{$info.contect_tel}
+                    </p>
+                    <p >
+                        地址：{$info.province}{$info.city}{$info.area}{$info.address}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__JS__/jquery-3.1.0.min.js"></script>
+    <script src="/public/static/Admin/js/layui/lay/dest/layui.all.js"></script>
+    <script src="__JS__/wym.js"></script>
+    <script src="__JS__/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init();
+    $(".shanchu").click(function(){
+    	$(".hbj").fadeIn(500);
+    	$(".tanchu").fadeIn(500);
+    })
+    $(".quxiao").click(function(){
+    	$(".tanchu").fadeOut(500);
+    	$(".hbj").fadeOut(500);
+    })
+    </script>
+</body>
+</html>
+

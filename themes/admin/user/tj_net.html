@@ -1,0 +1,69 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/ztree-metro-style.css">
+{/block}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <form class="layui-form layui-form-pane" action="{:url('admin/user/tj_net')}" method="get">
+            <div class="layui-inline">
+                <label class="layui-form-label">用户账号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="keyword" value="" placeholder="请输入用户手机" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <button class="layui-btn">搜索</button>
+            </div>
+
+        </form>
+        <ul class="layui-tab-title">
+            <li class="layui-this">推荐关系图</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <ul id="tree" class="ztree"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script src="__JS__/jquery.ztree.all.min.js"></script>
+{/block}
+{block name="script"}
+<SCRIPT LANGUAGE="JavaScript">
+    high_nav('{:url("tj_net")}');
+    var setting = {
+        async: {
+            //设置 zTree 是否开启异步加载模式默认值：false
+            enable: true,
+            //请求URL， 该处是采用php的thinkphp框架来处理URL
+            url:"{:url('tj_net',['keyword'=>$Think.request.keyword])}",
+            //请求时自动提交的参数， 该参数服务端可直接用$_POST(php)/（java）request.getParameter()获取
+            autoParam:["id=pid"],
+        },
+        view: {
+            showIcon: false,
+            dblClickExpand: false,
+            showLine: true,
+            selectedMulti: false
+        },
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "id",
+                rootpid: ""
+            },
+            key: {
+                name: "username"
+            }
+        }
+    };
+   var zTreeObj;
+   $(document).ready(function(){
+      zTreeObj = $.fn.zTree.init($("#tree"), setting, null);
+   });
+</SCRIPT>
+{/block}

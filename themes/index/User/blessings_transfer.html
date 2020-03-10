@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<link rel="stylesheet" href="/public/static/index/assets/css/zpui.css"/>
+<link rel="stylesheet" href="/public/static/index/assets/css/all.css"/>
+<script src="/public/static/index/assets/js/page.js"></script>
+<style>
+              /* 隐藏顶部浮动栏选项  */
+        body { position: static !important; top:0px !important; }
+        iframe.goog-te-banner-frame { display: none !important; }
+        .goog-logo-link { display:none !important; }
+        .goog-te-gadget { color: transparent !important; overflow: hidden;}
+        .goog-te-balloon-frame{display: none !important;}
+
+        /*使原始文本弹出窗口隐藏*/
+        .goog-tooltip {display: none !important;}
+        .goog-tooltip:hover {display: none !important;}
+        .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
+        /* 语言选择框颜色 */
+        .goog-te-combo {background-color:#848CB5; border-radius:8px;}
+ </style>
+    <title>微分转赠</title>
+  </head>
+  <body>
+  <div id="wrap" style="z-index: 1000000;
+    position: fixed ! important;
+    right: -25px;
+    top: 8px;">
+    <!-- 谷歌语言 -->
+    <div id="google_translate_element"></div>
+   </div>
+    <div class="page verify">
+      <div class="page-hd">
+        <div class="header bor-1px-b">
+    <div class="header-left">
+        <a href="javascript:history.go(-1)" class="left-arrow"></a>
+    </div>
+    <div class="header-title">微分转赠</div>
+    <div class="header-right">
+        <a href="#"></a>
+    </div>
+</div>
+      </div>
+      <div class="page-bd">
+        <!-- 页面内容 -->
+        <div class="fromBox">
+          <div class="top"><img src="/public/static/index/assets/images/tipsIcon.png" alt=""><span class="fs26 fw_b color_r">微分一旦转赠不可退回</span></div>
+            <div class="weui-cells__title fs28 color_3 fw_b">转赠数量</div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b number" type="text" placeholder="最大可转赠{$user.pay_points}"/>
+                </div>
+              </div>
+            </div>
+            <div class="weui-cells__title  fs28 color_3 fw_b">对方手机<span id="nickname" style="color: red;"></span></div>
+            <div class="weui-cells weui-cells_form">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input fs28 fw_b mobile" id="mobile" type="text" placeholder="请输入对方手机号码"/>
+                </div>
+              </div>
+            </div>
+            <div class="weui-cells__title  fs28 color_3 fw_b">二级密码<span id="password123" style="color: red;"></span></div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <input class="weui-input fs28 fw_b mobile" id="password" type="text" placeholder="请输入二级密码"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="butBox"><div class="but">确认转赠</div></div>
+
+      </div>
+    </div>
+    <script src="/public/static/index/assets/js/lib/jquery-2.1.4.js"></script>
+<script src="/public/static/index/assets/js/jquery-weui.min.js"></script>
+<script src="/public/static/index/assets/js/lib/fastclick.js"></script>
+<script src="/public/static/index/assets/js/layer.js"></script>
+<script src="/public/static/index/assets/js/ajaxplugin.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    $('.but').click(function(){
+        var number   = $('.number').val();
+        var mobile   = $('.mobile').val();
+        var password   = $('#password').val();
+        if (!number) {
+          layer.open({
+                content: '请输入转赠数量'
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+              });
+          return false;
+        }
+        if (!mobile) {
+          layer.open({
+                content: '请输入对方手机号码'
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+              });
+          return false;
+        }
+
+        var url       = '/index/User/blessings_transfer';
+        var data      = {};
+        data.number   = $('.number').val();
+        data.mobile   = $('.mobile').val();
+        data.password = $('#password').val();
+        var mehod     = 'post';
+        __ajax(url,data,mehod,function(data){
+            layer.open({
+                content: data.msg
+                ,skin: 'msg'
+                ,time: 1 //2秒后自动关闭
+            });
+            if (data.code ==1) {
+                window.setTimeout(function(){
+                    window.location.href = '/index/User/blessings_log'
+                },1000);
+            }
+
+        });
+        
+        //密码框
+        // layer.open({
+        //   content: '<input  class="password"  type="password" style="width:100%;height:50px;border:1px red;" placeholder="请输入交易密码"/>'
+        //   ,btn: ['确认', '取消']
+        //   ,yes: function(index){
+        //     var password = $('.password').val();
+        //     if (!password) {
+        //       layer.open({
+        //             content: '请输入交易密码'
+        //             ,skin: 'msg'
+        //             ,time: 1 //2秒后自动关闭
+        //           });
+        //       return false;
+        //     }
+        //
+        //     layer.close(index);
+        //   }
+        // });
+    })
+
+
+       //输入手机后失去焦点
+    // $(document).on("blur","#mobile",function(){
+    //     var mobile = $('#mobile').val();
+    //     if(mobile==''){
+    //          return
+    //     }
+    //     var url       = '/api/business/checkuserbymobile';
+    //     var data      = {};
+    //     data.mobile   = mobile;
+    //     $.ajax({
+    //       url: url,
+    //       type: 'post',
+    //       dataType: 'json',
+    //       data:data,
+    //       success: function (data, status) {
+    //         $('#nickname').html(data.message)
+    //       }
+    //     })
+    //
+    // })
+</script>
+     
+  </body>
+</html>

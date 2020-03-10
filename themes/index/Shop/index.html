@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>商城平台</title>
+    <script src="__JS__/mui.min.js"></script>
+    <link href="__CSS__/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="__CSS__/index.css" />
+		<link rel="stylesheet" href="__CSS__/style.css" />
+		<link rel="stylesheet" href="__CSS__/swiper.min.css" />
+		<script src="__JS__/swiper.min.js"></script>
+    <style type="text/css">
+    	.cebian{
+    		width: 60%;
+    		height: 100%;
+    		position: fixed;
+    		left: 0;
+    		top: 0;
+    		z-index: 999;
+    		background: #313131;
+    		padding: 20px 0 0 0;
+    	}
+    	.hbj{
+    		width: 100%;
+    		height: 100%;
+    		position: fixed;
+    		left: 0;
+    		top: 0;
+    		z-index: 998;
+    		background: rgba(0,0,0,0.5);
+    	}
+    	.cebian a{
+    		display: inline-block;
+    		width: 100%;
+    		height: 40px;
+    		line-height: 40px;
+    		color: #fff;
+    		background: #434343;
+    		padding: 0 10px 0 10px;
+    		margin-bottom: 2px;
+    	}
+    	.cebian span{
+    		color: #fff;
+    	}
+    	.mui-icon-arrowright{
+    		margin-top: 8px;
+    	}
+    	.nav{
+    		overflow: hidden;
+    		clear: both;
+    		background:#fff;
+    		margin-bottom: 2vw;
+			width: 95%;
+			margin: 0 auto;
+			border-radius: 12px;
+			position: relative;
+			top: -11px;
+			z-index: 99;
+    	}
+    	.nav ul{
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			justify-content: space-around;
+			margin: 0;
+			padding:  0;
+    	}
+    	.nav img{
+			height: 40px;
+    	}
+    	.nav ul a{
+    		width: 100%;
+    		display: block;
+    		text-align: center;
+    		color: #000;
+    		text-align: center;
+    		font-size: 14px;
+    		padding: 10px 0;
+    	}
+    	.search p {
+			width: 96%;
+			height: 30px;
+			background: #fff;
+			margin: 0 auto;
+			margin-top: 10px;
+			border-radius: 50px;
+		}
+		
+		.search p img {
+			width: 20px;
+			height: 18px;
+			float: left;
+			margin-left: 10px;
+		}
+		
+		.search p input {
+			width: 80%;
+			height: 30px;
+			border: none;
+			background: none;
+			float: left;
+			font-size: .95em;
+			line-height: 30px;
+			margin-bottom: 10px;
+		}
+		
+		.search a {
+			display: inline-block;
+			width: 22px;
+			height: 22px;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+		}
+		
+		.search button {
+			background: none;
+			border: none;
+			padding: 0;
+			float: right;
+			height: 30px;
+			margin-right: 16px;
+		}
+		
+		.search img {
+			width: 100%;
+			height: 100%;
+		}
+		#xia{
+			text-align: left;
+			padding: 9px 22px 0 22px;
+		}
+		.price{
+			margin-top:10px;
+		}
+		.price span{   
+			margin-left: 15px;
+			color: #ff3000;
+		}
+		.price del{
+			font-size: 12px;
+			margin-left: 15px;
+		}
+		.shangpin{
+			margin-left: 1%;
+			margin-bottom: 2vw;
+			margin-right: 1%;
+			width:48%;
+			height:240px;
+		}
+		.search{
+			position:absolute;
+			z-index:1000;
+			width:100%;
+		}
+		.shipin{
+			height:55vw;
+		}
+		.category_name {
+		  background: transparent;
+		  text-align: center;
+		  position: relative;
+		  /* margin-top: 6px; */
+		  color: #000;
+		  padding: 0 10px 5px 10px;
+		}
+		.category_name i {
+		  width: 40px;
+		  border-top: 1px solid #929292;
+		  display: inline-block;
+		  padding-top: 5px;
+		  margin-right: 5px;
+		}
+		.category_name .floor-left-nav {
+		  text-align: center;
+		  height: 40px;
+		  line-height: 40px;
+		  color: #444;
+		  font-size: 16px;
+		}
+		.category_name p {
+		  width: 40px;
+		  margin-bottom: 0;
+		  border-top: 1px solid #929292;
+		  display: inline-block;
+		  padding-top:5px;
+		  margin-left: 5px;
+		}
+		.TOPP{
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			color: #fff;
+			background: #7c2397;
+			position: relative;
+		}
+		.topp_left{
+			position: absolute;
+			top: 10px;
+			width: 30px;
+			height: 30px;
+			left: 3%;
+		}
+		.topp_left img{
+			width: 30px;
+			height: 30px;
+		}
+		.topp_right{
+			position: absolute;
+			top: 10px;
+			width: 30px;
+			height: 30px;
+			right: 3%;
+		}
+		.topp_right img{
+			width: 30px;
+			height: 30px;
+		}
+		.search{
+			position: relative;
+			
+			background: #7c2397;
+		}
+		.search p{
+			margin-top: 0;
+			height: 35px;
+			border-radius: 7px;
+			width: 94%;
+		}
+		.search p input{
+			margin-bottom: 0;
+			height: 35px;
+		}
+		.search button{
+			height: 35px;
+		}
+		.shipin{
+			height: 43vw;
+			width: 100%;
+			background: #7c2397;
+			padding-bottom: 3vw;
+		}
+		.swiper-container{
+			width: 94%;
+			margin: 0 auto;
+			border-radius: 2vw;
+			overflow: hidden;
+			height: 40vw;
+			box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+		}
+		.swiper-container img{
+			width: 100%;
+		}
+		.swiper-pagination-bullet-active{
+			background: #7c2397;
+		}
+		.nav{
+			width: 100%;
+			border-radius: 0;
+			top: 0;
+			margin-top: 10px;
+		}
+		.xihuan{
+			background: #7c2397;
+			height: 40px;
+		}
+		.xihuan a{
+			color: #eee;
+			line-height: 40px;
+			font-size: 14px;
+			width: 25%;
+			float: left;
+			text-align: center;
+			height: 40px;
+		}
+		.nav li{
+			width: 20%;
+			float: left;
+		}
+		.guanggao{
+			width: 94%;
+			margin: 10px auto 10px auto;
+			display: block;
+			height: 25vw;
+			border-radius: 15vw;
+		}
+		.category_name{
+			background: #efeff4;
+		}
+		.mui-content{
+			background: #fff;
+		}
+		#bcid{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+    </style>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<!-- <header class="mui-bar mui-bar-nav">
+		<a href="##" class="mui-pull-left fen">
+			<img src="__IMG__/sy01.png"/>
+		</a>
+	    <h1 class="mui-title">商城平台</h1>
+	    <a href="{:url('car/index')}" class="mui-pull-right che">
+	    	<img src="__IMG__/sy02.png"/>
+	    </a>
+	</header> -->
+	<div id="bcid"></div>
+	<div class="mui-content">
+		<!--这里放视频-->
+		<div class="TOPP">
+			<a href="#" class="topp_left" onclick="Dosaoyisao()">
+				<img src="__IMG__/sys.png" alt="">
+			</a>
+			<div>SOMETHING SPECIALEVERY DAY</div>
+			<a href="{:url('User/paymentCode')}" class="topp_right">
+				<img src="__IMG__/hym.png" alt="">
+			</a>
+		</div>
+		<div class="search">
+			<p>
+				<input type="text" name="keyword" value='' placeholder="搜索商品" />
+				<button id='search'><img src="__IMG__/gd01.png" alt="" /></button>
+			</p>
+		</div>
+		<div class="xihuan">
+			<a href="#">猜你喜欢</a>
+			{volist name="cate" id="vc"}
+			<a href="#">{$vc.uname}</a>
+			<!--<a href="#">数码家电</a>-->
+			<!--<a href="#">数码家电</a>-->
+			{/volist}
+		</div>
+		<div class="shipin">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					{volist name='slide' id='vo'}
+					<div class="swiper-slide"><img src='{$vo.image}' style="height: 40vw;"></div>
+					{/volist}
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<!-- <div class="mui-slider">
+			  <div class="mui-slider-group">
+			    {volist name='slide' id='vo'}
+			    <div class="mui-slider-item">
+			      <img src='{$vo.image}' style="height: 40vw;">
+			    </div>
+			    {/volist}
+			  </div>
+			</div> -->
+		</div>
+		<div class="hbj" style="display: none;"></div>
+		<div class="nav">
+			<ul>
+				<li><a href="{:url('shopList')}"><img src="__IMG__/all.png" alt=""><br />全部商品</a></li>
+
+				<li><a href="{:url('shopList',['type'=>1])}"><img src="/public/static/Index/images/mx_08.png" alt=""><br />积分专区</a></li>
+
+			</ul>
+		</div>
+		<a href="{$guangGao.link}"><img src="{$guangGao.image}" alt="" class="guanggao"></a>
+		<div class="category_name">
+			<i></i>
+			<span class="floor-left-nav">推荐商品</span>
+			<p></p>
+		</div>
+		<div class="shop">
+			{volist name='list1' id='vo'}
+			<a href="{:url('shopDetail',['id'=>$vo.id])}">
+			<div class="shangpin">
+				<div class="shangpin_top">
+					<img src="{$vo.img}" alt="" width="100%" height="100%"/>
+				</div>
+				<div class="shangpin_bot">
+					<p id="xia">
+						<span style="color: #333;">
+							{$vo.title}
+						</span>
+					</p>
+					<p class="price">
+						<span>￥{$vo.price}</span>
+					 	<del>市场价：{$vo.market_price}</del>	
+					</p>
+				</div>
+			</div>
+			</a>
+			{/volist}
+		</div>
+		<div style="width: 100%;height: 49px;float: left;"></div>
+		<div class="foot">
+    		<a href="{:url('Index/index')}">
+    			<p><img src="__IMG__/sy11.png" alt="" /></p>
+    			<p class="wode">首页</p>
+				</a>
+				<a href="{:url('car/index')}">
+    			<p><img src="__IMG__/sy09.png" alt="" /></p>
+    			<p>购物车</p>
+    		</a>
+    		<a href="{:url('trade/wallet')}">
+    			<p><img src="__IMG__/sy08.png" alt="" /></p>
+    			<p>交易大厅</p>
+    		</a>
+    		<a href="{:url('academic/baokuan')}" >
+    			<p class="shang"><img src="__IMG__/s15.png" alt="" /></p>
+    			<p>商学院</p>
+    		</a>
+    		<a href="{:url('user/index')}">
+    			<p><img src="__IMG__/sy10.png" alt="" /></p>
+    			<p>我的</p>
+    		</a>
+    	</div>
+	</div>
+	<script src="__JS__/jquery-3.1.0.min.js"></script>
+	<script>
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: {
+				delay:2000
+			},//可选选项，自动滑动
+			loop: true, 
+			
+			// 如果需要分页器
+			pagination: {
+      el: '.swiper-pagination',
+    },
+		})
+
+		$(".fen").click(function(){
+			$(".hbj").show(500);
+			$(".cebian").show(500)
+		})
+		$(".hbj").click(function(){
+			$(".hbj").hide(500);
+			$(".cebian").hide(500)
+		})
+		$("#search").click(function(){
+			var keyword=$(" input[ name='keyword' ] ").val();
+			location.href="{:url('shopList')}?type={$Request.param.type}&keyword="+keyword;
+		})
+
+		function Dosaoyisao() {
+          if(navigator.userAgent.indexOf("Html5Plus") > -1){
+              location.href="{:urL('User/saoyisao')}";
+          }else{
+          	alert("请打开相机权限重试")
+          }
+		}
+
+	</script>
+</body>
+</html>
